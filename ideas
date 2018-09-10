@@ -1,7 +1,37 @@
 Code samples and a concept:
+- https://randomascii.wordpress.com/2011/08/13/faster-fractals-through-algebra/
+- http://www.superfractalthing.co.nf/sft_maths.pdf
 - http://warp.povusers.org/Mandelbrot/ <- maybe perfecto;
-
 - https://www.dropbox.com/s/4yvwxixgyr3mmsi/mandelbrotpython.py
 - https://lodev.org/cgtutor/juliamandelbrot.html
 - https://forum.intra.42.fr/tags/33/topics
 - https://forum.intra.42.fr/topics/16334/messages
+- http://warp.povusers.org/Mandelbrot/
+- http://www.opita.net/node/172
+- http://grafika.me/node/49
+- https://en.wikipedia.org/wiki/Mandelbrot_set
+- http://codelab.ru/s/139/
+- https://solarianprogrammer.com/2013/02/28/mandelbrot-set-cpp-11/
+- http://www.relativitybook.com/CoolStuff/julia_set.html
+- https://softologyblog.wordpress.com/2011/02/27/tutorials-and-fractal-flames/
+- https://drive.google.com/file/d/1ifVrUykZND2pvZIeMjyNQcMBBy4PnSMv/view
+- https://m.habr.com/post/251537/
+
+Mandelbrot with mouse:
+- https://stackoverflow.com/questions/41796832/smooth-zoom-with-mouse-in-mandelbrot-set-c
+
+
+Fork:
+- http://man7.org/linux/man-pages/man2/fork.2.html
+- http://man7.org/linux/man-pages/man2/fork.2.html
+- http://man7.org/linux/man-pages/man3/pthread_create.3.html
+- http://man7.org/linux/man-pages/man3/pthread_exit.3.html
+- http://man7.org/linux/man-pages/man3/pthread_join.3.html
+
+Bonus:
+- change of the mandelbrot start;
+- pthread attributes ?
+- gcc threads.c -lpthread
+- threads can be stored in array
+- notion of order 
+- malloc data types
