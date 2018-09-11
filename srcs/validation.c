@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:27:44 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/11 11:40:07 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/11 12:34:34 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	void	options(void)
 {
-	ft_putstr("Options:\n\n");
+	ft_putstr("Options:\n");
 	ft_putstr("1. mandelbrot;\n");
 	ft_putstr("2. julia;\n");
 	ft_putstr("3. ...;\n");

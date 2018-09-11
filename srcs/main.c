@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/11 11:37:35 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/11 12:34:15 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,21 @@
 
 #include "../includes/fractol.h"
 
+
+
+#include <stdio.h>
+
 int		main(int argc, char **argv)
 {
 	validation(argc, argv[1]);
+
+
+
+
+
+
+
+
+	printf("main part\n");
 	return (0);
 }
