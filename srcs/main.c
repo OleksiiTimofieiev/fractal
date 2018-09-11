@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/11 11:34:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/11 11:37:35 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@
 
 int		main(int argc, char **argv)
 {
-	validation(argc, argv[2]);
+	validation(argc, argv[1]);
 	return (0);
 }
