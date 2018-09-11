@@ -1,6 +1,5 @@
 // TODO: leaks;
 // TODO: norminette;
-// TODO: perror;
 // TODO: types: Julia, Mandelbrot, ?
 // TODO: Julia set without clicking -> change of the parameter;
 // TODO: mouse zoom;
@@ -9,6 +8,7 @@
 // TODO: use images for printing the fina image;
 // TODO: multi threading;
 // TODO: Two valid parameters in the command line, resulting in two fractals in two windows.
+// TODO: putimage;
 
 #include "../includes/fractol.h"
 
