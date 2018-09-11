@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:27:44 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/11 11:39:42 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/11 11:40:07 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static	int		check_fractol_type(char *fractol)
 		return (1);
 	else if (ft_strequ(fractol, "julia"))
 		return (1);
-	else if (ft_strequ(fractol, "..."))
+	else if (ft_strequ(fractol, "decide"))
 		return (1);
 	return (0);
 }
