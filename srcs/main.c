@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 17:14:06 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 17:17:17 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 	//begin main program loop
 	
-	int count = 0;
+	// int count = 0;
 	// while (1)
 	// {
 		// max -= 0.1 * factor;
 		// min += 0.15 * factor;
 		// factor *= 0.9349;
 		// maxIterations += 5;
-		if (count > 30)
-			maxIterations += 5;
+		// if (count > 30)
+		// 	maxIterations += 5;
 			// draw the fractal
 		for (int y = 0; y < height; y++) 
 		for (int x = 0; x < width; x++)
