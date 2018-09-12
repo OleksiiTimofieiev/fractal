@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 12:57:00 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 13:13:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef	struct	s_rgb
 }				t_rgb;
 
 void	validation(int argc, char *argv);
+t_rgb hsv_to_rgb(t_hsv hsv);
 char *RGBToHexadecimal(t_rgb rgb);
 
 #endif

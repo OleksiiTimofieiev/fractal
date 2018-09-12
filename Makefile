@@ -2,6 +2,7 @@ NAME		= fractol
 
 SRCS		=  	./srcs/validation.c \
 				./srcs/rgb_to_hex.c \
+				./srcs/hsv_to_rgb.c \
 				./srcs/main.c
 			
 CFLAGS		= 	-Wall -Wextra -Werror

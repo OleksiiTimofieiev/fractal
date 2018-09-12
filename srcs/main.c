@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 13:09:19 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 13:34:03 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,18 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 				// color = HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
 				//draw the pixel
 				// pset(x, y, color);
-				// if ( i % 256)
 				// generate color func;
-				t_rgb rgb;
-				rgb.R = 255 * (i < maxIterations);
-				rgb.G =  0;
-				rgb.B = i % 256;
+
+				t_hsv _hsv;
+
+				_hsv.H = i % 256;
+				_hsv.S = 120;
+				_hsv.V = 255 * (i < maxIterations);
+				
+
+				t_rgb rgb = hsv_to_rgb(_hsv);
+				
+				
 				mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 			}
 			break;
