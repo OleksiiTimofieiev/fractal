@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 21:14:59 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 21:17:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 		for (int y = 0; y < height; ++y)
 		{
 			double c_im = MaxIm - y * Im_factor;
+			
 			for (int x = 0; x < width; ++x)
 			{
 				double c_re = MinRe + x * Re_factor;
@@ -171,13 +172,12 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 					t_hsv _hsv;
 
 					_hsv.H = n % 256;
-					_hsv.S = 120; //100
+					_hsv.S = 120;
 					_hsv.V = 255 * (n < MaxIterations);
 
 					t_rgb rgb = hsv_to_rgb(_hsv);
 
 					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
-					// putpixel(x, y);
 				}
 			}
 		}
@@ -196,7 +196,8 @@ void Julia(void **mlx_ptr, void **win_ptr, int width, int height)
 
 	for (int y = 0; y < height; ++y)
 	{
-		double c_im = MaxIm - y * Im_factor;
+		double c_im = MaxIm + 0.5 - y * Im_factor;
+		
 		for (int x = 0; x < width; ++x)
 		{
 			double c_re = MinRe + x * Re_factor;
