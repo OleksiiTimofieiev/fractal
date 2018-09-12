@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 21:37:08 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 21:39:36 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 		//each iteration, it calculates: new = old*old + c, where c is a constant and old starts at current pixel
 
 		double newRe, newIm, oldRe, oldIm; //real and imaginary parts of new and old
+		
 		double cRe = -0.7, cIm = 0.27015;
 		// basic zoom;
 		double zoom = 1, moveX = 0.0, moveY = 0; //you can change these to zoom and change position
@@ -182,3 +183,6 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 		// system("leaks -q fractol");
 		return (0);
 	}
+
+	fr->cRe = sin(6.28 / 720 * (x));
+	fr->cIm = _ABS(cos(6.28 / 720 * (y))) / 3;
