@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 14:33:11 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:37:01 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 	// ColorRGB color;							  //the RGB color value for the pixel
 	int maxIterations = 128;				  //after how much iterations the function should stop
 
-	clock_t t = 0.0, oldTime, frameTime; //current and old time, and their difference (for input)
+	// clock_t t = 0.0, oldTime, frameTime; //current and old time, and their difference (for input)
 											// int showText = 0;
 
 	//begin main program loop
