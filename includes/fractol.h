@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/11 11:41:17 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 12:37:57 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,25 @@
 
 # include "../libft/libft.h"
 # include <mlx.h>
+# include <math.h>
+
 // # include <math.h>
 
+typedef	struct	s_hsv
+{
+	double		H;
+	double		S;
+	double		V;
+}				t_hsv;
+
+typedef	struct	s_rgb
+{
+	unsigned char R;
+	unsigned char G;
+	unsigned char B;
+}				t_rgb;
+
 void	validation(int argc, char *argv);
+t_rgb hsv_to_rgb(t_hsv hsv);
 
 #endif
