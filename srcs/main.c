@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 15:33:43 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 15:45:27 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 	// zoom = -1;
 
-	// clock_t t = 0.0, oldTime, frameTime; //current and old time, and their difference (for input)
+	clock_t t = 0.0, oldTime, frameTime; //current and old time, and their difference (for input)
 											// int showText = 0;
 
 	//begin main program loop
@@ -124,9 +124,9 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 
 			}
-		// oldTime = clock();
-		// t = clock();
-		// frameTime = (float)t - oldTime;
+		oldTime = clock();
+		t = clock();
+		frameTime = (float)t - oldTime;
 	}
 	// count++;
 
