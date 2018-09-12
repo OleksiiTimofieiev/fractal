@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 14:16:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:27:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,6 @@ int hex_int_converter(char *input)
 
 void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 {
-
-	// screen(320, 240, 0, "Mandelbrot Explorer");
-
-
-	
-
 	//each iteration, it calculates: new = old*old + c, where c is a constant and old starts at current pixel
 	double pr, pi;							  //real and imaginary part of the pixel p
 	double newRe, newIm, oldRe, oldIm;		  //real and imaginary parts of new and old
@@ -69,15 +63,13 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 	// ColorRGB color;							  //the RGB color value for the pixel
 	int maxIterations = 128;				  //after how much iterations the function should stop
 
-	// double time, oldTime, frameTime; //current and old time, and their difference (for input)
+	double time = 0.0, oldTime, frameTime; //current and old time, and their difference (for input)
 	// int showText = 0;
 
 	//begin main program loop
-
-
 	
-	while (1)
-	{
+	// while (1)
+	// {
 		//draw the fractal
 		for (int y = 0; y < height; y++)
 			for (int x = 0; x < width; x++)
@@ -119,86 +111,13 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 				
 				mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 			}
-			break;
-		}
+		oldTime = time;
+		time = clock();
+		frameTime = time - oldTime;
 
-		// //print the values of all variables on screen if that option is enabled
-		// if (showText <= 1)
-		// {
-		// 	print("X:", 1, 1, RGB_White, 1);
-		// 	print(moveX, 17, 1, RGB_White, 1);
-		// 	print("Y:", 1, 9, RGB_White, 1);
-		// 	print(moveY, 17, 9, RGB_White, 1);
-		// 	print("Z:", 1, 17, RGB_White, 1);
-		// 	print(zoom, 17, 17, RGB_White, 1);
-		// 	print("N:", 1, 25, RGB_White, 1);
-		// 	print(maxIterations, 17, 25, RGB_White, 1);
-		// }
-		// //print the help text on screen if that option is enabled
-		// if (showText == 0)
-		// {
-		// 	print("Arrows move (X,Y), Keypad +,- zooms (Z)", 1, h - 25, RGB_White, 1);
-		// 	print("Keypad *,/ changes iterations (N)    ", 1, h - 17, RGB_White, 1);
-		// 	print("a to z=presets (qwerty), F1=cycle texts", 1, h - 9, RGB_White, 1);
-		// }
-		// redraw();
-
-		//get the time and old time for time dependent input
-		// oldTime = time;
-		// time = getTicks();
-		// frameTime = time - oldTime;
-		// readKeys();
-	// 	//ZOOM keys
-	// 	if (keyDown(SDLK_KP_PLUS))
-	// 	{
-	// 		zoom *= pow(1.001, frameTime);
-	// 	}
-	// 	if (keyDown(SDLK_KP_MINUS))
-	// 	{
-	// 		zoom /= pow(1.001, frameTime);
-	// 	}
-	// 	//MOVE keys
-	// 	if (keyDown(SDLK_DOWN))
-	// 	{
-	// 		moveY += 0.0003 * frameTime / zoom;
-	// 	}
-	// 	if (keyDown(SDLK_UP))
-	// 	{
-	// 		moveY -= 0.0003 * frameTime / zoom;
-	// 	}
-	// 	if (keyDown(SDLK_RIGHT))
-	// 	{
-	// 		moveX += 0.0003 * frameTime / zoom;
-	// 	}
-	// 	if (keyDown(SDLK_LEFT))
-	// 	{
-	// 		moveX -= 0.0003 * frameTime / zoom;
-	// 	}
-	// 	//keys to change number of iterations
-	// 	if (keyPressed(SDLK_KP_MULTIPLY))
-	// 	{
-	// 		maxIterations *= 2;
-	// 	}
-	// 	if (keyPressed(SDLK_KP_DIVIDE))
-	// 	{
-	// 		if (maxIterations > 2)
-	// 			maxIterations /= 2;
-	// 	}
-	// 	//key to change the text options
-	// 	if (keyPressed(SDLK_F1))
-	// 	{
-	// 		showText++;
-	// 		showText %= 3;
-	// 	}
-	// }
-	// return 0;
 }
 
 
-
-
-
-#include <stdio.h>
 
 int		main(int argc, char **argv)
 {
@@ -212,6 +131,7 @@ int		main(int argc, char **argv)
 	Mandelbrot(&mlx_ptr, &win_ptr, width, height);
 
 	mlx_loop(mlx_ptr);
+
 
 	// t_hsv data = {154, 0.43, 0.60};
 	// t_rgb value = hsv_to_rgb(data);
