@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 16:26:10 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 16:43:29 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 					t_hsv _hsv;
 
 					_hsv.H = n % 256;
-					_hsv.S = 120; //100
+					_hsv.S = 120;
 					_hsv.V = 255 * (n < MaxIterations);
 
 					t_rgb rgb = hsv_to_rgb(_hsv);
@@ -192,9 +192,9 @@ int		main(int argc, char **argv)
 
 	void *mlx_ptr = mlx_init();
 	void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-	// Mandelbrot(&mlx_ptr, &win_ptr, width, height);
+	Mandelbrot(&mlx_ptr, &win_ptr, width, height);
 
-	Mandelbrot2(&mlx_ptr, &win_ptr, width, height);
+	// Mandelbrot2(&mlx_ptr, &win_ptr, width, height);
 
 	mlx_loop(mlx_ptr);
 
