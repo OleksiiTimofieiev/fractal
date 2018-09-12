@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 13:34:03 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:03:42 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 				t_hsv _hsv;
 
 				_hsv.H = i % 256;
-				_hsv.S = 120;
+				_hsv.S = 120; //100
 				_hsv.V = 255 * (i < maxIterations);
 				
 
