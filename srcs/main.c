@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 15:25:30 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 15:33:43 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,11 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 	// basic zoom;
 	double zoom = 1, moveX = -0.5, moveY = 0; //you can change these to zoom and change position
 	// ColorRGB color;							  //the RGB color value for the pixel
-	int maxIterations = 200;				  //after how much iterations the function should stop
+	int maxIterations = 128;				  //after how much iterations the function should stop
 
-
-
-	long double min = -2.84;
-	long double max = 1.0;
-	long double factor = 1;
+	// long double min = -2.84;
+	// long double max = 1.0;
+	// long double factor = 1;
 
 	// zoom = -1;
 
@@ -80,13 +78,10 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 	int count = 0;
 	// while (1)
 	// {
-
-		max -= 0.1 * factor;
-		min += 0.15 * factor;
-		factor *= 0.9349;
-		maxIterations += 5;
-		
-		
+		// max -= 0.1 * factor;
+		// min += 0.15 * factor;
+		// factor *= 0.9349;
+		// maxIterations += 5;
 		if (count > 30)
 			maxIterations += 5;
 			// draw the fractal
@@ -94,8 +89,8 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 		for (int x = 0; x < width; x++)
 		{
 			//calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-			pr = 1.5 * (x - width / 2) / (0.5 * zoom * width) + moveX;
-			pi = (y - height / 2) / (0.5 * zoom * height) + moveY;
+			pr = 1.5 * (x - width / 2) / (0.5 * zoom * width) + (moveX);
+			pi = (y - height / 2) / (0.5 * zoom * height) + (moveY);
 			newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
 			//i will represent the number of iterations
 			int i;
