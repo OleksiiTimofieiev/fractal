@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 12:01:13 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 12:59:30 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 	// return 0;
 }
 
-#include "../includes/fractol.h"
+
 
 
 
@@ -162,17 +162,28 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 int		main(int argc, char **argv)
 {
-	int height = 800;
-	int width = 1000;
+	// int height = 800;
+	// int width = 1000;
 	
 	validation(argc, argv[1]);
 
-	void *mlx_ptr = mlx_init();
-	void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-	Mandelbrot(&mlx_ptr, &win_ptr, width, height);
+	// void *mlx_ptr = mlx_init();
+	// void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
+	// Mandelbrot(&mlx_ptr, &win_ptr, width, height);
 
-	mlx_loop(mlx_ptr);
+	// mlx_loop(mlx_ptr);
 
-	printf("main part\n");
-	return (0);
+	// t_hsv data = {154, 0.43, 0.60};
+	// t_rgb value = hsv_to_rgb(data);
+
+	// printf("R->%d, G->%d, B->%d", value.R, value.G, value.B);
+
+	t_rgb	rgb;
+	rgb.R = 245;
+	rgb.G = 255;
+	rgb.B = 250;
+
+	ft_putstr(RGBToHexadecimal(rgb));
+
+		return (0);
 }
