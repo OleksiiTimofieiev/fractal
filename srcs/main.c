@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 17:17:17 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 21:01:35 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void Julia(void **mlx_ptr, void **win_ptr, int width, int height)
 	double Re_factor = (MaxRe - MinRe) / (width - 1);
 	double Im_factor = (MaxIm - MinIm) / (height - 1);
 
-	int MaxIterations = 300;
+	int MaxIterations = 500;
 
 	for (int y = 0; y < height; ++y)
 	{
@@ -241,10 +241,10 @@ void Julia(void **mlx_ptr, void **win_ptr, int width, int height)
 
 		void *mlx_ptr = mlx_init();
 		void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-		Mandelbrot(&mlx_ptr, &win_ptr, width, height);
+		// Mandelbrot(&mlx_ptr, &win_ptr, width, height);
 
 		// Mandelbrot2(&mlx_ptr, &win_ptr, width, height);
-		// Julia(&mlx_ptr, &win_ptr, width, height);
+		Julia(&mlx_ptr, &win_ptr, width, height);
 
 		mlx_loop(mlx_ptr);
 
