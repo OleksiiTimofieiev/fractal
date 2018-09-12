@@ -6,9 +6,11 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 12:59:30 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 13:09:19 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/fractol.h"
 
 // TODO: leaks;
 // TODO: norminette;
@@ -22,7 +24,35 @@
 // TODO: Two valid parameters in the command line, resulting in two fractals in two windows.
 // TODO: putimage;
 
-#include "../includes/fractol.h"
+
+int hex_int_converter(char *input)
+{
+	int base;
+	size_t len;
+	int dec_val;
+	int i;
+
+	base = 1;
+	len = ft_strlen(input);
+	dec_val = 0;
+	i = len - 1;
+	while (i >= 0)
+	{
+		if (input[i] >= '0' && input[i] <= '9')
+		{
+			dec_val += (input[i] - 48) * base;
+			base = base * 16;
+		}
+		else if (input[i] >= 'A' && input[i] <= 'F')
+		{
+			dec_val += (input[i] - 55) * base;
+			base = base * 16;
+		}
+		i--;
+	}
+	return (dec_val);
+}
+
 
 void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 {
@@ -77,7 +107,11 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 				// pset(x, y, color);
 				// if ( i % 256)
 				// generate color func;
-				mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, 255 * (i < maxIterations));
+				t_rgb rgb;
+				rgb.R = 255 * (i < maxIterations);
+				rgb.G =  0;
+				rgb.B = i % 256;
+				mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 			}
 			break;
 		}
@@ -162,28 +196,29 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 int		main(int argc, char **argv)
 {
-	// int height = 800;
-	// int width = 1000;
+	int height = 800;
+	int width = 1000;
 	
 	validation(argc, argv[1]);
 
-	// void *mlx_ptr = mlx_init();
-	// void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-	// Mandelbrot(&mlx_ptr, &win_ptr, width, height);
+	void *mlx_ptr = mlx_init();
+	void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
+	Mandelbrot(&mlx_ptr, &win_ptr, width, height);
 
-	// mlx_loop(mlx_ptr);
+	mlx_loop(mlx_ptr);
 
 	// t_hsv data = {154, 0.43, 0.60};
 	// t_rgb value = hsv_to_rgb(data);
 
 	// printf("R->%d, G->%d, B->%d", value.R, value.G, value.B);
 
-	t_rgb	rgb;
-	rgb.R = 245;
-	rgb.G = 255;
-	rgb.B = 250;
+	// t_rgb	rgb;
+	// rgb.R = 245;
+	// rgb.G = 255;
+	// rgb.B = 250;
 
-	ft_putstr(RGBToHexadecimal(rgb));
+	// ft_putstr(RGBToHexadecimal(rgb));
 
-		return (0);
+	// system("leaks -q fractol");
+	return (0);
 }
