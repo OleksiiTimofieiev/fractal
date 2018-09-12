@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 11:45:04 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 12:01:13 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 				//draw the pixel
 				// pset(x, y, color);
 				// if ( i % 256)
-				mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, 0x008000 * (i < maxIterations));
+				// generate color func;
+				mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, 255 * (i < maxIterations));
 			}
 			break;
 		}
