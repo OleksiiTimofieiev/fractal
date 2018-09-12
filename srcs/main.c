@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 15:57:52 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 16:01:07 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 // TODO: multi threading;
 // TODO: Two valid parameters in the command line, resulting in two fractals in two windows.
 // TODO: putimage;
+// TODO: several windows;
 
 
 int hex_int_converter(char *input)
