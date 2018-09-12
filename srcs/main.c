@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 16:15:33 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/12 16:19:58 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,8 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 				int n = 0;
 				for (; n < MaxIterations; ++n)
 				{
-					double Z_re2 = Z_re * Z_re, Z_im2 = Z_im * Z_im;
+					double Z_re2 = Z_re * Z_re;
+					double Z_im2 = Z_im * Z_im;
 					if (Z_re2 + Z_im2 > 4)
 					{
 						isInside = 1;
