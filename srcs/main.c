@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 16:59:22 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 17:10:17 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -539,6 +539,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 
 }
+
 		
 		int main(int argc, char **argv)
 		{
@@ -587,7 +588,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			// julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
 			Cyrcle(&mlx_ptr, &win_ptr, width, height);
-				mlx_loop(mlx_ptr);
+			mlx_loop(mlx_ptr);
 
 			// t_hsv data = {154, 0.43, 0.60};
 			// t_rgb value = hsv_to_rgb(data);
