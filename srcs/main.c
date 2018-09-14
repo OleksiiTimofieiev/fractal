@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 14:39:35 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 14:50:56 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -365,18 +365,109 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 
 	}
+#define MAXCOUNT 30
+
+	void mandelbrot4(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
+	{
+			float xscale, yscale, zx, zy, cx, tempx, cy;
+			int x, y; /* i, j;*/
+			int maxx, maxy, count;
+
+			// getting maximum value of x-axis of screen
+			maxx = 800;
+
+			// getting maximum value of y-axis of screen
+			maxy = 800;
+
+			// setting up the xscale and yscale
+			xscale = xside / maxx;
+			yscale = yside / maxy;
+
+			// calling rectangle function
+			// where required image will be seen
+			// rectangle(0, 0, maxx, maxy);
+
+			// scanning every point in that rectangular area.
+			// Each point represents a Complex number (x + yi).
+			// Iterate that complex number
+			for (y = 1; y <= maxy - 1; y++)
+			{
+				for (x = 1; x <= maxx - 1; x++)
+				{
+					// c_real
+					cx = x * xscale + left;
+
+					// c_imaginary
+					cy = y * yscale + top;
+
+					// z_real
+					zx = 0;
+
+					// z_imaginary
+					zy = 0;
+					count = 0;
+
+					// Calculate whether c(c_real + c_imaginary) belongs
+					// to the Mandelbrot set or not and draw a pixel
+					// at coordinates (x, y) accordingly
+					// If you reach the Maximum number of iterations
+					// and If the distance from the origin is
+					// greater than 2 exit the loop
+					while ((zx * zx + zy * zy < 4) && (count < MAXCOUNT))
+					{
+						// Calculate Mandelbrot function
+						// z = z*z + c where z is a complex number
+
+						// tempx = z_real*_real - z_imaginary*z_imaginary + c_real
+						tempx = zx * zx - zy * zy + cx;
+
+						// 2*z_real*z_imaginary + c_imaginary
+						zy = 2 * zx * zy + cy;
+
+						// Updating z_real = tempx
+						zx = tempx;
+
+						// Increment count
+						count = count + 1;
+					}
+
+					// To display the created fractal
+					t_hsv _hsv;
+
+					_hsv.H = count % 256;
+					_hsv.S = 120;
+					_hsv.V = 255 * (count < MAXCOUNT);
+
+					t_rgb rgb = hsv_to_rgb(_hsv);
+
+					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+				}
+			}
+		}
+
 
 	int main(int argc, char **argv)
 	{
 		int height = 800;
 		int width = 800;
 
+		float left, top, xside, yside;
+
+		// const double CxMin = -2.5;
+		// const double CxMax = 1.5;
+		// const double CyMin = -2.0;
+		// const double CyMax = 2.0;
+
+		left = -1.5;
+		top = 1.0;
+		xside = 2;
+		yside = -2;
+
 		validation(argc, argv[1]);
 
 		void *mlx_ptr = mlx_init();
 		void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-		mandelbrot3(&mlx_ptr, &win_ptr);
-
+		mandelbrot4(&mlx_ptr, &win_ptr,  left, top, xside, yside);
 
 		// Julia2(&mlx_ptr, &win_ptr, width, height);
 
