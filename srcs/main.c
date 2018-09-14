@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 14:57:39 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 15:07:28 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -365,7 +365,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 
 	}
-#define MAXCOUNT 30
+#define MAXCOUNT 200
 
 	void mandelbrot4(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
 	{
