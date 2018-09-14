@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 17:10:17 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 17:22:33 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -527,7 +527,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			for (y = (-my); y <= my; y++)
 				for (x = (-mx); x <= mx; x++)
 				{
-					z = 0.1 * (x * x + y * y);
+					z = 2 * (x * x + y * y);
 					// putpixel(mx + x, my + y, int(z / 16));
 					t_rgb rgb;
 					rgb.R = mx + x;
@@ -563,10 +563,10 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			// xside = 2;
 			// yside = -2;
 
-			// double MinRe = -1.5;
-			// double MaxRe = 1.0;
-			// double MinIm = 2;
-			// double MaxIm = -2;
+			double MinRe = -1.5; // x0
+			double MaxRe = 1.0; // xmax
+			double MinIm = 2;
+			double MaxIm = -2;
 
 			// double mouseRe = (double)50 / (800 / (MaxRe - MinRe)) + MinRe;
 			// double mouseIm = (double)700 / (800 / (MaxIm - MinIm)) + MinIm;
@@ -585,9 +585,9 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
 			// mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
-			// julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+			julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
-			Cyrcle(&mlx_ptr, &win_ptr, width, height);
+			// Cyrcle(&mlx_ptr, &win_ptr, width, height);
 			mlx_loop(mlx_ptr);
 
 			// t_hsv data = {154, 0.43, 0.60};
