@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 16:22:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 16:23:33 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -462,7 +462,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			cy = 0.11;
 
 			cx = sin(6.28 / 720 * (400));
-			cy = fabs(cos(6.28 / 720 * (400)));
+			cy = fabs(cos(6.28 / 720 * (450)));
 			// scanning every point in that rectangular area.
 			// Each point represents a Complex number (x + yi).
 			// Iterate that complex number
