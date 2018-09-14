@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 12:15:41 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 12:24:55 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,7 +285,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 	int main(int argc, char **argv)
 	{
-		int height = 800;
+		int height = 1000;
 		int width = 1000;
 
 		validation(argc, argv[1]);
