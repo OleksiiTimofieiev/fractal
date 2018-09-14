@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 15:52:05 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 16:01:27 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -461,8 +461,8 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			cx = -0.7;
 			cy = 0.27015;
 
-			cx = sin(6.28 / 720 * (420));
-			cy = fabs(cos(6.28 / 720 * (470))) ;
+			// cx = sin(6.28 / 720 * (420));
+			// cy = fabs(cos(6.28 / 720 * (470)));
 			// scanning every point in that rectangular area.
 			// Each point represents a Complex number (x + yi).
 			// Iterate that complex number
@@ -538,14 +538,28 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			xside = 2;
 			yside = -2;
 
+			double MinRe = -1.5;
+			double MaxRe = 1.2;
+			double MinIm = 2;
+			double MaxIm = -2;
+
+			// double mouseRe = (double)200 / (800 / (MaxRe - MinRe)) + MinRe;
+			// double mouseIm = (double)300 / (800 / (MaxIm - MinIm)) + MinIm;
+
+			// double interpolation = 1.0 / 1.0; // 1.5 = max
+			// MinRe = interpolate(mouseRe, MinRe, interpolation);
+			// MinIm = interpolate(mouseIm, MinIm, interpolation);
+			// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+			// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+
+
 			validation(argc, argv[1]);
 
 			void *mlx_ptr = mlx_init();
 			void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
 			// mandelbrot4(&mlx_ptr, &win_ptr, left, top, xside, yside);
 
-			julia4(&mlx_ptr, &win_ptr, left, top, xside, yside);
-
+			julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
 			mlx_loop(mlx_ptr);
 
