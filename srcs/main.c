@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 12:00:10 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 12:15:41 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 // TODO: putimage;
 // TODO: several windows;
 
+// double mouseRe = (double)mouse_x / (WIN_L / (e->Re.max - e->Re.min)) + e->Re.min;
+// double mouseIm = (double)mouse_y / (WIN_H / (e->Im.max - e->Im.min)) + e->Im.min;
 
 int hex_int_converter(char *input)
 {
@@ -201,6 +203,14 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			}
 		}
 	}
+
+	double interpolate(double start, double end, double interpolation)
+	{
+		return start + ((end - start) * interpolation);
+	}
+
+
+
 	void Julia2(void **mlx_ptr, void **win_ptr, int width, int height)
 	{
 		// borders section;
@@ -208,6 +218,19 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 		double MaxRe = 1.0;
 		double MinIm = -1.2;
 		double MaxIm = MinIm + (MaxRe - MinRe) * height / width;
+
+		// void applyZoom(t_fractal * e, double mouseRe, double mouseIm, double zoomFactor)
+		// {
+
+		double mouseRe = (double)250 / (1000 / (MaxRe - MinRe)) + MinRe;
+		double mouseIm = (double)400 / (800 / (MaxIm - MinIm)) + MinIm;
+		
+		double interpolation = 1.0 / 1.01;
+		MinRe = interpolate(mouseRe, MinRe, interpolation);
+		MinIm = interpolate(mouseIm, MinIm, interpolation);
+		MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+		MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+		// }
 
 		// to get the coordinates in the complex numbers;
 		double Re_factor = (MaxRe - MinRe) / (width - 1);
