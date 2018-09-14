@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 12:34:58 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 14:23:29 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -283,19 +283,102 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 		}
 	}
 
+	void mandelbrot3(void **mlx_ptr, void **win_ptr)
+	{
+		int iX, iY;
+		const int iXmax = 800;
+		const int iYmax = 800;
+		/* world ( double) coordinate = parameter plane*/
+		double Cx, Cy;
+		const double CxMin = -2.5;
+		const double CxMax = 1.5;
+		const double CyMin = -2.0;
+		const double CyMax = 2.0;
+		/* */
+		double PixelWidth = (CxMax - CxMin) / iXmax;
+		double PixelHeight = (CyMax - CyMin) / iYmax;
+		/* color component ( R or G or B) is coded from 0 to 255 */
+		/* it is 24 bit color RGB file */
+		// const int MaxColorComponentValue = 255;
+		// char *filename = "new1.ppm";
+		// char *comment = "# "; /* comment should start with # */
+		// static unsigned char color[3];
+		/* Z=Zx+Zy*i  ;   Z0 = 0 */
+		double Zx, Zy;
+		double Zx2, Zy2; /* Zx2=Zx*Zx;  Zy2=Zy*Zy  */
+		/*  */
+		int Iteration;
+		const int IterationMax = 200;
+		/* bail-out value , radius of circle ;  */
+		const double EscapeRadius = 2;
+		double ER2 = EscapeRadius * EscapeRadius;
+		/*create new file,give it a name and open it in binary mode  */
+
+		/* compute and write image data bytes to the file*/
+		for (iY = 0; iY < iYmax; iY++)
+		{
+			Cy = CyMin + iY * PixelHeight;
+			if (fabs(Cy) < PixelHeight / 2)
+				Cy = 0.0; /* Main antenna */
+			for (iX = 0; iX < iXmax; iX++)
+			{
+				Cx = CxMin + iX * PixelWidth;
+				/* initial value of orbit = critical point Z= 0 */
+				Zx = 0.0;
+				Zy = 0.0;
+				Zx2 = Zx * Zx;
+				Zy2 = Zy * Zy;
+				/* */
+				for (Iteration = 0; Iteration < IterationMax && ((Zx2 + Zy2) < ER2); Iteration++)
+				{
+					Zy = 2 * Zx * Zy + Cy;
+					Zx = Zx2 - Zy2 + Cx;
+					Zx2 = Zx * Zx;
+					Zy2 = Zy * Zy;
+				};
+				// /* compute  pixel color (24 bit = 3 bytes) */
+				// if (Iteration == IterationMax)
+				// { /*  interior of Mandelbrot set = black */
+				// 	color[0] = 0;
+				// 	color[1] = 0;
+				// 	color[2] = 0;
+				// }
+				// else
+				// {					/* exterior of Mandelbrot set = white */
+				// 	color[0] = 255; /* Red*/
+				// 	color[1] = 255; /* Green */
+				// 	color[2] = 255; /* Blue */
+				// };
+				// /*write color to the file*/
+				// fwrite(color, 1, 3, fp);
+				t_hsv _hsv;
+
+				_hsv.H = Iteration % 256;
+				_hsv.S = 120;
+				_hsv.V = 255 * (Iteration < IterationMax);
+
+				t_rgb rgb = hsv_to_rgb(_hsv);
+
+				mlx_pixel_put(*mlx_ptr, *win_ptr, iX, iY, hex_int_converter(RGBToHexadecimal(rgb)));
+			}
+		}
+
+
+	}
+
 	int main(int argc, char **argv)
 	{
 		int height = 800;
-		int width = 1000;
+		int width = 800;
 
 		validation(argc, argv[1]);
 
 		void *mlx_ptr = mlx_init();
 		void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-		// Mandelbrot2(&mlx_ptr, &win_ptr, width, height);
+		mandelbrot3(&mlx_ptr, &win_ptr);
 
 
-		Julia2(&mlx_ptr, &win_ptr, width, height);
+		// Julia2(&mlx_ptr, &win_ptr, width, height);
 
 		mlx_loop(mlx_ptr);
 
