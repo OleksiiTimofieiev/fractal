@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 15:07:28 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 15:08:33 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -382,10 +382,6 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			// setting up the xscale and yscale
 			xscale = xside / maxx;
 			yscale = yside / maxy;
-
-			// calling rectangle function
-			// where required image will be seen
-			// rectangle(0, 0, maxx, maxy);
 
 			// scanning every point in that rectangular area.
 			// Each point represents a Complex number (x + yi).
