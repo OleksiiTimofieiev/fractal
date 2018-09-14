@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 16:23:33 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 16:59:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -516,6 +516,29 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			}
 		}
 
+		void Cyrcle(void **mlx_ptr, void **win_ptr, int width, int height)
+		{
+			int x, y, z;
+			int mx, my;
+
+			mx = height / 2;
+			my = width / 2;
+
+			for (y = (-my); y <= my; y++)
+				for (x = (-mx); x <= mx; x++)
+				{
+					z = 0.1 * (x * x + y * y);
+					// putpixel(mx + x, my + y, int(z / 16));
+					t_rgb rgb;
+					rgb.R = mx + x;
+					rgb.G = my + y;
+					rgb.B = (int)(z / 16);
+
+					mlx_pixel_put(*mlx_ptr, *win_ptr, mx + x, my + y, hex_int_converter(RGBToHexadecimal(rgb)));
+				}
+
+
+}
 		
 		int main(int argc, char **argv)
 		{
@@ -539,10 +562,10 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			// xside = 2;
 			// yside = -2;
 
-			double MinRe = -1.5;
-			double MaxRe = 1.0;
-			double MinIm = 2;
-			double MaxIm = -2;
+			// double MinRe = -1.5;
+			// double MaxRe = 1.0;
+			// double MinIm = 2;
+			// double MaxIm = -2;
 
 			// double mouseRe = (double)50 / (800 / (MaxRe - MinRe)) + MinRe;
 			// double mouseIm = (double)700 / (800 / (MaxIm - MinIm)) + MinIm;
@@ -559,11 +582,12 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 			void *mlx_ptr = mlx_init();
 			void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-			mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+			// mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
-			julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+			// julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
-			mlx_loop(mlx_ptr);
+			Cyrcle(&mlx_ptr, &win_ptr, width, height);
+				mlx_loop(mlx_ptr);
 
 			// t_hsv data = {154, 0.43, 0.60};
 			// t_rgb value = hsv_to_rgb(data);
