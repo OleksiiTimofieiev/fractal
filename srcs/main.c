@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 15:20:43 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 15:36:56 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -441,48 +441,125 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			}
 		}
 
+		void julia4(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
+		{
+			float xscale, yscale, zx, zy, cx, tempx, cy;
+			int x, y; /* i, j;*/
+			int maxx, maxy, count;
 
-	int main(int argc, char **argv)
-	{
-		int height = 800;
-		int width = 800;
+			// getting maximum value of x-axis of screen
+			maxx = 800;
 
-		float left, top, xside, yside;
+			// getting maximum value of y-axis of screen
+			maxy = 800;
 
-		// const double CxMin = -2.5;
-		// const double CxMax = 1.5;
-		// const double CyMin = -2.0;
-		// const double CyMax = 2.0;
+			// setting up the xscale and yscale
+			xscale = xside / maxx;
+			yscale = yside / maxy;
 
-		left = -1.5;
-		top = 1.0;
-		xside = 2;
-		yside = -2;
+			cx = -0.7;
+			cy = 0.27015;
 
-		validation(argc, argv[1]);
+			// scanning every point in that rectangular area.
+			// Each point represents a Complex number (x + yi).
+			// Iterate that complex number
+			for (y = 1; y <= maxy - 1; y++)
+			{
+				for (x = 1; x <= maxx - 1; x++)
+				{
+					// c_real
+					zx = x * xscale + left;
 
-		void *mlx_ptr = mlx_init();
-		void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-		mandelbrot4(&mlx_ptr, &win_ptr,  left, top, xside, yside);
+					// c_imaginary
+					zy = y * yscale + top;
 
-		// Julia2(&mlx_ptr, &win_ptr, width, height);
+					// z_real
+					// zx = 0;
 
-		mlx_loop(mlx_ptr);
+					// // z_imaginary
+					// zy = 0;
+					count = 0;
 
-		// t_hsv data = {154, 0.43, 0.60};
-		// t_rgb value = hsv_to_rgb(data);
+					// Calculate whether c(c_real + c_imaginary) belongs
+					// to the Mandelbrot set or not and draw a pixel
+					// at coordinates (x, y) accordingly
+					// If you reach the Maximum number of iterations
+					// and If the distance from the origin is
+					// greater than 2 exit the loop
+					while ((zx * zx + zy * zy < 4) && (count < MAXCOUNT))
+					{
+						// Calculate Mandelbrot function
+						// z = z*z + c where z is a complex number
 
-		// printf("R->%d, G->%d, B->%d", value.R, value.G, value.B);
+						// tempx = z_real*_real - z_imaginary*z_imaginary + c_real
+						tempx = zx * zx - zy * zy;
 
-		// t_rgb	rgb;
-		// rgb.R = 245;
-		// rgb.G = 255;
-		// rgb.B = 250;
+						// 2*z_real*z_imaginary + c_imaginary
+						zy = 2 * zx * zy + cy;
 
-		// ft_putstr(RGBToHexadecimal(rgb));
+						// Updating z_real = tempx
+						zx = tempx + cx;
 
-		// system("leaks -q fractol");
-		return (0);
+						// Increment count
+						count++;
+					}
+
+					// To display the created fractal
+					t_hsv _hsv;
+
+					_hsv.H = count % 256;
+					_hsv.S = 120;
+					_hsv.V = 255 * (count < MAXCOUNT);
+
+					t_rgb rgb = hsv_to_rgb(_hsv);
+
+					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+				}
+			}
+		}
+
+		int main(int argc, char **argv)
+		{
+			int height = 800;
+			int width = 800;
+
+			float left, top, xside, yside;
+
+			// const double CxMin = -2.5;
+			// const double CxMax = 1.5;
+			// const double CyMin = -2.0;
+			// const double CyMax = 2.0;
+
+			left = -1.5;
+			top = 1.0;
+			xside = 2;
+			yside = -2;
+
+			validation(argc, argv[1]);
+
+			void *mlx_ptr = mlx_init();
+			void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
+			// mandelbrot4(&mlx_ptr, &win_ptr, left, top, xside, yside);
+
+			julia4(&mlx_ptr, &win_ptr, left, top, xside, yside);
+
+
+			mlx_loop(mlx_ptr);
+
+			// t_hsv data = {154, 0.43, 0.60};
+			// t_rgb value = hsv_to_rgb(data);
+
+			// printf("R->%d, G->%d, B->%d", value.R, value.G, value.B);
+
+			// t_rgb	rgb;
+			// rgb.R = 245;
+			// rgb.G = 255;
+			// rgb.B = 250;
+
+			// ft_putstr(RGBToHexadecimal(rgb));
+
+			// system("leaks -q fractol");
+			return (0);
 	}
 
 	// fr->cRe = sin(6.28 / 720 * (x));
