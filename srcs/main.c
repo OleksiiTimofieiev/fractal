@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 16:21:01 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 16:22:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -458,11 +458,11 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			yscale = yside / maxy;
 
 
-			cx = -0.7;
-			cy = 0.27015;
+			cx = -0.6;
+			cy = 0.11;
 
-			// cx = sin(6.28 / 720 * (420));
-			// cy = fabs(cos(6.28 / 720 * (470)));
+			cx = sin(6.28 / 720 * (400));
+			cy = fabs(cos(6.28 / 720 * (400)));
 			// scanning every point in that rectangular area.
 			// Each point represents a Complex number (x + yi).
 			// Iterate that complex number
@@ -561,7 +561,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
 			mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
-			// julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+			julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
 			mlx_loop(mlx_ptr);
 
