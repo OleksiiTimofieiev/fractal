@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 15:36:56 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/14 15:47:37 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -457,9 +457,12 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			xscale = xside / maxx;
 			yscale = yside / maxy;
 
+
 			cx = -0.7;
 			cy = 0.27015;
 
+			cx = sin(3.14 / 360 * (320));
+			cy = fabs(cos(3.14 / 360 * (280))) / 3;
 			// scanning every point in that rectangular area.
 			// Each point represents a Complex number (x + yi).
 			// Iterate that complex number
@@ -473,11 +476,6 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 					// c_imaginary
 					zy = y * yscale + top;
 
-					// z_real
-					// zx = 0;
-
-					// // z_imaginary
-					// zy = 0;
 					count = 0;
 
 					// Calculate whether c(c_real + c_imaginary) belongs
@@ -530,8 +528,13 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			// const double CyMin = -2.0;
 			// const double CyMax = 2.0;
 
+			// left = -1.5;
+			// top = 1.0;
+			// xside = 2;
+			// yside = -2;
+
 			left = -1.5;
-			top = 1.0;
+			top = 1.2;
 			xside = 2;
 			yside = -2;
 
