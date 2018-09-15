@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 16:13:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 16:14:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -588,7 +588,7 @@ int mouse_move(int x, int y, void *param)
 	return (1);
 }
 
-	int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int height = 800;
 	int width = 800;
