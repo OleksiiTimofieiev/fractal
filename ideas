@@ -44,5 +44,7 @@ Bonus:
 
 
 Plan:
-1. Putpixel
+1. Putpixel for each type of the fractol;
+2. Mouse events (scake nad change of the Julia params);
 2. Image string which is located in the structure;
+3. threads;
