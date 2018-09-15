@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 16:58:45 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 17:24:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@
 // TODO: several windows;
 
 // TODO: Plan:
-// 1. Analyze code;
+// 1. Analyze code -> construction procedure;
 // 2. Putpixel for each type of the fractol;
 // 3. Mouse events(scake nad change of the Julia params);
 // 4. Image string which is located in the structure;
 // 5. threads;
+// 6. different windows;
 
 int hex_int_converter(char *input)
 {
@@ -760,17 +761,27 @@ int main(int argc, char **argv)
 
 	void *mlx_ptr = mlx_init();
 	void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-	// mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
-	julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+	void *mlx_ptr1 = mlx_init();
+	void *win_ptr1 = mlx_new_window(mlx_ptr, width, height, "julia");
 
-	// Cyrcle(&mlx_ptr, &win_ptr, width, height);
+	void *mlx_ptr2 = mlx_init();
+	void *win_ptr2 = mlx_new_window(mlx_ptr, width, height, "cyrcle");
+	
+	mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+	julia4(&mlx_ptr1, &win_ptr1, MinRe, MaxRe, MinIm, MaxIm);
+	Cyrcle(&mlx_ptr2, &win_ptr2, width, height);
 
 
 	mlx_hook(win_ptr, 4, 1L << 1, click, (void *)0);
+	mlx_hook(win_ptr1, 4, 1L << 1, click, (void *)0);
+	mlx_hook(win_ptr2, 4, 1L << 1, click, (void *)0);
+
 	// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
 
 	mlx_loop(mlx_ptr);
+	mlx_loop(mlx_ptr1);
+	mlx_loop(mlx_ptr2);
 
 	// t_hsv data = {154, 0.43, 0.60};
 	// t_rgb value = hsv_to_rgb(data);
