@@ -41,3 +41,8 @@ Bonus:
 - malloc data types
 - time func
 - different variables;
+
+
+Plan:
+1. Putpixel
+2. Image string which is located in the structure;
