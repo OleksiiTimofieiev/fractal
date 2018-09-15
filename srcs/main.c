@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 13:09:49 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 13:59:33 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -607,7 +607,7 @@ int main(int argc, char **argv)
 	double mouseRe = (double)294 / (800 / (MaxRe - MinRe)) + MinRe;
 	double mouseIm = (double)439 / (800 / (MaxIm - MinIm)) + MinIm;
 
-	double interpolation = 1.0 / 1.1; // 1.5 = max
+	double interpolation = 1.0 / 1.01; // 1.5 = max,
 	MinRe = interpolate(mouseRe, MinRe, interpolation);
 	MinIm = interpolate(mouseIm, MinIm, interpolation);
 	MaxRe = interpolate(mouseRe, MaxRe, interpolation);
@@ -672,6 +672,38 @@ int main(int argc, char **argv)
 
 	mouseRe = (double)389 / (800 / (MaxRe - MinRe)) + MinRe;
 	mouseIm = (double)648 / (800 / (MaxIm - MinIm)) + MinIm;
+
+	MinRe = interpolate(mouseRe, MinRe, interpolation);
+	MinIm = interpolate(mouseIm, MinIm, interpolation);
+	MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+	MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+
+	mouseRe = (double)408 / (800 / (MaxRe - MinRe)) + MinRe;
+	mouseIm = (double)624 / (800 / (MaxIm - MinIm)) + MinIm;
+
+	MinRe = interpolate(mouseRe, MinRe, interpolation);
+	MinIm = interpolate(mouseIm, MinIm, interpolation);
+	MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+	MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+
+	mouseRe = (double)431 / (800 / (MaxRe - MinRe)) + MinRe;
+	mouseIm = (double)607 / (800 / (MaxIm - MinIm)) + MinIm;
+
+	MinRe = interpolate(mouseRe, MinRe, interpolation);
+	MinIm = interpolate(mouseIm, MinIm, interpolation);
+	MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+	MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+
+	mouseRe = (double)446 / (800 / (MaxRe - MinRe)) + MinRe;
+	mouseIm = (double)593 / (800 / (MaxIm - MinIm)) + MinIm;
+
+	MinRe = interpolate(mouseRe, MinRe, interpolation);
+	MinIm = interpolate(mouseIm, MinIm, interpolation);
+	MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+	MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+
+	mouseRe = (double)446 / (800 / (MaxRe - MinRe)) + MinRe;
+	mouseIm = (double)593 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	MinRe = interpolate(mouseRe, MinRe, interpolation);
 	MinIm = interpolate(mouseIm, MinIm, interpolation);
