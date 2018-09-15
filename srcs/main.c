@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 16:44:52 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 16:58:20 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -616,14 +616,14 @@ int main(int argc, char **argv)
 	double MinIm = 2;
 	double MaxIm = -2;
 
-	// double mouseRe = (double)715 / (800 / (MaxRe - MinRe)) + MinRe;
-	// double mouseIm = (double)401 / (800 / (MaxIm - MinIm)) + MinIm;
+	double mouseRe = (double)453 / (800 / (MaxRe - MinRe)) + MinRe;
+	double mouseIm = (double)240 / (800 / (MaxIm - MinIm)) + MinIm;
 
-	// double interpolation = 1.0 / 1.05; // 1.5 = max,1.05
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+	double interpolation = 1.0 / 1.01; // 1.5 = max,1.05
+	MinRe = interpolate(mouseRe, MinRe, interpolation);
+	MinIm = interpolate(mouseIm, MinIm, interpolation);
+	MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+	MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
 	// mouseRe = (double)703 / (800 / (MaxRe - MinRe)) + MinRe;
 	// mouseIm = (double)415 / (800 / (MaxIm - MinIm)) + MinIm;
@@ -760,9 +760,9 @@ int main(int argc, char **argv)
 
 	void *mlx_ptr = mlx_init();
 	void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-	mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+	// mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
-	// julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+	julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 
 	// Cyrcle(&mlx_ptr, &win_ptr, width, height);
 
