@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 12:30:06 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 12:32:47 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -625,7 +625,7 @@ int main(int argc, char **argv)
 
 
 	
-	mlx_hook(win_ptr, 4, 1L << 1, click, (void *)0);
+	mlx_hook(win_ptr, 4, 1L << 3, click, (void *)0);
 	
 	mlx_loop(mlx_ptr);
 
