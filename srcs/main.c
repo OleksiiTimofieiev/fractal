@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 13:59:59 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 14:25:20 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 // TODO: leaks;
 // TODO: norminette;
-// TODO: types: Julia, Mandelbrot, ?
 // TODO: Julia set without clicking -> change of the parameter;
 // TODO: mouse zoom;
-// TODO: several colors to show the depth of the fractol;
 // TODO: ESC -> to exit the program;
-// TODO: use images for printing the fina image;
+// TODO: use images for printing the final image;
 // TODO: multi threading;
 // TODO: Two valid parameters in the command line, resulting in two fractals in two windows.
-// TODO: putimage;
 // TODO: several windows;
 
-// double mouseRe = (double)mouse_x / (WIN_L / (e->Re.max - e->Re.min)) + e->Re.min;
-// double mouseIm = (double)mouse_y / (WIN_H / (e->Im.max - e->Im.min)) + e->Im.min;
+// TODO: Plan:
+// 1. Putpixel for each type of the fractol;
+// 2. Mouse events(scake nad change of the Julia params);
+// 2. Image string which is located in the structure;
+// 3. threads;
 
 int hex_int_converter(char *input)
 {
