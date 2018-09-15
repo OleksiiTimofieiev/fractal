@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 16:14:06 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 16:44:52 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 // TODO: several windows;
 
 // TODO: Plan:
-// 1. Putpixel for each type of the fractol;
-// 2. Mouse events(scake nad change of the Julia params);
-// 2. Image string which is located in the structure;
-// 3. threads;
+// 1. Analyze code;
+// 2. Putpixel for each type of the fractol;
+// 3. Mouse events(scake nad change of the Julia params);
+// 4. Image string which is located in the structure;
+// 5. threads;
 
 int hex_int_converter(char *input)
 {
@@ -365,7 +366,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 
 	}
-#define MAXCOUNT 120
+#define MAXCOUNT 500
 
 	void mandelbrot4(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
 	{
@@ -615,140 +616,145 @@ int main(int argc, char **argv)
 	double MinIm = 2;
 	double MaxIm = -2;
 
-	// double mouseRe = (double)294 / (800 / (MaxRe - MinRe)) + MinRe;
-	// double mouseIm = (double)439 / (800 / (MaxIm - MinIm)) + MinIm;
+	// double mouseRe = (double)715 / (800 / (MaxRe - MinRe)) + MinRe;
+	// double mouseIm = (double)401 / (800 / (MaxIm - MinIm)) + MinIm;
 
-	// double interpolation = 1.0 / 1.01; // 1.5 = max,1.05
+	// double interpolation = 1.0 / 1.05; // 1.5 = max,1.05
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)298 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)430 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)703 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)415 / (800 / (MaxIm - MinIm)) + MinIm;
 
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)296 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)438 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)282 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)355 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)703 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)427 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)273 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)334 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)696 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)447 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)261 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)297 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)698 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)456 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)611 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)708 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)689 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)471 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)378 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)675 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)685 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)481 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)389 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)648 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)677 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)492 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)408 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)624 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)676 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)504 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)431 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)607 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)673 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)514 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)446 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)593 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)680 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)524 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)446 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)593 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)679 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)535 / (800 / (MaxIm - MinIm)) + MinIm;
 
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)95 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)34 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)693 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)543 / (800 / (MaxIm - MinIm)) + MinIm;
 
-	// interpolation = 1.0 / 1.1; // 1.5 = max
+	// MinRe = interpolate(mouseRe, MinRe, interpolation);
+	// MinIm = interpolate(mouseIm, MinIm, interpolation);
+	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+
+	// mouseRe = (double)686 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)552 / (800 / (MaxIm - MinIm)) + MinIm;
+
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 	
-	// mouseRe = (double)151 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)123 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)765 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)586 / (800 / (MaxIm - MinIm)) + MinIm;
 
-	// interpolation = 1.0 / 1.1; // 1.5 = max
+
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
-	// mouseRe = (double)515 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)757 / (800 / (MaxIm - MinIm)) + MinIm;
+	// mouseRe = (double)700 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)198 / (800 / (MaxIm - MinIm)) + MinIm;
 
-	// interpolation = 1.0 / 1.1; // 1.5 = max
+
 	// MinRe = interpolate(mouseRe, MinRe, interpolation);
 	// MinIm = interpolate(mouseIm, MinIm, interpolation);
 	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
 	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
+	// mouseRe = (double)658 / (800 / (MaxRe - MinRe)) + MinRe;
+	// mouseIm = (double)211 / (800 / (MaxIm - MinIm)) + MinIm;
 
+	// MinRe = interpolate(mouseRe, MinRe, interpolation);
+	// MinIm = interpolate(mouseIm, MinIm, interpolation);
+	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
 	validation(argc, argv[1]);
 
@@ -762,7 +768,7 @@ int main(int argc, char **argv)
 
 
 	mlx_hook(win_ptr, 4, 1L << 1, click, (void *)0);
-	mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
+	// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
 
 	mlx_loop(mlx_ptr);
 
