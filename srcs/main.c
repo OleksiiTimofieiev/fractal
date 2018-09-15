@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 18:13:56 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 18:19:27 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -762,11 +762,11 @@ int main(int argc, char **argv)
 	void *mlx_ptr = mlx_init();
 	void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
 
-	void *mlx_ptr1 = NULL; //= mlx_init();
-	void *win_ptr1 = NULL; //= mlx_new_window(mlx_ptr, width, height, "julia");
+	void *mlx_ptr1 = mlx_init();
+	void *win_ptr1 = mlx_new_window(mlx_ptr, width, height, "julia");
 
-	void *mlx_ptr2 = NULL; //= mlx_init();
-	void *win_ptr2 = NULL; //= mlx_new_window(mlx_ptr, width, height, "cyrcle");
+	void *mlx_ptr2 = mlx_init();
+	void *win_ptr2 = mlx_new_window(mlx_ptr, width, height, "cyrcle");
 	
 	mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
 	if (mlx_ptr1)
