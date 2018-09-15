@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/14 17:22:33 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/15 12:30:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -540,70 +540,109 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 }
 
-		
-		int main(int argc, char **argv)
-		{
-			int height = 800;
-			int width = 800;
+// int hook_mousemove(int x, int y, t_mlx *mlx)
+// {
+// 	mlx->mouse->lastx = mlx->mouse->x;
+// 	mlx->mouse->lasty = mlx->mouse->y;
+// 	mlx->mouse->x = x;
+// 	mlx->mouse->y = y;
 
-			// float left, top, xside, yside;
+// 	if (mlx->mouse->isdown & (1 << 1))
+// 	{
+// 		mlx->map->center->x += (x - mlx->mouse->lastx);
+// 		mlx->map->center->y += (y - mlx->mouse->lasty);
+// 		ft_draw(mlx);
+// 	}
 
-			// const double CxMin = -2.5;
-			// const double CxMax = 1.5;
-			// const double CyMin = -2.0;
-			// const double CyMax = 2.0;
+// 	if (mlx->mouse->isdown & (1 << 2))
+// 	{
+// 		mlx->map->matrix->ry -= (x - mlx->mouse->lastx) / 200.0f;
+// 		mlx->map->matrix->rx += (y - mlx->mouse->lasty) / 200.0f;
+// 		ft_draw(mlx);
+// 	}
 
-			// left = -1.5;
-			// top = 1.0;
-			// xside = 2;
-			// yside = -2;
+// 	return (0);
+// }
 
-			// left = -1.5;
-			// top = 1.2;
-			// xside = 2;
-			// yside = -2;
+int click(int button, int x, int y, void *param)
+{
+	(void)param;
+	ft_putnbr(x);
+	ft_putstr("\n");
+	ft_putnbr(y);
+	ft_putstr("\n");
+	ft_putnbr(button);
+	ft_putstr("\n");
 
-			double MinRe = -1.5; // x0
-			double MaxRe = 1.0; // xmax
-			double MinIm = 2;
-			double MaxIm = -2;
+	return (1);
+}
 
-			// double mouseRe = (double)50 / (800 / (MaxRe - MinRe)) + MinRe;
-			// double mouseIm = (double)700 / (800 / (MaxIm - MinIm)) + MinIm;
+int main(int argc, char **argv)
+{
+	int height = 800;
+	int width = 800;
 
-			// double interpolation = 1.0 / 1.5; // 1.5 = max
-			// MinRe = interpolate(mouseRe, MinRe, interpolation);
-			// MinIm = interpolate(mouseIm, MinIm, interpolation);
-			// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-			// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+	// float left, top, xside, yside;
+
+	// const double CxMin = -2.5;
+	// const double CxMax = 1.5;
+	// const double CyMin = -2.0;
+	// const double CyMax = 2.0;
+
+	// left = -1.5;
+	// top = 1.0;
+	// xside = 2;
+	// yside = -2;
+
+	// left = -1.5;
+	// top = 1.2;
+	// xside = 2;
+	// yside = -2;
+
+	double MinRe = -1.5; // x0
+	double MaxRe = 1.0; // xmax
+	double MinIm = 2;
+	double MaxIm = -2;
+
+	// double mouseRe = (double)50 / (800 / (MaxRe - MinRe)) + MinRe;
+	// double mouseIm = (double)700 / (800 / (MaxIm - MinIm)) + MinIm;
+
+	// double interpolation = 1.0 / 1.5; // 1.5 = max
+	// MinRe = interpolate(mouseRe, MinRe, interpolation);
+	// MinIm = interpolate(mouseIm, MinIm, interpolation);
+	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
+	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
+
+	validation(argc, argv[1]);
+
+	void *mlx_ptr = mlx_init();
+	void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
+	// mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+
+	julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+
+	// Cyrcle(&mlx_ptr, &win_ptr, width, height);
 
 
+	
+	mlx_hook(win_ptr, 4, 1L << 1, click, (void *)0);
+	
+	mlx_loop(mlx_ptr);
 
-			validation(argc, argv[1]);
+	// t_hsv data = {154, 0.43, 0.60};
+	// t_rgb value = hsv_to_rgb(data);
 
-			void *mlx_ptr = mlx_init();
-			void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
-			// mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+	// printf("R->%d, G->%d, B->%d", value.R, value.G, value.B);
 
-			julia4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+	// t_rgb	rgb;
+	// rgb.R = 245;
+	// rgb.G = 255;
+	// rgb.B = 250;
 
-			// Cyrcle(&mlx_ptr, &win_ptr, width, height);
-			mlx_loop(mlx_ptr);
+	// ft_putstr(RGBToHexadecimal(rgb));
 
-			// t_hsv data = {154, 0.43, 0.60};
-			// t_rgb value = hsv_to_rgb(data);
-
-			// printf("R->%d, G->%d, B->%d", value.R, value.G, value.B);
-
-			// t_rgb	rgb;
-			// rgb.R = 245;
-			// rgb.G = 255;
-			// rgb.B = 250;
-
-			// ft_putstr(RGBToHexadecimal(rgb));
-
-			// system("leaks -q fractol");
-			return (0);
+	// system("leaks -q fractol");
+	return (0);
 	}
 
 	// fr->cRe = sin(6.28 / 720 * (x));
