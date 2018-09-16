@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:40:58 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:10:54 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,63 @@ static int hex_int_converter(char *input)
 	return (dec_val);
 }
 
+static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
+{
+	if (IterationsPerPixel == MaxIterations)
+	{
+		rgb->R = 0;
+		rgb->G = 0;
+		rgb->B = 0;
+	}
+	else if (IterationsPerPixel < 64)
+	{
+		rgb->R = IterationsPerPixel * 2;
+		rgb->G = 0;
+		rgb->B = 0;
+	}
+	else if (IterationsPerPixel < 128)
+	{
+		rgb->R = (((IterationsPerPixel - 64) * 128) / 126) + 128;
+		rgb->G = 0;
+		rgb->B = 0;
+	}
+	else if (IterationsPerPixel < 256)
+	{
+		rgb->R = (((IterationsPerPixel - 128) * 62) / 127) + 193;
+		rgb->G = 0;
+		rgb->B = 0;
+	}
+	else if (IterationsPerPixel < 512)
+	{
+		rgb->R = 100;
+		rgb->G = (((IterationsPerPixel - 256) * 62) / 100) + 1;
+		rgb->B = 0;
+	}
+	else if (IterationsPerPixel < 1024)
+	{
+		rgb->R = 100;
+		rgb->G = (((IterationsPerPixel - 512) * 63) / 511) + 64;
+		rgb->B = 0;
+	}
+	else if (IterationsPerPixel < 2048)
+	{
+		rgb->R = 100;
+		rgb->G = (((IterationsPerPixel - 1024) * 63) / 1023) + 128;
+		rgb->B = 0;
+	}
+	else if (IterationsPerPixel < 4096)
+	{
+		rgb->R = 100;
+		rgb->G = (((IterationsPerPixel - 2048) * 63) / 2047) + 192;
+		rgb->B = 0;
+	}
+	else
+	{
+		rgb->R = 100;
+		rgb->G = 255;
+		rgb->B = 0;
+	}
+}
 
 void mandelbrot(t_data *data) // different funcs;
 {
@@ -82,14 +139,12 @@ void mandelbrot(t_data *data) // different funcs;
 					break;
 			}
 
-			t_hsv _hsv;
+			t_rgb rgb;
+			
+			set_color(&rgb, i, maxIterations);
 
-			_hsv.H = i % 256;
-			_hsv.S = 120; //100
-			_hsv.V = 255 * (i < maxIterations);
-
-			t_rgb rgb = hsv_to_rgb(_hsv);
 
 			mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 		}
 }
+
