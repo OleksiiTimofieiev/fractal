@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:27:44 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:11:20 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:03:05 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static	void	options(void)
 	ft_putstr("Options:\n");
 	ft_putstr("1. mandelbrot;\n");
 	ft_putstr("2. julia;\n");
-	ft_putstr("3. ...;\n");
+	ft_putstr("3. cyrcle;\n");
 }
 
 static	int		check_fractol_type(char *fractol)
