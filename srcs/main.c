@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:58:11 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 14:48:29 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 // 5. threads;
 // 6. different windows;
 // stop with if;
+ // music
 
 int hex_int_converter(char *input)
 {
