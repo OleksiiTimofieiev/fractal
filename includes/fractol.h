@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 17:29:11 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 17:51:23 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ typedef struct		s_data
 	char			*mlx_get_data_addr;
 }					t_data;
 
+// typedef void 		(*myFuncDef)(t_data *);
+
 void				validation(int argc, char *argv);
-char				*rgb_hexadecimal(t_rgb rgb);
+// void validation(int argc, char *argv, void (**f)(t_data *data)) ;
+char *rgb_hexadecimal(t_rgb rgb);
 void				constructor(t_data *data);
 void				mandelbrot(t_data *data);
 void				julia(t_data *data);
