@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:13:11 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:14:20 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ void julia(t_data *data)
 					break;
 			}
 			t_rgb rgb;
-
 			set_color(&rgb, i, data->max_iterations);
-
 			fill_pixel(data->mlx_get_data_addr, x, y, rgb);
 		}
 	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
