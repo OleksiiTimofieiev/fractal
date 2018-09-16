@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 10:32:03 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 11:16:50 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 // 4. Image string which is located in the structure;
 // 5. threads;
 // 6. different windows;
+
+double interpolate(double start, double end, double interpolation)
+{
+	return start + ((end - start) * interpolation);
+}
 
 int hex_int_converter(char *input)
 {
@@ -184,15 +189,30 @@ int hex_int_converter(char *input)
 // 	return (0);
 // }
 
-int click(int button, int x, int y, void *param)
+
+
+int click(int button, int x, int y, t_data *data)
 {
-	(void)param;
-	ft_putnbr(x);
-	ft_putstr("\n");
-	ft_putnbr(y);
-	ft_putstr("\n");
+	float mouseRe = (float)x / (data->width / (data->m_max_re - data->m_min_re)) + data->m_min_re;
+	float mouseIm = (float)y / (data->height / (data->m_max_im - data->m_min_im)) + data->m_min_im;
+
+	float interpolation = 1.0 / 1.4; // 1.5 = max,1.05
+	data->m_min_re = interpolate(mouseRe, data->m_min_re, interpolation);
+	data->m_min_im = interpolate(mouseIm, data->m_min_im, interpolation);
+	data->m_max_re = interpolate(mouseRe, data->m_max_re, interpolation);
+	data->m_max_im = interpolate(mouseIm, data->m_max_im, interpolation);
+	// (void)x;
+	// (void)y;
+
+	// // data->m_max_im += 0.01;
+	// data->m_max_re += 0.01;
+	// data->m_min_re += 0.01;
+	// data->m_min_im += 0.01;
+
 	ft_putnbr(button);
 	ft_putstr("\n");
+
+	mandelbrot(data);
 
 	return (1);
 }
@@ -403,7 +423,7 @@ int main(int argc, char **argv)
 
 		// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
 
-	mlx_hook(data.m_win_ptr, 4, 1L << 1, click, (void *)0);
+	mlx_hook(data.m_win_ptr, 4, 1L << 1, click, &data);
 	mlx_loop(data.m_mlx_ptr);
 
 	// if (mlx_ptr1)

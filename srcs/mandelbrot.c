@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 10:30:44 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 10:49:18 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int hex_int_converter(char *input)
 void	mandelbrot(t_data *data)
 {
 	float xscale, yscale, zx, zy, cx, tempx, cy;
-	int x, y; /* i, j;*/
+	int x, y;
 	int count;
 
 	xscale = data->m_min_im / data->width;
@@ -60,7 +60,7 @@ void	mandelbrot(t_data *data)
 			zx = 0;
 			zy = 0;
 			count = 0;
-			while ((zx * zx + zy * zy < 4) && (count < 120))
+			while ((zx * zx + zy * zy < 4) && (count < data->max_iterations))
 			{
 				tempx = zx * zx - zy * zy + cx;
 				zy = 2 * zx * zy + cy;
