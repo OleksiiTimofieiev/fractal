@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 16:06:30 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:13:21 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:28:53 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,29 @@ int		zoom(int button, int x, int y, t_data *data)
 
 int		mouse_move(int x, int y, t_data *data)
 {
-	data->c_re = sin(6.28 / 720 * (x));
-	data->c_im = fabs(cos(6.28 / 720 * (y))) / 3;
-	data->fractol(data);
+	if (data->process)
+	{
+		data->c_re = sin(6.28 / 720 * (x));
+		data->c_im = fabs(cos(6.28 / 720 * (y))) / 3;
+		data->fractol(data);
+	}
 	return (1);
 }
+
+
 
 void	fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
 {
 	my_image_string[x * 4 + 4000 * y] = rgb.g;
 	my_image_string[x * 4 + 4000 * y + 1] = rgb.b;
 	my_image_string[x * 4 + 4000 * y + 2] = rgb.r;
+}
+
+int		deal_with_keyboard(int key, t_data *data)
+{
+	if (key == 49 && data->process == 0)
+		data->process = 1;
+	else if (key == 49)
+		data->process = 0;
+	return (1);
 }
