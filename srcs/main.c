@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:37:23 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:56:34 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 // zoom without movements;
 // usage like in man;
 // array of pointers;
-
-
 
 int main(int argc, char **argv)
 {
