@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 15:23:22 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 16:00:52 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 
-void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
+static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 {
 	if (IterationsPerPixel == MaxIterations)
 	{
