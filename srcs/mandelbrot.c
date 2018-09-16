@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:10:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:22:53 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,42 +61,7 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 		rgb->G = 0;
 		rgb->B = 0;
 	}
-	else if (IterationsPerPixel < 256)
-	{
-		rgb->R = (((IterationsPerPixel - 128) * 62) / 127) + 193;
-		rgb->G = 0;
-		rgb->B = 0;
-	}
-	else if (IterationsPerPixel < 512)
-	{
-		rgb->R = 100;
-		rgb->G = (((IterationsPerPixel - 256) * 62) / 100) + 1;
-		rgb->B = 0;
-	}
-	else if (IterationsPerPixel < 1024)
-	{
-		rgb->R = 100;
-		rgb->G = (((IterationsPerPixel - 512) * 63) / 511) + 64;
-		rgb->B = 0;
-	}
-	else if (IterationsPerPixel < 2048)
-	{
-		rgb->R = 100;
-		rgb->G = (((IterationsPerPixel - 1024) * 63) / 1023) + 128;
-		rgb->B = 0;
-	}
-	else if (IterationsPerPixel < 4096)
-	{
-		rgb->R = 100;
-		rgb->G = (((IterationsPerPixel - 2048) * 63) / 2047) + 192;
-		rgb->B = 0;
-	}
-	else
-	{
-		rgb->R = 100;
-		rgb->G = 255;
-		rgb->B = 0;
-	}
+	
 }
 
 void mandelbrot(t_data *data) // different funcs;

@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:14:27 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:25:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 // 4. Image string which is located in the structure;
 // 5. threads;
 // 6. different windows;
+// stop with if;
 
 double interpolate(double start, double end, double interpolation)
 {
@@ -70,8 +71,8 @@ int click(int button, int x, int y, t_data *data)
 		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
 		data->zoom -= (data->zoom / 10);
 	}
-	// mandelbrot(data);
-	julia(data);
+	mandelbrot(data);
+	// julia(data);
 
 	return (1);
 }
@@ -97,10 +98,10 @@ int main(int argc, char **argv)
 
 	constructor(&data);
 
-	julia(&data);
-	// mandelbrot(&data);
+	// julia(&data);
+	mandelbrot(&data);
 
-	mlx_hook(data.m_win_ptr, 6, 1L << 1, mouse_move, &data);
+	// mlx_hook(data.m_win_ptr, 6, 1L << 1, mouse_move, &data);
 	mlx_hook(data.m_win_ptr, 4, 1L << 1, click, &data);
 	mlx_loop(data.m_mlx_ptr);
 
