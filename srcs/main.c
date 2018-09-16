@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:43:14 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:50:23 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int hex_int_converter(char *input)
 }
 
 
-int click(int button, int x, int y, t_data *data)
+int zoom(int button, int x, int y, t_data *data)
 {
 	if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 1)
 	{
@@ -103,7 +103,7 @@ int main(int argc, char **argv)
 	mandelbrot(&data);
 
 	// mlx_hook(data.m_win_ptr, 6, 1L << 1, mouse_move, &data);
-	mlx_hook(data.m_win_ptr, 4, 1L << 1, click, &data);
+	mlx_hook(data.m_win_ptr, 4, 1L << 1, zoom, &data);
 	mlx_loop(data.m_mlx_ptr);
 
 
