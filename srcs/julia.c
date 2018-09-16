@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:22:21 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:41:47 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,43 +64,24 @@ void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 
 void julia(t_data *data)
 {
-	//each iteration, it calculates: new = old*old + c, where c is a constant and old starts at current pixel
-
-	double newRe, newIm, oldRe, oldIm; //real and imaginary parts of new and old
-
-	
-	// basic data->zoom;
-	// ColorRGB color;							  //the RGB color value for the pixel
-	int maxIterations = 128; //after how much iterations the function should stop
-
-	// int showText = 0;
+	double newRe, newIm, oldRe, oldIm;
 	for (int y = 0; y < data->height; y++)
 		for (int x = 0; x < data->width; x++)
 		{
-			//calculate the initial real and imaginary part of z, based on the pixel location and data->zoom and position values
 			newRe = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->moveX);
 			newIm = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->moveY);
-			// newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
-			//i will represent the number of iterations
 			int i;
-			//start the iteration process
-			for (i = 0; i < maxIterations; i++)
+			for (i = 0; i < data->max_iterations; i++)
 			{
-				//remember value of previous iteration
 				oldRe = newRe;
 				oldIm = newIm;
-				//the actual iteration, the real and imaginary part are calculated
 				newRe = oldRe * oldRe - oldIm * oldIm + data->cRe;
 				newIm = 2 * oldRe * oldIm + data->cIm;
-				//if the point is outside the circle with radius 2: stop
 				if ((newRe * newRe + newIm * newIm) > 4)
 					break;
 			}
-
 			t_rgb rgb;
-
-			set_color(&rgb, i, maxIterations);
-
+			set_color(&rgb, i, data->max_iterations);
 			mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 		}
 }

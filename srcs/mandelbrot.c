@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:32:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:38:48 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 {
 	if (IterationsPerPixel == MaxIterations)
 	{
-		rgb->R = 15;
+		rgb->R = 51;
 		rgb->G = 0;
 		rgb->B = 0;
 	}
@@ -107,8 +107,7 @@ void mandelbrot(t_data *data) // different funcs;
 			t_rgb rgb;
 			
 			set_color(&rgb, i, maxIterations);
-
-
+			
 			mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 		}
 }

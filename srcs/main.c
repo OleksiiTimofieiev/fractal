@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:27:01 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:43:14 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int click(int button, int x, int y, t_data *data)
 		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
 
 	}
-	else if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 5 && data->zoom > 1)
+	else if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 2 && data->zoom > 1)
 	{
 		data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
 		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
