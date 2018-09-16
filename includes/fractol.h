@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:25:04 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:38:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define MONITOR_WIDTH 1000
 # define MONITOR_HEIGHT 800
-# define MAX_ITERATIONS 128
+# define MAX_ITERATIONS 30
 
 # include "../libft/libft.h"
 # include <mlx.h>

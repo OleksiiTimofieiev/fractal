@@ -6,21 +6,22 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:34:34 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:37:23 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-// TODO: leaks;
 // TODO: norminette;
-// TODO: ESC -> to exit the program;
 
 // TODO: Plan:
+
 // threads;
 // different windows;
 // music
 // zoom without movements;
+// usage like in man;
+// array of pointers;
 
 
 
