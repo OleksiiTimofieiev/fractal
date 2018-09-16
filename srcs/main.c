@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:50:23 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:58:11 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@
 // 5. threads;
 // 6. different windows;
 // stop with if;
-
-double interpolate(double start, double end, double interpolation)
-{
-	return start + ((end - start) * interpolation);
-}
 
 int hex_int_converter(char *input)
 {
@@ -82,7 +77,7 @@ int mouse_move(int x, int y, t_data *data)
 
 	data->cRe = sin(6.28 / 720 * (x));
 	data->cIm = fabs(cos(6.28 / 720 * (y))) / 3;
-	julia(data);
+	// julia(data);
 
 	return (1);
 }

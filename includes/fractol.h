@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:48:25 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 14:01:05 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,15 @@ typedef	struct	s_data
 	// float			m_max_im;
 	// float			m_min_im;
 	int				max_iterations;
-	void			*m_mlx_ptr;
+	void			*m_mlx_ptr; // TODO: different pointers, in order to have three ones;
 	void			*m_win_ptr;
 	double			zoom;
 	double			moveX;
 	double			moveY;
 	double			cRe;
-	double cIm;
+	double			cIm;
+	void 			*mlx_new_image;
+	char			*mlx_get_data_addr;
 
 }				t_data;
 

@@ -17,20 +17,11 @@ Code samples and a concept:
 - https://drive.google.com/file/d/1ifVrUykZND2pvZIeMjyNQcMBBy4PnSMv/view
 - https://m.habr.com/post/251537/
 
-- http://warp.povusers.org/Mandelbrot/
-- http://tech.abdulfatir.com/2014/05/julia-set-basics.html
+
 
 Mandelbrot with mouse:
 - https://stackoverflow.com/questions/41796832/smooth-zoom-with-mouse-in-mandelbrot-set-c
 
-
-
-Fork:
-- http://man7.org/linux/man-pages/man2/fork.2.html
-- http://man7.org/linux/man-pages/man2/fork.2.html
-- http://man7.org/linux/man-pages/man3/pthread_create.3.html
-- http://man7.org/linux/man-pages/man3/pthread_exit.3.html
-- http://man7.org/linux/man-pages/man3/pthread_join.3.html
 
 Bonus:
 - change of the mandelbrot start;
