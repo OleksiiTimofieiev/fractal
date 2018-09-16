@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:47:53 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:50:49 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,80 +66,6 @@ int hex_int_converter(char *input)
 
 	
 
-		// void julia4(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
-		// {
-		// 	float xscale, yscale, zx, zy, cx, tempx, cy;
-		// 	int x, y; /* i, j;*/
-		// 	int maxx, maxy, count;
-
-		// 	// getting maximum value of x-axis of screen
-		// 	maxx = 800;
-
-		// 	// getting maximum value of y-axis of screen
-		// 	maxy = 800;
-
-		// 	// setting up the xscale and yscale
-		// 	xscale = xside / maxx;
-		// 	yscale = yside / maxy;
-
-
-		// 	cx = -0.6;
-		// 	cy = 0.11;
-
-		// 	cx = sin(6.28 / 720 * (400));
-		// 	cy = fabs(cos(6.28 / 720 * (450)));
-		// 	// scanning every point in that rectangular area.
-		// 	// Each point represents a Complex number (x + yi).
-		// 	// Iterate that complex number
-		// 	for (y = 1; y <= maxy - 1; y++)
-		// 	{
-		// 		for (x = 1; x <= maxx - 1; x++)
-		// 		{
-		// 			// c_real
-		// 			zx = x * xscale + left;
-
-		// 			// c_imaginary
-		// 			zy = y * yscale + top;
-
-		// 			count = 0;
-
-		// 			// Calculate whether c(c_real + c_imaginary) belongs
-		// 			// to the Mandelbrot set or not and draw a pixel
-		// 			// at coordinates (x, y) accordingly
-		// 			// If you reach the Maximum number of iterations
-		// 			// and If the distance from the origin is
-		// 			// greater than 2 exit the loop
-		// 			while ((zx * zx + zy * zy < 4) && (count < MAXCOUNT))
-		// 			{
-		// 				// Calculate Mandelbrot function
-		// 				// z = z*z + c where z is a complex number
-
-		// 				// tempx = z_real*_real - z_imaginary*z_imaginary + c_real
-		// 				tempx = zx * zx - zy * zy;
-
-		// 				// 2*z_real*z_imaginary + c_imaginary
-		// 				zy = 2 * zx * zy + cy;
-
-		// 				// Updating z_real = tempx
-		// 				zx = tempx + cx;
-
-		// 				// Increment count
-		// 				count++;
-		// 			}
-
-		// 			// To display the created fractal
-		// 			t_hsv _hsv;
-
-		// 			_hsv.H = count % 256;
-		// 			_hsv.S = 120;
-		// 			_hsv.V = 255 * (count < MAXCOUNT);
-
-		// 			t_rgb rgb = hsv_to_rgb(_hsv);
-
-		// 			mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
-		// 		}
-		// 	}
-		// }
 
 		// void Cyrcle(void **mlx_ptr, void **win_ptr, int width, int height)
 		// {
@@ -165,55 +91,7 @@ int hex_int_converter(char *input)
 
 		// }
 
-// int hook_mousemove(int x, int y, t_mlx *mlx)
-// {
-// 	mlx->mouse->lastx = mlx->mouse->x;
-// 	mlx->mouse->lasty = mlx->mouse->y;
-// 	mlx->mouse->x = x;
-// 	mlx->mouse->y = y;
 
-// 	if (mlx->mouse->isdown & (1 << 1))
-// 	{
-// 		mlx->map->center->x += (x - mlx->mouse->lastx);
-// 		mlx->map->center->y += (y - mlx->mouse->lasty);
-// 		ft_draw(mlx);
-// 	}
-
-// 	if (mlx->mouse->isdown & (1 << 2))
-// 	{
-// 		mlx->map->matrix->ry -= (x - mlx->mouse->lastx) / 200.0f;
-// 		mlx->map->matrix->rx += (y - mlx->mouse->lasty) / 200.0f;
-// 		ft_draw(mlx);
-// 	}
-
-// 	return (0);
-// }
-
-// int mouse_scroll(int button, int x, int y, void *param)
-// {
-// 	t_fr *fr;
-
-// 	fr = (t_fr *)param;
-// 	if (x >= 0 && y >= 0 && x <= data->w && y <= data->h && button == 4)
-// 	{
-// 		fr->zoom += (fr->zoom / 10);
-// 		fr->moveX -= (fr->w / 2 - x) / (fr->zoom * fr->w * 2);
-// 		fr->moveY -= (fr->h / 2 - y) / (fr->zoom * fr->h * 2);
-// 		fr->tmp1 = 1.5 / ((double)fr->zoom * (double)fr->w2);
-// 		fr->tmp2 = (double)(fr->zoom * fr->h2);
-// 	}
-// 	else if (x >= 0 && y >= 0 && x <= fr->w && y <= fr->h && button == 5 && fr->zoom > 1)
-// 	{
-// 		fr->moveX -= (fr->w / 2 - x) / (fr->zoom * fr->w * 2);
-// 		fr->moveY -= (fr->h / 2 - y) / (fr->zoom * fr->h * 2);
-// 		fr->zoom -= (fr->zoom / 10);
-// 		fr->tmp1 = 1.5 / ((double)fr->zoom * (double)fr->w2);
-// 		fr->tmp2 = (double)(fr->zoom * fr->h2);
-// 	}
-// 	//printf("%f, %f, %f\n", fr->moveX, fr->moveY, fr->zoom);
-// 	fr->fractol(fr);
-// 	return (0);
-// }
 
 int click(int button, int x, int y, t_data *data)
 {
