@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 15:46:31 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 15:54:12 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,24 @@
 
 int zoom(int button, int x, int y, t_data *data)
 {
-	if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 1)
+	if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 5)
 	{
 		data->zoom += (data->zoom / 20);
 		data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
 		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
+		data->max_iterations += 5;
 
 	}
-	else if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 2 && data->zoom > 1)
+	else if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 4 && data->zoom > 1)
 	{
 		data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
 		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
 		data->zoom -= (data->zoom / 10);
 	}
 	
-	mandelbrot(data);
+	// mandelbrot(data);
 
-	data->max_iterations += 5;
-	// julia(data);
+	julia(data);
 
 	return (1);
 }
@@ -74,8 +74,8 @@ int main(int argc, char **argv)
 
 	constructor(&data);
 
-	// julia(&data);
-	mandelbrot(&data);
+	julia(&data);
+	// mandelbrot(&data);
 
 
 	// different func;
