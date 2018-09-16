@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 16:06:30 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 19:26:16 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:59:04 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		zoom(int button, int x, int y, t_data *data)
 	if (x >= 0 && y >= 0 && x <= data->width
 		&& y <= data->height && button == 5)
 	{
-		data->zoom += (data->zoom / 20);
+		data->zoom += (data->zoom / 10);
 		data->move_x -= (data->width / 2 - x) /
 		(data->zoom * data->width * 2);
 		data->move_y -= (data->height / 2 - y) /
@@ -40,8 +40,8 @@ int		mouse_move(int x, int y, t_data *data)
 {
 	if (data->process)
 	{
-		data->c_re = sin(6.28 / 720 * (x));
-		data->c_im = fabs(cos(6.28 / 720 * (y))) / 3;
+		data->c_im = fabs(cos((3.14 * 2) / 720 * (y))) / 3;
+		data->c_re = sin((3.14 * 2) / 720 * (x));
 		data->fractol(data);
 	}
 	return (1);
@@ -60,10 +60,23 @@ int		deal_with_keyboard(int key, t_data *data)
 		data->process = 1;
 	else if (key == 49 && data->process != 0)
 		data->process = 0;
+	else if (key == 124 || key == 123 
+		|| key == 125 || key == 126)
+	{
+		if (key == 124)
+				data->move_x -= 0.01;
+		else if (key == 123)
+			data->move_x += 0.01;
+		else if (key == 125)
+			data->move_y -= 0.01;
+		else if (key == 126)
+			data->move_y += 0.01;
+		data->fractol(data);
+	}
 	else if (key == 53)
 	{
 		system("killall afplay");
-		exit (0);
+		exit(0);
 	}
 	return (1);
 }
