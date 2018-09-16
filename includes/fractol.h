@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:03:32 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:10:34 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <math.h>
 # include <time.h>
 
-typedef	void		(*f)();
+typedef	void		(*t_func)();
 
 typedef	struct		s_rgb
 {
@@ -30,7 +30,6 @@ typedef	struct		s_rgb
 	unsigned char	g;
 	unsigned char	b;
 }					t_rgb;
-
 
 typedef struct		s_data
 {
@@ -46,16 +45,15 @@ typedef struct		s_data
 	double			c_im;
 	void			*mlx_new_image;
 	char			*mlx_get_data_addr;
-	f				fractol;
+	t_func			fractol;
 }					t_data;
 
 void				validation(int argc, char *argv, t_data *data);
-char 				*rgb_hexadecimal(t_rgb rgb);
+char				*rgb_hexadecimal(t_rgb rgb);
 void				constructor(t_data *data);
 void				mandelbrot(t_data *data);
 void				julia(t_data *data);
 int					zoom(int button, int x, int y, t_data *data);
 int					mouse_move(int x, int y, t_data *data);
-
 
 #endif

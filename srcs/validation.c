@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:27:44 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:04:36 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:11:20 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void validation(int argc, char *argv, t_data *data)
 	{
 		data->fractol = &julia;
 	}
-	// else if (ft_strequ("cyrcle", argv)) // TODO: make it;
-	// {
-	// 	data->fractol = &julia;
-	// }
+	else if (ft_strequ("cyrcle", argv)) // TODO: make it;
+	{
+		data->fractol = &julia;
+	}
 }
