@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 16:06:30 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 16:12:06 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 17:28:40 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int zoom(int button, int x, int y, t_data *data)
 int mouse_move(int x, int y, t_data *data)
 {
 
-	data->cRe = sin(6.28 / 720 * (x));
-	data->cIm = fabs(cos(6.28 / 720 * (y))) / 3;
+	data->c_re = sin(6.28 / 720 * (x));
+	data->c_im = fabs(cos(6.28 / 720 * (y))) / 3;
 	// data->max_iterations += 5;
 
 	julia(data);

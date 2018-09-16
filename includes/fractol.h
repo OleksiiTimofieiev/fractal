@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 16:14:43 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 17:29:11 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,8 @@ char				*rgb_hexadecimal(t_rgb rgb);
 void				constructor(t_data *data);
 void				mandelbrot(t_data *data);
 void				julia(t_data *data);
+int					zoom(int button, int x, int y, t_data *data);
+int					mouse_move(int x, int y, t_data *data);
+
 
 #endif

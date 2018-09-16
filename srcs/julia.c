@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 16:14:10 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 17:28:15 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 {
 	if (IterationsPerPixel == MaxIterations)
 	{
-		rgb->R = 0;
-		rgb->G = 0;
-		rgb->B = 0;
+		rgb->r = 0;
+		rgb->g = 0;
+		rgb->b = 0;
 	}
 	else if (IterationsPerPixel < 64)
 	{
-		rgb->R = IterationsPerPixel * 2;
-		rgb->G = 50;
-		rgb->B = 15;
+		rgb->r = IterationsPerPixel * 2;
+		rgb->g = 50;
+		rgb->b = 15;
 	}
 	else if (IterationsPerPixel < 128)
 	{
-		rgb->R = 15;
-		rgb->G = 0;
-		rgb->B = (((IterationsPerPixel - 64) * 128) / 126) + 128;
+		rgb->r = 15;
+		rgb->g = 0;
+		rgb->b = (((IterationsPerPixel - 64) * 128) / 126) + 128;
 	}
 }
 
 static void fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
 {
-	my_image_string[x * 4 + 4000 * y] = rgb.G;
-	my_image_string[x * 4 + 4000 * y + 1] = rgb.B;
-	my_image_string[x * 4 + 4000 * y + 2] = rgb.R;
+	my_image_string[x * 4 + 4000 * y] = rgb.g;
+	my_image_string[x * 4 + 4000 * y + 1] = rgb.b;
+	my_image_string[x * 4 + 4000 * y + 2] = rgb.r;
 }
 
 void julia(t_data *data)
