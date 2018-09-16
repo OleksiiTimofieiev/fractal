@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 10:13:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 10:20:16 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,10 +231,10 @@ int main(int argc, char **argv)
 	// xside = 2;
 	// yside = -2;
 
-	double MinRe = -1.5; // x0
-	double MaxRe = 1.0; // xmax
-	double MaxIm = -2;
-	double MinIm = 2;
+	// double MinRe = -1.5; // x0
+	// double MaxRe = 1.0; // xmax
+	// double MaxIm = -2;
+	// double MinIm = 2;
 
 	// double mouseRe = (double)453 / (800 / (MaxRe - MinRe)) + MinRe;
 	// double mouseIm = (double)240 / (800 / (MaxIm - MinIm)) + MinIm;
@@ -378,8 +378,10 @@ int main(int argc, char **argv)
 
 	validation(argc, argv[1]);
 
-	void *mlx_ptr = mlx_init();
-	void *win_ptr = mlx_new_window(mlx_ptr, 800, 800, "mandelbrot");
+	constructor(&data);
+
+	// void *mlx_ptr = mlx_init();
+	// void *win_ptr = mlx_new_window(mlx_ptr, 800, 800, "mandelbrot");
 
 	// void *mlx_ptr1 = mlx_init();
 	// void *win_ptr1 = mlx_new_window(mlx_ptr, width, height, "julia");
@@ -388,7 +390,7 @@ int main(int argc, char **argv)
 	// void *win_ptr2 = mlx_new_window(mlx_ptr, width, height, "cyrcle");
 	
 	// mandelbrot(&data);
-	mandelbrot(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+	mandelbrot(&data);
 		// if (mlx_ptr1)
 		// 	julia4(&mlx_ptr1, &win_ptr1, MinRe, MaxRe, MinIm, MaxIm);
 		// if (mlx_ptr2)
@@ -402,7 +404,7 @@ int main(int argc, char **argv)
 
 		// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
 
-	mlx_loop(mlx_ptr);
+	mlx_loop(data.m_mlx_ptr);
 
 	// if (mlx_ptr1)
 	// 	mlx_loop(mlx_ptr1);

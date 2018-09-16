@@ -6,13 +6,12 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 10:12:58 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 10:29:12 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-// void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside
 
 static int hex_int_converter(char *input)
 {
@@ -42,7 +41,9 @@ static int hex_int_converter(char *input)
 	return (dec_val);
 }
 
-void	mandelbrot(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
+// void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside
+
+void	mandelbrot(t_data *data)
 {
 	float xscale, yscale, zx, zy, cx, tempx, cy;
 	int x, y; /* i, j;*/
@@ -55,8 +56,8 @@ void	mandelbrot(void **mlx_ptr, void **win_ptr, float left, float top, float xsi
 	maxy = 800;
 
 	// setting up the xscale and yscale
-	xscale = xside / maxx;
-	yscale = yside / maxy;
+	xscale = data->m_min_im / maxx;
+	yscale = data->m_max_im / maxy;
 
 	// scanning every point in that rectangular area.
 	// Each point represents a Complex number (x + yi).
@@ -66,10 +67,10 @@ void	mandelbrot(void **mlx_ptr, void **win_ptr, float left, float top, float xsi
 		for (x = 1; x <= maxx - 1; x++)
 		{
 			// c_real
-			cx = x * xscale + left;
+			cx = x * xscale + data->m_min_re;
 
 			// c_imaginary
-			cy = y * yscale + top;
+			cy = y * yscale + data->m_max_re;
 
 			// z_real
 			zx = 0;
@@ -111,7 +112,7 @@ void	mandelbrot(void **mlx_ptr, void **win_ptr, float left, float top, float xsi
 
 			t_rgb rgb = hsv_to_rgb(_hsv);
 
-			mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+			mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 		}
 	}
 }
