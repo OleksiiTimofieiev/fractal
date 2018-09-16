@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:14:12 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:48:28 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void mandelbrot(t_data *data) // different funcs;
 	{
 		for (x = 0; x < data->width; x++)
 		{
+			// TODO: tmp for calculations;
+
 			pr = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->move_x);
 			pi = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
