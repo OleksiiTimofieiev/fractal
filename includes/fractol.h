@@ -6,14 +6,14 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:39:24 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:48:25 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define MONITOR_WIDTH 800
+# define MONITOR_WIDTH 1000
 # define MONITOR_HEIGHT 800
 # define MAX_ITERATIONS 90
 
@@ -52,6 +52,8 @@ typedef	struct	s_data
 	double			zoom;
 	double			moveX;
 	double			moveY;
+	double			cRe;
+	double cIm;
 
 }				t_data;
 

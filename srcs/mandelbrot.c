@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:33:12 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:40:58 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,17 @@ static int hex_int_converter(char *input)
 }
 
 
-void mandelbrot(t_data *data)
+void mandelbrot(t_data *data) // different funcs;
 {
 	//each iteration, it calculates: new = old*old + c, where c is a constant and old starts at current pixel
-	double pr, pi;					   //real and imaginary part of the pixel p
+	double pr, pi;	
+	
+	
+	
+					   //real and imaginary part of the pixel p
 	double newRe, newIm, oldRe, oldIm; //real and imaginary parts of new and old
+
+	
 	// basic zoom;
 	//you can change these to zoom and change position
 	// ColorRGB color;							  //the RGB color value for the pixel

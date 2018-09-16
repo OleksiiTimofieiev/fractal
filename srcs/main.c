@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:39:00 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:47:53 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,13 +236,12 @@ int click(int button, int x, int y, t_data *data)
 	return (1);
 }
 
-int mouse_move(int x, int y, void *param)
+int mouse_move(int x, int y, t_data *data)
 {
-	(void)param;
-	ft_putnbr(x);
-	ft_putstr("\n");
-	ft_putnbr(y);
-	ft_putstr("\n");
+
+	data->cRe = sin(6.28 / 720 * (x));
+	data->cIm = fabs(cos(6.28 / 720 * (y))) / 3;
+	julia(data);
 
 	return (1);
 }
@@ -303,7 +302,7 @@ int main(int argc, char **argv)
 		// 	mlx_hook(win_ptr1, 4, 1L << 1, click, (void *)0);
 		// if (mlx_ptr2)
 
-		// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
+	mlx_hook(data.m_win_ptr, 6, 1L << 1, mouse_move, &data);
 
 	mlx_hook(data.m_win_ptr, 4, 1L << 1, click, &data);
 	mlx_loop(data.m_mlx_ptr);

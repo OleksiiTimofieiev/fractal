@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:39:15 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:44:45 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void julia(t_data *data)
 
 	double newRe, newIm, oldRe, oldIm; //real and imaginary parts of new and old
 
-	double cRe = -0.7, cIm = 0.27015;
+	
 	// basic data->zoom;
 	// ColorRGB color;							  //the RGB color value for the pixel
 	int maxIterations = 128; //after how much iterations the function should stop
@@ -68,8 +68,8 @@ void julia(t_data *data)
 				oldRe = newRe;
 				oldIm = newIm;
 				//the actual iteration, the real and imaginary part are calculated
-				newRe = oldRe * oldRe - oldIm * oldIm + cRe;
-				newIm = 2 * oldRe * oldIm + cIm;
+				newRe = oldRe * oldRe - oldIm * oldIm + data->cRe;
+				newIm = 2 * oldRe * oldIm + data->cIm;
 				//if the point is outside the circle with radius 2: stop
 				if ((newRe * newRe + newIm * newIm) > 4)
 					break;
