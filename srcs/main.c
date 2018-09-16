@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:25:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 13:27:01 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int mouse_move(int x, int y, t_data *data)
 int main(int argc, char **argv)
 {
 	// pointer to func;
+	// different windows;
 	t_data data;
 
 	validation(argc, argv[1]);
