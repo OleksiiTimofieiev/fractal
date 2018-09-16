@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 11:16:50 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 11:19:32 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,8 +198,8 @@ int click(int button, int x, int y, t_data *data)
 
 	float interpolation = 1.0 / 1.4; // 1.5 = max,1.05
 	data->m_min_re = interpolate(mouseRe, data->m_min_re, interpolation);
-	data->m_min_im = interpolate(mouseIm, data->m_min_im, interpolation);
 	data->m_max_re = interpolate(mouseRe, data->m_max_re, interpolation);
+	data->m_min_im = interpolate(mouseIm, data->m_min_im, interpolation);
 	data->m_max_im = interpolate(mouseIm, data->m_max_im, interpolation);
 	// (void)x;
 	// (void)y;

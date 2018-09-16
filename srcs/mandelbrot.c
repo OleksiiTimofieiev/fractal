@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 10:49:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 11:31:16 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,54 @@ void	mandelbrot(t_data *data)
 		}
 	}
 }
+
+// void mandelbrot(t_data * data)
+// {
+// 	// double MinRe = -2.0;
+// 	// double MaxRe = 1.0;
+// 	// double MinIm = -1.2;
+// 	// double MaxIm = MinIm + (MaxRe - MinRe) * data->height / data->width;
+	
+// 	double Re_factor = (data->m_max_re - data->m_min_re) / (data->width - 1);
+// 	double Im_factor = (data->m_max_im - data->m_min_im) / (data->height - 1);
+
+// 	int MaxIterations = 30;
+
+// 	for (int y = 0; y < data->height; ++y)
+// 	{
+// 		double c_im = data->m_max_im - y * Im_factor;
+
+// 		for (int x = 0; x < data->width; ++x)
+// 		{
+// 			double c_re = data->m_min_re + x * Re_factor;
+
+// 			double Z_re = c_re, Z_im = c_im;
+// 			int isInside = 0;
+// 			int n = 0;
+// 			for (; n < MaxIterations; ++n)
+// 			{
+// 				double Z_re2 = Z_re * Z_re;
+// 				double Z_im2 = Z_im * Z_im;
+// 				if (Z_re2 + Z_im2 > 4)
+// 				{
+// 					isInside = 1;
+// 					break;
+// 				}
+// 				Z_im = 2 * Z_re * Z_im + c_im;
+// 				Z_re = Z_re2 - Z_im2 + c_re;
+// 			}
+// 			if (isInside)
+// 			{
+// 				t_hsv _hsv;
+
+// 				_hsv.H = n % 256;
+// 				_hsv.S = 120;
+// 				_hsv.V = 255 * (n < MaxIterations);
+
+// 				t_rgb rgb = hsv_to_rgb(_hsv);
+
+// 				mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+// 			}
+// 		}
+// 	}
+// }
