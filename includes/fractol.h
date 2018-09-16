@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 15:55:11 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 16:14:43 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,34 +22,33 @@
 # include <math.h>
 # include <time.h>
 
-typedef	struct	s_rgb
+typedef	struct		s_rgb
 {
-	unsigned char	R;
-	unsigned char	G;
-	unsigned char B;
-}				t_rgb;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+}					t_rgb;
 
-typedef	struct	s_data
+typedef struct		s_data
 {
 	int				width;
 	int				height;
 	int				max_iterations;
-	void			*m_mlx_ptr; // TODO: different pointers, in order to have three ones;
+	void			*m_mlx_ptr;
 	void			*m_win_ptr;
 	double			zoom;
-	double			moveX;
-	double			moveY;
-	double			cRe;
-	double			cIm;
-	void 			*mlx_new_image;
+	double			move_x;
+	double			move_y;
+	double			c_re;
+	double			c_im;
+	void			*mlx_new_image;
 	char			*mlx_get_data_addr;
+}					t_data;
 
-}				t_data;
-
-void	validation(int argc, char *argv);
-char	*RGBToHexadecimal(t_rgb rgb);
-void	constructor(t_data *data);
-void	mandelbrot(t_data *data);
-void	julia(t_data *data);
+void				validation(int argc, char *argv);
+char				*rgb_hexadecimal(t_rgb rgb);
+void				constructor(t_data *data);
+void				mandelbrot(t_data *data);
+void				julia(t_data *data);
 
 #endif

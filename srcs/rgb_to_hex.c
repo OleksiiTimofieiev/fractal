@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 12:49:16 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 13:28:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 16:15:02 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ char *DecimalToHexadecimal(int dec)
 	return hexStr;
 }
 
-char *RGBToHexadecimal(t_rgb rgb)
+char *rgb_hexadecimal(t_rgb rgb)
 {
-	char *rs = DecimalToHexadecimal((int)rgb.R);
-	char *gs = DecimalToHexadecimal((int)rgb.G);
-	char *bs = DecimalToHexadecimal((int)rgb.B);
+	char *rs = DecimalToHexadecimal((int)rgb.r);
+	char *gs = DecimalToHexadecimal((int)rgb.g);
+	char *bs = DecimalToHexadecimal((int)rgb.b);
 
 	return AppendString(AppendString(AppendString("0x", rs), gs), bs);
 }

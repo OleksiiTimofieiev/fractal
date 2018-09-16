@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 16:00:52 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 16:14:10 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ void julia(t_data *data)
 	for (int y = 0; y < data->height; y++)
 		for (int x = 0; x < data->width; x++)
 		{
-			newRe = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->moveX);
-			newIm = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->moveY);
+			newRe = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->move_x);
+			newIm = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->move_y);
 			int i;
 			for (i = 0; i < data->max_iterations; i++)
 			{
 				oldRe = newRe;
 				oldIm = newIm;
-				newRe = oldRe * oldRe - oldIm * oldIm + data->cRe;
-				newIm = 2 * oldRe * oldIm + data->cIm;
+				newRe = oldRe * oldRe - oldIm * oldIm + data->c_re;
+				newIm = 2 * oldRe * oldIm + data->c_im;
 				if ((newRe * newRe + newIm * newIm) > 4)
 					break;
 			}

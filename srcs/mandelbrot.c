@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 16:00:22 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 16:15:48 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,29 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 {
 	if (IterationsPerPixel == MaxIterations)
 	{
-		rgb->R = 51;
-		rgb->G = 0;
-		rgb->B = 0;
+		rgb->r = 51;
+		rgb->g = 0;
+		rgb->b = 0;
 	}
 	else if (IterationsPerPixel < 64)
 	{
-		rgb->R = IterationsPerPixel * 2;
-		rgb->G = 0;
-		rgb->B = 0;
+		rgb->r = IterationsPerPixel * 2;
+		rgb->g = 0;
+		rgb->b = 0;
 	}
 	else if (IterationsPerPixel < 128)
 	{
-		rgb->R = (((IterationsPerPixel - 64) * 128) / 126) + 128;
-		rgb->G = 0;
-		rgb->B = 0;
+		rgb->r = (((IterationsPerPixel - 64) * 128) / 126) + 128;
+		rgb->g = 0;
+		rgb->b = 0;
 	}
 }
 
 void fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
 {
-	my_image_string[x * 4 + 4000 * y] = rgb.G;
-	my_image_string[x * 4 + 4000 * y + 1] = rgb.B;
-	my_image_string[x * 4 + 4000 * y + 2] = rgb.R;
+	my_image_string[x * 4 + 4000 * y] = rgb.g;
+	my_image_string[x * 4 + 4000 * y + 1] = rgb.b;
+	my_image_string[x * 4 + 4000 * y + 2] = rgb.r;
 }
 
 void mandelbrot(t_data *data) // different funcs;
@@ -53,8 +53,8 @@ void mandelbrot(t_data *data) // different funcs;
 	{
 		for (x = 0; x < data->width; x++)
 		{
-			pr = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->moveX);
-			pi = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->moveY);
+			pr = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->move_x);
+			pi = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
 			for (i = 0; i < data->max_iterations; i++)
 			{

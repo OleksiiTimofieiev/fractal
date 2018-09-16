@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 15:54:12 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 16:06:41 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,52 +17,17 @@
 // TODO: ESC -> to exit the program;
 
 // TODO: Plan:
-
-// 4. Image string which is located in the structure;
-// 5. threads;
-// 6. different windows;
+// threads;
+// different windows;
 // stop with if;
 // music
-// move without movements;
+// zoom without movements;
 
 
-int zoom(int button, int x, int y, t_data *data)
-{
-	if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 5)
-	{
-		data->zoom += (data->zoom / 20);
-		data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
-		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
-		data->max_iterations += 5;
-
-	}
-	else if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 4 && data->zoom > 1)
-	{
-		data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
-		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
-		data->zoom -= (data->zoom / 10);
-	}
-	
-	// mandelbrot(data);
-
-	julia(data);
-
-	return (1);
-}
-
-int mouse_move(int x, int y, t_data *data)
-{
-
-	data->cRe = sin(6.28 / 720 * (x));
-	data->cIm = fabs(cos(6.28 / 720 * (y))) / 3;
-	// data->max_iterations += 5;
-	
-	julia(data);
-
-	return (1);
-}
 
 
+
+	// mlx_hook(data.m_win_ptr, 6, 1L << 1, mouse_move, &data);
 
 int main(int argc, char **argv)
 {
@@ -80,7 +45,6 @@ int main(int argc, char **argv)
 
 	// different func;
 	
-	// mlx_hook(data.m_win_ptr, 6, 1L << 1, mouse_move, &data);
 	mlx_hook(data.m_win_ptr, 4, 1L << 1, zoom, &data);
 
 	mlx_loop(data.m_mlx_ptr);

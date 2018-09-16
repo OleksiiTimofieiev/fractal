@@ -16,7 +16,7 @@
 		// 			rgb.G = my + y;
 		// 			rgb.B = (int)(z / 16);
 
-		// 			mlx_pixel_put(*mlx_ptr, *win_ptr, mx + x, my + y, hex_int_converter(RGBToHexadecimal(rgb)));
+		// 			mlx_pixel_put(*mlx_ptr, *win_ptr, mx + x, my + y, hex_int_converter(rgb_hexadecimal(rgb)));
 		// 		}
 
 

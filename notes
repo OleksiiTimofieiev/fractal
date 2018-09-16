@@ -4,7 +4,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 	double pr, pi;							  //real and imaginary part of the pixel p
 	double newRe, newIm, oldRe, oldIm;		  //real and imaginary parts of new and old
 	// basic zoom;
-	double zoom = 1, moveX = -0.5, moveY = 0; //you can change these to zoom and change position
+	double zoom = 1, move_x = -0.5, move_y = 0; //you can change these to zoom and change position
 	// ColorRGB color;							  //the RGB color value for the pixel
 	int maxIterations = 128;				  //after how much iterations the function should stop
 
@@ -14,8 +14,8 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 		for (int x = 0; x < width; x++)
 		{
 			//calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-			pr = 1.5 * (x - width / 2) / (0.5 * zoom * width) + (moveX);
-			pi = (y - height / 2) / (0.5 * zoom * height) + (moveY);
+			pr = 1.5 * (x - width / 2) / (0.5 * zoom * width) + (move_x);
+			pi = (y - height / 2) / (0.5 * zoom * height) + (move_y);
 			newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
 			//i will represent the number of iterations
 			int i;
@@ -41,7 +41,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 			t_rgb rgb = hsv_to_rgb(_hsv);
 
-			mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+			mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(rgb_hexadecimal(rgb)));
 
 			}
 	}
@@ -54,7 +54,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 		
 		double cRe = -0.7, cIm = 0.27015;
 		// basic zoom;
-		double zoom = 1, moveX = 0.0, moveY = 0; //you can change these to zoom and change position
+		double zoom = 1, move_x = 0.0, move_y = 0; //you can change these to zoom and change position
 		// ColorRGB color;							  //the RGB color value for the pixel
 		int maxIterations = 128; //after how much iterations the function should stop
 
@@ -64,8 +64,8 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			for (int x = 0; x < width; x++)
 			{
 				//calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-				newRe = 1.5 * (x - width / 2) / (0.5 * zoom * width) + (moveX);
-				newIm = (y - height / 2) / (0.5 * zoom * height) + (moveY);
+				newRe = 1.5 * (x - width / 2) / (0.5 * zoom * width) + (move_x);
+				newIm = (y - height / 2) / (0.5 * zoom * height) + (move_y);
 				// newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
 				//i will represent the number of iterations
 				int i;
@@ -91,7 +91,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 				t_rgb rgb = hsv_to_rgb(_hsv);
 
-				mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+				mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(rgb_hexadecimal(rgb)));
 			}
 	}
 
@@ -139,7 +139,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 					t_rgb rgb = hsv_to_rgb(_hsv);
 
-					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(rgb_hexadecimal(rgb)));
 				}
 			}
 		}
@@ -218,7 +218,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 					t_rgb rgb = hsv_to_rgb(_hsv);
 
-					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(rgb_hexadecimal(rgb)));
 				}
 			}
 		}
@@ -300,7 +300,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 
 				t_rgb rgb = hsv_to_rgb(_hsv);
 
-				mlx_pixel_put(*mlx_ptr, *win_ptr, iX, iY, hex_int_converter(RGBToHexadecimal(rgb)));
+				mlx_pixel_put(*mlx_ptr, *win_ptr, iX, iY, hex_int_converter(rgb_hexadecimal(rgb)));
 			}
 		}
 

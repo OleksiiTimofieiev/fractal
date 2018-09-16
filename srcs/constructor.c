@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:48:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 14:39:53 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 16:13:42 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	constructor(t_data *data)
 	data->height = MONITOR_HEIGHT;
 	data->max_iterations = MAX_ITERATIONS;
 	data->zoom = 1;
-	data->moveX = -0.5;
-	data->moveY = 0;
+	data->move_x = -0.5;
+	data->move_y = 0;
 	data->zoom = 1;
-	data->cRe = -0.7;
-	data->cIm = 0.27015;
+	data->c_re = -0.7;
+	data->c_im = 0.27015;
 	data->m_mlx_ptr = mlx_init();
 	
 	data->m_win_ptr = mlx_new_window(data->m_mlx_ptr, data->width, data->height, "mandelbrot");
