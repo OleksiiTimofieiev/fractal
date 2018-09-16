@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 09:50:49 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 10:13:11 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,7 +212,7 @@ int mouse_move(int x, int y, void *param)
 
 int main(int argc, char **argv)
 {
-	t_data data;
+	// t_data data;
 
 	// float left, top, xside, yside;
 
@@ -231,10 +231,10 @@ int main(int argc, char **argv)
 	// xside = 2;
 	// yside = -2;
 
-	// double MinRe = -1.5; // x0
-	// double MaxRe = 1.0; // xmax
-	// double MinIm = 2;
-	// double MaxIm = -2;
+	double MinRe = -1.5; // x0
+	double MaxRe = 1.0; // xmax
+	double MinIm = 2;
+	double MaxIm = -2;
 
 	// double mouseRe = (double)453 / (800 / (MaxRe - MinRe)) + MinRe;
 	// double mouseIm = (double)240 / (800 / (MaxIm - MinIm)) + MinIm;
@@ -378,8 +378,8 @@ int main(int argc, char **argv)
 
 	validation(argc, argv[1]);
 
-	// void *mlx_ptr = mlx_init();
-	// void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
+	void *mlx_ptr = mlx_init();
+	void *win_ptr = mlx_new_window(mlx_ptr, 800, 800, "mandelbrot");
 
 	// void *mlx_ptr1 = mlx_init();
 	// void *win_ptr1 = mlx_new_window(mlx_ptr, width, height, "julia");
@@ -387,23 +387,23 @@ int main(int argc, char **argv)
 	// void *mlx_ptr2 = mlx_init();
 	// void *win_ptr2 = mlx_new_window(mlx_ptr, width, height, "cyrcle");
 	
-	mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
-	// if (mlx_ptr1)
-	// 	julia4(&mlx_ptr1, &win_ptr1, MinRe, MaxRe, MinIm, MaxIm);
-	// if (mlx_ptr2)
-	// 	Cyrcle(&mlx_ptr2, &win_ptr2, width, height);
+	// mandelbrot(&data);
+	mandelbrot(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
+		// if (mlx_ptr1)
+		// 	julia4(&mlx_ptr1, &win_ptr1, MinRe, MaxRe, MinIm, MaxIm);
+		// if (mlx_ptr2)
+		// 	Cyrcle(&mlx_ptr2, &win_ptr2, width, height);
 
+		// mlx_hook(win_ptr, 4, 1L << 1, click, (void *)0);
+		// if (mlx_ptr1)
+		// 	mlx_hook(win_ptr1, 4, 1L << 1, click, (void *)0);
+		// if (mlx_ptr2)
+		// 	mlx_hook(win_ptr2, 4, 1L << 1, click, (void *)0);
 
-	// mlx_hook(win_ptr, 4, 1L << 1, click, (void *)0);
-	// if (mlx_ptr1)
-	// 	mlx_hook(win_ptr1, 4, 1L << 1, click, (void *)0);
-	// if (mlx_ptr2)
-	// 	mlx_hook(win_ptr2, 4, 1L << 1, click, (void *)0);
-
-	// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
+		// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
 
 	mlx_loop(mlx_ptr);
-	
+
 	// if (mlx_ptr1)
 	// 	mlx_loop(mlx_ptr1);
 	// if(mlx_ptr2)
