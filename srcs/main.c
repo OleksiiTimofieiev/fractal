@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:26:30 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:39:00 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,44 +217,21 @@ int hex_int_converter(char *input)
 
 int click(int button, int x, int y, t_data *data)
 {
-	// float mouseRe = (float)x / (data->width / (data->m_max_re - data->m_min_re)) + data->m_min_re;
-	// float mouseIm = (float)y / (data->height / (data->m_max_im - data->m_min_im)) + data->m_min_im;
+	if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 1)
+	{
+		data->zoom += (data->zoom / 10);
+		data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
+		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
 
-	// float interpolation = 1.0 / 1.4; // 1.5 = max,1.05
-	// data->m_min_re = interpolate( data->m_min_re, mouseRe, interpolation);
-	// data->m_max_re = interpolate( data->m_max_re, mouseRe, interpolation);
-	// data->m_min_im = interpolate(mouseIm, data->m_min_im, interpolation);
-	// data->m_max_im = interpolate(mouseIm, data->m_max_im, interpolation);
-	// (void)x;
-	// (void)y;
-
-	// // data->m_max_im += 0.01;
-	// data->m_max_re += 0.01;
-	// data->m_min_re += 0.01;
-	// data->m_min_im += 0.01;
-
-	// {
-	// 	t_fr *fr;
-
-	// 	fr = (t_fr *)param;
-		if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 1)
-		{
-			data->zoom += (data->zoom / 10);
-			data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
-			data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
-
-		}
-		else if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 5 && data->zoom > 1)
-		{
-			data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
-			data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
-			data->zoom -= (data->zoom / 10);
-		}
-
-	ft_putnbr(button);
-	ft_putstr("\n");
-
-	mandelbrot(data);
+	}
+	else if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 5 && data->zoom > 1)
+	{
+		data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
+		data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
+		data->zoom -= (data->zoom / 10);
+	}
+	// mandelbrot(data);
+	julia(data);
 
 	return (1);
 }
@@ -314,7 +291,8 @@ int main(int argc, char **argv)
 	// void *win_ptr2 = mlx_new_window(mlx_ptr, width, height, "cyrcle");
 	
 	// mandelbrot(&data);
-	mandelbrot(&data);
+	// mandelbrot(&data);
+	julia(&data);
 		// if (mlx_ptr1)
 		// 	julia4(&mlx_ptr1, &win_ptr1, MinRe, MaxRe, MinIm, MaxIm);
 		// if (mlx_ptr2)

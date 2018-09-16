@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 12:22:48 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:39:24 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ t_rgb hsv_to_rgb(t_hsv hsv);
 char *RGBToHexadecimal(t_rgb rgb);
 void constructor(t_data *data);
 void mandelbrot(t_data *data);
+void julia(t_data *data);
 
 #endif
