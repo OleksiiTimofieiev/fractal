@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 19:49:23 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:59:35 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 // threads;
 // different windows;
-// music
-// zoom without movements;
 // usage like in man;
 // array of pointers;
 
