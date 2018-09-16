@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 10:13:11 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 10:13:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,7 +212,7 @@ int mouse_move(int x, int y, void *param)
 
 int main(int argc, char **argv)
 {
-	// t_data data;
+	t_data data;
 
 	// float left, top, xside, yside;
 
@@ -233,8 +233,8 @@ int main(int argc, char **argv)
 
 	double MinRe = -1.5; // x0
 	double MaxRe = 1.0; // xmax
-	double MinIm = 2;
 	double MaxIm = -2;
+	double MinIm = 2;
 
 	// double mouseRe = (double)453 / (800 / (MaxRe - MinRe)) + MinRe;
 	// double mouseIm = (double)240 / (800 / (MaxIm - MinIm)) + MinIm;
