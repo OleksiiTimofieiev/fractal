@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 16:06:30 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:30:20 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:30:33 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int		mouse_move(int x, int y, t_data *data)
 	}
 	return (1);
 }
-
-
 
 void	fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
 {

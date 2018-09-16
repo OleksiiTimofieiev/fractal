@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:25:44 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:31:30 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,8 @@
 // TODO: Plan:
 // threads;
 // different windows;
-// stop with if;
 // music
 // zoom without movements;
-
-
-
-
-
 
 int main(int argc, char **argv)
 {
@@ -45,5 +39,4 @@ int main(int argc, char **argv)
 
 
 	return (0);
-	}
-
+}
