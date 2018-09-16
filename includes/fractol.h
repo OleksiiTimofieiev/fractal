@@ -6,15 +6,16 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/12 14:22:28 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 09:49:47 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define MONITOR_WIDTH 5120
-# define MONITOR_HEIGHT 2880
+# define MONITOR_WIDTH 800
+# define MONITOR_HEIGHT 800
+# define MAX_ITERATIONS 120
 
 # include "../libft/libft.h"
 # include <mlx.h>
@@ -37,8 +38,23 @@ typedef	struct	s_rgb
 	unsigned char B;
 }				t_rgb;
 
+typedef	struct	s_data
+{
+	double			width;
+	double			height;
+	double			m_max_re;
+	double			m_min_re;
+	double			m_max_im;
+	double			m_min_im;
+	double			max_iterations;
+	void			*m_mlx_ptr;
+	void			*m_win_ptr;
+
+}				t_data;
+
 void	validation(int argc, char *argv);
 t_rgb hsv_to_rgb(t_hsv hsv);
 char *RGBToHexadecimal(t_rgb rgb);
+void constructor(t_data *data);
 
 #endif

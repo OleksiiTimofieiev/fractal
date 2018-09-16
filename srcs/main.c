@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/15 19:15:03 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 09:50:49 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 // TODO: several windows;
 
 // TODO: Plan:
-// 1. Analyze code -> construction procedure;
 // 2. Putpixel for each type of the fractol;
 // 3. Mouse events(scake nad change of the Julia params);
 // 4. Image string which is located in the structure;
@@ -59,180 +58,107 @@ int hex_int_converter(char *input)
 }
 
 
-#define MAXCOUNT 500
 
-	void mandelbrot4(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
-	{
-			float xscale, yscale, zx, zy, cx, tempx, cy;
-			int x, y; /* i, j;*/
-			int maxx, maxy, count;
+	
 
-			// getting maximum value of x-axis of screen
-			maxx = 800;
+		// void julia4(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
+		// {
+		// 	float xscale, yscale, zx, zy, cx, tempx, cy;
+		// 	int x, y; /* i, j;*/
+		// 	int maxx, maxy, count;
 
-			// getting maximum value of y-axis of screen
-			maxy = 800;
+		// 	// getting maximum value of x-axis of screen
+		// 	maxx = 800;
 
-			// setting up the xscale and yscale
-			xscale = xside / maxx;
-			yscale = yside / maxy;
+		// 	// getting maximum value of y-axis of screen
+		// 	maxy = 800;
 
-			// scanning every point in that rectangular area.
-			// Each point represents a Complex number (x + yi).
-			// Iterate that complex number
-			for (y = 1; y <= maxy - 1; y++)
-			{
-				for (x = 1; x <= maxx - 1; x++)
-				{
-					// c_real
-					cx = x * xscale + left;
-
-					// c_imaginary
-					cy = y * yscale + top;
-
-					// z_real
-					zx = 0;
-
-					// z_imaginary
-					zy = 0;
-					count = 0;
-
-					// Calculate whether c(c_real + c_imaginary) belongs
-					// to the Mandelbrot set or not and draw a pixel
-					// at coordinates (x, y) accordingly
-					// If you reach the Maximum number of iterations
-					// and If the distance from the origin is
-					// greater than 2 exit the loop
-					while ((zx * zx + zy * zy < 4) && (count < MAXCOUNT))
-					{
-						// Calculate Mandelbrot function
-						// z = z*z + c where z is a complex number
-
-						// tempx = z_real*_real - z_imaginary*z_imaginary + c_real
-						tempx = zx * zx - zy * zy + cx;
-
-						// 2*z_real*z_imaginary + c_imaginary
-						zy = 2 * zx * zy + cy;
-
-						// Updating z_real = tempx
-						zx = tempx;
-
-						// Increment count
-						count = count + 1;
-					}
-
-					// To display the created fractal
-					t_hsv _hsv;
-
-					_hsv.H = count % 256;
-					_hsv.S = 120;
-					_hsv.V = 255 * (count < MAXCOUNT);
-
-					t_rgb rgb = hsv_to_rgb(_hsv);
-
-					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
-				}
-			}
-		}
-
-		void julia4(void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside)
-		{
-			float xscale, yscale, zx, zy, cx, tempx, cy;
-			int x, y; /* i, j;*/
-			int maxx, maxy, count;
-
-			// getting maximum value of x-axis of screen
-			maxx = 800;
-
-			// getting maximum value of y-axis of screen
-			maxy = 800;
-
-			// setting up the xscale and yscale
-			xscale = xside / maxx;
-			yscale = yside / maxy;
+		// 	// setting up the xscale and yscale
+		// 	xscale = xside / maxx;
+		// 	yscale = yside / maxy;
 
 
-			cx = -0.6;
-			cy = 0.11;
+		// 	cx = -0.6;
+		// 	cy = 0.11;
 
-			cx = sin(6.28 / 720 * (400));
-			cy = fabs(cos(6.28 / 720 * (450)));
-			// scanning every point in that rectangular area.
-			// Each point represents a Complex number (x + yi).
-			// Iterate that complex number
-			for (y = 1; y <= maxy - 1; y++)
-			{
-				for (x = 1; x <= maxx - 1; x++)
-				{
-					// c_real
-					zx = x * xscale + left;
+		// 	cx = sin(6.28 / 720 * (400));
+		// 	cy = fabs(cos(6.28 / 720 * (450)));
+		// 	// scanning every point in that rectangular area.
+		// 	// Each point represents a Complex number (x + yi).
+		// 	// Iterate that complex number
+		// 	for (y = 1; y <= maxy - 1; y++)
+		// 	{
+		// 		for (x = 1; x <= maxx - 1; x++)
+		// 		{
+		// 			// c_real
+		// 			zx = x * xscale + left;
 
-					// c_imaginary
-					zy = y * yscale + top;
+		// 			// c_imaginary
+		// 			zy = y * yscale + top;
 
-					count = 0;
+		// 			count = 0;
 
-					// Calculate whether c(c_real + c_imaginary) belongs
-					// to the Mandelbrot set or not and draw a pixel
-					// at coordinates (x, y) accordingly
-					// If you reach the Maximum number of iterations
-					// and If the distance from the origin is
-					// greater than 2 exit the loop
-					while ((zx * zx + zy * zy < 4) && (count < MAXCOUNT))
-					{
-						// Calculate Mandelbrot function
-						// z = z*z + c where z is a complex number
+		// 			// Calculate whether c(c_real + c_imaginary) belongs
+		// 			// to the Mandelbrot set or not and draw a pixel
+		// 			// at coordinates (x, y) accordingly
+		// 			// If you reach the Maximum number of iterations
+		// 			// and If the distance from the origin is
+		// 			// greater than 2 exit the loop
+		// 			while ((zx * zx + zy * zy < 4) && (count < MAXCOUNT))
+		// 			{
+		// 				// Calculate Mandelbrot function
+		// 				// z = z*z + c where z is a complex number
 
-						// tempx = z_real*_real - z_imaginary*z_imaginary + c_real
-						tempx = zx * zx - zy * zy;
+		// 				// tempx = z_real*_real - z_imaginary*z_imaginary + c_real
+		// 				tempx = zx * zx - zy * zy;
 
-						// 2*z_real*z_imaginary + c_imaginary
-						zy = 2 * zx * zy + cy;
+		// 				// 2*z_real*z_imaginary + c_imaginary
+		// 				zy = 2 * zx * zy + cy;
 
-						// Updating z_real = tempx
-						zx = tempx + cx;
+		// 				// Updating z_real = tempx
+		// 				zx = tempx + cx;
 
-						// Increment count
-						count++;
-					}
+		// 				// Increment count
+		// 				count++;
+		// 			}
 
-					// To display the created fractal
-					t_hsv _hsv;
+		// 			// To display the created fractal
+		// 			t_hsv _hsv;
 
-					_hsv.H = count % 256;
-					_hsv.S = 120;
-					_hsv.V = 255 * (count < MAXCOUNT);
+		// 			_hsv.H = count % 256;
+		// 			_hsv.S = 120;
+		// 			_hsv.V = 255 * (count < MAXCOUNT);
 
-					t_rgb rgb = hsv_to_rgb(_hsv);
+		// 			t_rgb rgb = hsv_to_rgb(_hsv);
 
-					mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
-				}
-			}
-		}
+		// 			mlx_pixel_put(*mlx_ptr, *win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+		// 		}
+		// 	}
+		// }
 
-		void Cyrcle(void **mlx_ptr, void **win_ptr, int width, int height)
-		{
-			int x, y, z;
-			int mx, my;
+		// void Cyrcle(void **mlx_ptr, void **win_ptr, int width, int height)
+		// {
+		// 	int x, y, z;
+		// 	int mx, my;
 
-			mx = height / 2;
-			my = width / 2;
+		// 	mx = height / 2;
+		// 	my = width / 2;
 
-			for (y = (-my); y <= my; y++)
-				for (x = (-mx); x <= mx; x++)
-				{
-					z = 0.1 * (x * x + y * y);
-					// putpixel(mx + x, my + y, int(z / 16));
-					t_rgb rgb;
-					rgb.R = mx + x;
-					rgb.G = my + y;
-					rgb.B = (int)(z / 16);
+		// 	for (y = (-my); y <= my; y++)
+		// 		for (x = (-mx); x <= mx; x++)
+		// 		{
+		// 			z = 0.1 * (x * x + y * y);
+		// 			// putpixel(mx + x, my + y, int(z / 16));
+		// 			t_rgb rgb;
+		// 			rgb.R = mx + x;
+		// 			rgb.G = my + y;
+		// 			rgb.B = (int)(z / 16);
 
-					mlx_pixel_put(*mlx_ptr, *win_ptr, mx + x, my + y, hex_int_converter(RGBToHexadecimal(rgb)));
-				}
+		// 			mlx_pixel_put(*mlx_ptr, *win_ptr, mx + x, my + y, hex_int_converter(RGBToHexadecimal(rgb)));
+		// 		}
 
 
-}
+		// }
 
 // int hook_mousemove(int x, int y, t_mlx *mlx)
 // {
@@ -282,10 +208,11 @@ int mouse_move(int x, int y, void *param)
 	return (1);
 }
 
+
+
 int main(int argc, char **argv)
 {
-	int height = 800;
-	int width = 800;
+	t_data data;
 
 	// float left, top, xside, yside;
 
@@ -304,10 +231,10 @@ int main(int argc, char **argv)
 	// xside = 2;
 	// yside = -2;
 
-	double MinRe = -1.5; // x0
-	double MaxRe = 1.0; // xmax
-	double MinIm = 2;
-	double MaxIm = -2;
+	// double MinRe = -1.5; // x0
+	// double MaxRe = 1.0; // xmax
+	// double MinIm = 2;
+	// double MaxIm = -2;
 
 	// double mouseRe = (double)453 / (800 / (MaxRe - MinRe)) + MinRe;
 	// double mouseIm = (double)240 / (800 / (MaxIm - MinIm)) + MinIm;
@@ -451,36 +378,36 @@ int main(int argc, char **argv)
 
 	validation(argc, argv[1]);
 
-	void *mlx_ptr = mlx_init();
-	void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
+	// void *mlx_ptr = mlx_init();
+	// void *win_ptr = mlx_new_window(mlx_ptr, width, height, "mandelbrot");
 
-	void *mlx_ptr1 = mlx_init();
-	void *win_ptr1 = mlx_new_window(mlx_ptr, width, height, "julia");
+	// void *mlx_ptr1 = mlx_init();
+	// void *win_ptr1 = mlx_new_window(mlx_ptr, width, height, "julia");
 
-	void *mlx_ptr2 = mlx_init();
-	void *win_ptr2 = mlx_new_window(mlx_ptr, width, height, "cyrcle");
+	// void *mlx_ptr2 = mlx_init();
+	// void *win_ptr2 = mlx_new_window(mlx_ptr, width, height, "cyrcle");
 	
 	mandelbrot4(&mlx_ptr, &win_ptr, MinRe, MaxRe, MinIm, MaxIm);
-	if (mlx_ptr1)
-		julia4(&mlx_ptr1, &win_ptr1, MinRe, MaxRe, MinIm, MaxIm);
-	if (mlx_ptr2)
-		Cyrcle(&mlx_ptr2, &win_ptr2, width, height);
+	// if (mlx_ptr1)
+	// 	julia4(&mlx_ptr1, &win_ptr1, MinRe, MaxRe, MinIm, MaxIm);
+	// if (mlx_ptr2)
+	// 	Cyrcle(&mlx_ptr2, &win_ptr2, width, height);
 
 
-	mlx_hook(win_ptr, 4, 1L << 1, click, (void *)0);
-	if (mlx_ptr1)
-		mlx_hook(win_ptr1, 4, 1L << 1, click, (void *)0);
-	if (mlx_ptr2)
-		mlx_hook(win_ptr2, 4, 1L << 1, click, (void *)0);
+	// mlx_hook(win_ptr, 4, 1L << 1, click, (void *)0);
+	// if (mlx_ptr1)
+	// 	mlx_hook(win_ptr1, 4, 1L << 1, click, (void *)0);
+	// if (mlx_ptr2)
+	// 	mlx_hook(win_ptr2, 4, 1L << 1, click, (void *)0);
 
 	// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
 
 	mlx_loop(mlx_ptr);
 	
-	if (mlx_ptr1)
-		mlx_loop(mlx_ptr1);
-	if(mlx_ptr2)
-		mlx_loop(mlx_ptr2);
+	// if (mlx_ptr1)
+	// 	mlx_loop(mlx_ptr1);
+	// if(mlx_ptr2)
+	// 	mlx_loop(mlx_ptr2);
 
 	// t_hsv data = {154, 0.43, 0.60};
 	// t_rgb value = hsv_to_rgb(data);
