@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 15:28:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 15:36:11 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 // 6. different windows;
 // stop with if;
  // music
+ // move without movements;
 
 int hex_int_converter(char *input)
 {
@@ -80,7 +81,8 @@ int mouse_move(int x, int y, t_data *data)
 
 	data->cRe = sin(6.28 / 720 * (x));
 	data->cIm = fabs(cos(6.28 / 720 * (y))) / 3;
-	data->max_iterations += 5;
+	// data->max_iterations += 5;
+	
 	julia(data);
 
 	return (1);
@@ -98,7 +100,7 @@ int main(int argc, char **argv)
 
 	constructor(&data);
 
-	// julia(&data);
+	julia(&data);
 	// mandelbrot(&data);
 
 	mlx_hook(data.m_win_ptr, 6, 1L << 1, mouse_move, &data);

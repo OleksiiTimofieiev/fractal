@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 15:22:31 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 15:35:28 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,6 @@ void mandelbrot(t_data *data) // different funcs;
 				if ((newRe * newRe + newIm * newIm) > 4)
 					break;
 			}
-
-			// mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 			t_rgb rgb;
 
 			set_color(&rgb, i, data->max_iterations);

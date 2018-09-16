@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 15:27:24 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 15:35:20 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define MONITOR_WIDTH 1000
 # define MONITOR_HEIGHT 800
-# define MAX_ITERATIONS 30
+# define MAX_ITERATIONS 60
 
 # include "../libft/libft.h"
 # include <mlx.h>
@@ -42,10 +42,6 @@ typedef	struct	s_data
 {
 	int				width;
 	int				height;
-	// float			m_max_re;
-	// float			m_min_re;
-	// float			m_max_im;
-	// float			m_min_im;
 	int				max_iterations;
 	void			*m_mlx_ptr; // TODO: different pointers, in order to have three ones;
 	void			*m_win_ptr;
