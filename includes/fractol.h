@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 14:01:05 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 15:27:24 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define MONITOR_WIDTH 1000
 # define MONITOR_HEIGHT 800
-# define MAX_ITERATIONS 90
+# define MAX_ITERATIONS 30
 
 # include "../libft/libft.h"
 # include <mlx.h>
@@ -60,9 +60,9 @@ typedef	struct	s_data
 }				t_data;
 
 void	validation(int argc, char *argv);
-t_rgb hsv_to_rgb(t_hsv hsv);
-char *RGBToHexadecimal(t_rgb rgb);
-void constructor(t_data *data);
+t_rgb	hsv_to_rgb(t_hsv hsv);
+char	*RGBToHexadecimal(t_rgb rgb);
+void	constructor(t_data *data);
 void mandelbrot(t_data *data);
 void julia(t_data *data);
 

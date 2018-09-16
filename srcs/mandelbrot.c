@@ -6,40 +6,12 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 14:44:31 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 15:22:31 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-
-// static int hex_int_converter(char *input)
-// {
-// 	int base;
-// 	size_t len;
-// 	int dec_val;
-// 	int i;
-
-// 	base = 1;
-// 	len = ft_strlen(input);
-// 	dec_val = 0;
-// 	i = len - 1;
-// 	while (i >= 0)
-// 	{
-// 		if (input[i] >= '0' && input[i] <= '9')
-// 		{
-// 			dec_val += (input[i] - 48) * base;
-// 			base = base * 16;
-// 		}
-// 		else if (input[i] >= 'A' && input[i] <= 'F')
-// 		{
-// 			dec_val += (input[i] - 55) * base;
-// 			base = base * 16;
-// 		}
-// 		i--;
-// 	}
-// 	return (dec_val);
-// }
 
 static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 {
@@ -66,9 +38,9 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 
 void fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
 {
-	my_image_string[x * 4 + 4000 * y] = (int)rgb.R;
-	my_image_string[x * 4 + 4000 * y + 1] = (int)rgb.G;
-	my_image_string[x * 4 + 4000 * y + 2] = (int)rgb.B;
+	my_image_string[x * 4 + 4000 * y] = rgb.G;
+	my_image_string[x * 4 + 4000 * y + 1] = rgb.B;
+	my_image_string[x * 4 + 4000 * y + 2] = rgb.R;
 }
 
 void mandelbrot(t_data *data) // different funcs;
@@ -85,7 +57,7 @@ void mandelbrot(t_data *data) // different funcs;
 	// basic zoom;
 	//you can change these to zoom and change position
 	// ColorRGB color;							  //the RGB color value for the pixel
-	int maxIterations = 128; //after how much iterations the function should stop
+	; //after how much iterations the function should stop
 	int i;
 		// int showText = 0;
 		int x = 0;
@@ -102,7 +74,7 @@ void mandelbrot(t_data *data) // different funcs;
 			//i will represent the number of iterations
 			
 			//start the iteration process
-			for (i = 0; i < maxIterations; i++)
+			for (i = 0; i < data->max_iterations; i++)
 			{
 				//remember value of previous iteration
 				oldRe = newRe;
@@ -117,12 +89,11 @@ void mandelbrot(t_data *data) // different funcs;
 
 			// mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 			t_rgb rgb;
-			
-			set_color(&rgb, i, maxIterations);
+
+			set_color(&rgb, i, data->max_iterations);
 
 			fill_pixel(data->mlx_get_data_addr, x, y, rgb);
 		}
-
 	}
 	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
 }

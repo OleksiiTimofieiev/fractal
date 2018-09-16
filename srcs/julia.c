@@ -6,39 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 13:41:47 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 15:23:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-static int hex_int_converter(char *input)
-{
-	int base;
-	size_t len;
-	int dec_val;
-	int i;
 
-	base = 1;
-	len = ft_strlen(input);
-	dec_val = 0;
-	i = len - 1;
-	while (i >= 0)
-	{
-		if (input[i] >= '0' && input[i] <= '9')
-		{
-			dec_val += (input[i] - 48) * base;
-			base = base * 16;
-		}
-		else if (input[i] >= 'A' && input[i] <= 'F')
-		{
-			dec_val += (input[i] - 55) * base;
-			base = base * 16;
-		}
-		i--;
-	}
-	return (dec_val);
-}
 
 void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 {
@@ -62,6 +36,13 @@ void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 	}
 }
 
+static void fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
+{
+	my_image_string[x * 4 + 4000 * y] = rgb.G;
+	my_image_string[x * 4 + 4000 * y + 1] = rgb.B;
+	my_image_string[x * 4 + 4000 * y + 2] = rgb.R;
+}
+
 void julia(t_data *data)
 {
 	double newRe, newIm, oldRe, oldIm;
@@ -81,7 +62,10 @@ void julia(t_data *data)
 					break;
 			}
 			t_rgb rgb;
+
 			set_color(&rgb, i, data->max_iterations);
-			mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+
+			fill_pixel(data->mlx_get_data_addr, x, y, rgb);
 		}
+	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
 }
