@@ -6,13 +6,11 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 17:28:15 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:13:11 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-
 
 static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 {
@@ -34,13 +32,6 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 		rgb->g = 0;
 		rgb->b = (((IterationsPerPixel - 64) * 128) / 126) + 128;
 	}
-}
-
-static void fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
-{
-	my_image_string[x * 4 + 4000 * y] = rgb.g;
-	my_image_string[x * 4 + 4000 * y + 1] = rgb.b;
-	my_image_string[x * 4 + 4000 * y + 2] = rgb.r;
 }
 
 void julia(t_data *data)

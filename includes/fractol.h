@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:10:34 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:13:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void				mandelbrot(t_data *data);
 void				julia(t_data *data);
 int					zoom(int button, int x, int y, t_data *data);
 int					mouse_move(int x, int y, t_data *data);
+void				fill_pixel(char *my_image_string, int x, int y, t_rgb rgb);
 
 #endif

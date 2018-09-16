@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 16:06:30 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:07:00 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:13:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,11 @@ int		mouse_move(int x, int y, t_data *data)
 	data->c_im = fabs(cos(6.28 / 720 * (y))) / 3;
 	data->fractol(data);
 	return (1);
+}
+
+void	fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
+{
+	my_image_string[x * 4 + 4000 * y] = rgb.g;
+	my_image_string[x * 4 + 4000 * y + 1] = rgb.b;
+	my_image_string[x * 4 + 4000 * y + 2] = rgb.r;
 }

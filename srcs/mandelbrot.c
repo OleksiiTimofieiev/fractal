@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 16:15:48 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:13:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,6 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 		rgb->g = 0;
 		rgb->b = 0;
 	}
-}
-
-void fill_pixel(char *my_image_string, int x, int y, t_rgb rgb)
-{
-	my_image_string[x * 4 + 4000 * y] = rgb.g;
-	my_image_string[x * 4 + 4000 * y + 1] = rgb.b;
-	my_image_string[x * 4 + 4000 * y + 2] = rgb.r;
 }
 
 void mandelbrot(t_data *data) // different funcs;
