@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 15:49:17 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 15:51:24 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,7 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <math.h>
-#include <time.h>
-
-// # include <math.h>
-
-typedef	struct	s_hsv
-{
-	double		H;
-	double		S;
-	double		V;
-}				t_hsv;
+# include <time.h>
 
 typedef	struct	s_rgb
 {
@@ -56,7 +47,6 @@ typedef	struct	s_data
 }				t_data;
 
 void	validation(int argc, char *argv);
-t_rgb	hsv_to_rgb(t_hsv hsv);
 char	*RGBToHexadecimal(t_rgb rgb);
 void	constructor(t_data *data);
 void	mandelbrot(t_data *data);

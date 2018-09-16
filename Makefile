@@ -2,7 +2,6 @@ NAME		= fractol
 
 SRCS		=  	./srcs/validation.c \
 				./srcs/rgb_to_hex.c \
-				./srcs/hsv_to_rgb.c \
 				./srcs/mandelbrot.c \
 				./srcs/julia.c \
 				./srcs/constructor.c \
