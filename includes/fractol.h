@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 10:47:04 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:22:48 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,16 @@ typedef	struct	s_data
 {
 	int				width;
 	int				height;
-	float			m_max_re;
-	float			m_min_re;
-	float			m_max_im;
-	float			m_min_im;
+	// float			m_max_re;
+	// float			m_min_re;
+	// float			m_max_im;
+	// float			m_min_im;
 	int				max_iterations;
 	void			*m_mlx_ptr;
 	void			*m_win_ptr;
+	double			zoom;
+	double			moveX;
+	double			moveY;
 
 }				t_data;
 

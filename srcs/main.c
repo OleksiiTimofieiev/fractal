@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 11:19:32 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:26:30 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,18 +189,42 @@ int hex_int_converter(char *input)
 // 	return (0);
 // }
 
+// int mouse_scroll(int button, int x, int y, void *param)
+// {
+// 	t_fr *fr;
 
+// 	fr = (t_fr *)param;
+// 	if (x >= 0 && y >= 0 && x <= data->w && y <= data->h && button == 4)
+// 	{
+// 		fr->zoom += (fr->zoom / 10);
+// 		fr->moveX -= (fr->w / 2 - x) / (fr->zoom * fr->w * 2);
+// 		fr->moveY -= (fr->h / 2 - y) / (fr->zoom * fr->h * 2);
+// 		fr->tmp1 = 1.5 / ((double)fr->zoom * (double)fr->w2);
+// 		fr->tmp2 = (double)(fr->zoom * fr->h2);
+// 	}
+// 	else if (x >= 0 && y >= 0 && x <= fr->w && y <= fr->h && button == 5 && fr->zoom > 1)
+// 	{
+// 		fr->moveX -= (fr->w / 2 - x) / (fr->zoom * fr->w * 2);
+// 		fr->moveY -= (fr->h / 2 - y) / (fr->zoom * fr->h * 2);
+// 		fr->zoom -= (fr->zoom / 10);
+// 		fr->tmp1 = 1.5 / ((double)fr->zoom * (double)fr->w2);
+// 		fr->tmp2 = (double)(fr->zoom * fr->h2);
+// 	}
+// 	//printf("%f, %f, %f\n", fr->moveX, fr->moveY, fr->zoom);
+// 	fr->fractol(fr);
+// 	return (0);
+// }
 
 int click(int button, int x, int y, t_data *data)
 {
-	float mouseRe = (float)x / (data->width / (data->m_max_re - data->m_min_re)) + data->m_min_re;
-	float mouseIm = (float)y / (data->height / (data->m_max_im - data->m_min_im)) + data->m_min_im;
+	// float mouseRe = (float)x / (data->width / (data->m_max_re - data->m_min_re)) + data->m_min_re;
+	// float mouseIm = (float)y / (data->height / (data->m_max_im - data->m_min_im)) + data->m_min_im;
 
-	float interpolation = 1.0 / 1.4; // 1.5 = max,1.05
-	data->m_min_re = interpolate(mouseRe, data->m_min_re, interpolation);
-	data->m_max_re = interpolate(mouseRe, data->m_max_re, interpolation);
-	data->m_min_im = interpolate(mouseIm, data->m_min_im, interpolation);
-	data->m_max_im = interpolate(mouseIm, data->m_max_im, interpolation);
+	// float interpolation = 1.0 / 1.4; // 1.5 = max,1.05
+	// data->m_min_re = interpolate( data->m_min_re, mouseRe, interpolation);
+	// data->m_max_re = interpolate( data->m_max_re, mouseRe, interpolation);
+	// data->m_min_im = interpolate(mouseIm, data->m_min_im, interpolation);
+	// data->m_max_im = interpolate(mouseIm, data->m_max_im, interpolation);
 	// (void)x;
 	// (void)y;
 
@@ -208,6 +232,24 @@ int click(int button, int x, int y, t_data *data)
 	// data->m_max_re += 0.01;
 	// data->m_min_re += 0.01;
 	// data->m_min_im += 0.01;
+
+	// {
+	// 	t_fr *fr;
+
+	// 	fr = (t_fr *)param;
+		if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 1)
+		{
+			data->zoom += (data->zoom / 10);
+			data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
+			data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
+
+		}
+		else if (x >= 0 && y >= 0 && x <= data->width && y <= data->height && button == 5 && data->zoom > 1)
+		{
+			data->moveX -= (data->width / 2 - x) / (data->zoom * data->width * 2);
+			data->moveY -= (data->height / 2 - y) / (data->zoom * data->height * 2);
+			data->zoom -= (data->zoom / 10);
+		}
 
 	ft_putnbr(button);
 	ft_putstr("\n");
@@ -256,145 +298,7 @@ int main(int argc, char **argv)
 	// double MaxIm = -2;
 	// double MinIm = 2;
 
-	// double mouseRe = (double)453 / (800 / (MaxRe - MinRe)) + MinRe;
-	// double mouseIm = (double)240 / (800 / (MaxIm - MinIm)) + MinIm;
 
-	// double interpolation = 1.0 / 1.01; // 1.5 = max,1.05
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)703 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)415 / (800 / (MaxIm - MinIm)) + MinIm;
-
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)703 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)427 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)696 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)447 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)698 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)456 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)689 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)471 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)685 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)481 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)677 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)492 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)676 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)504 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)673 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)514 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)680 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)524 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)679 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)535 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)693 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)543 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)686 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)552 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-	
-	// mouseRe = (double)765 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)586 / (800 / (MaxIm - MinIm)) + MinIm;
-
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)700 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)198 / (800 / (MaxIm - MinIm)) + MinIm;
-
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
-
-	// mouseRe = (double)658 / (800 / (MaxRe - MinRe)) + MinRe;
-	// mouseIm = (double)211 / (800 / (MaxIm - MinIm)) + MinIm;
-
-	// MinRe = interpolate(mouseRe, MinRe, interpolation);
-	// MinIm = interpolate(mouseIm, MinIm, interpolation);
-	// MaxRe = interpolate(mouseRe, MaxRe, interpolation);
-	// MaxIm = interpolate(mouseIm, MaxIm, interpolation);
 
 	validation(argc, argv[1]);
 
@@ -447,5 +351,5 @@ int main(int argc, char **argv)
 	return (0);
 	}
 
-	// fr->cRe = sin(6.28 / 720 * (x));
-	// fr->cIm = _ABS(cos(6.28 / 720 * (y))) / 3;
+	// data->cRe = sin(6.28 / 720 * (x));
+	// data->cIm = _ABS(cos(6.28 / 720 * (y))) / 3;

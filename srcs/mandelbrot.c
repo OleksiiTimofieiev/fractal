@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 11:31:16 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:26:01 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,41 +43,87 @@ static int hex_int_converter(char *input)
 
 // void **mlx_ptr, void **win_ptr, float left, float top, float xside, float yside
 
-void	mandelbrot(t_data *data)
-{
-	float xscale, yscale, zx, zy, cx, tempx, cy;
-	int x, y;
-	int count;
+// void	mandelbrot(t_data *data)
+// {
+// 	float xscale, yscale, zx, zy, cx, tempx, cy;
+// 	int x, y;
+// 	int count;
 
-	xscale = data->m_min_im / data->width;
-	yscale = data->m_max_im / data->height;
-	for (y = 1; y <= data->height - 1; y++)
-	{
-		for (x = 1; x <= data->width - 1; x++)
+// 	xscale = data->m_min_im / data->width;
+// 	yscale = data->m_max_im / data->height;
+// 	for (y = 1; y <= data->height - 1; y++)
+// 	{
+// 		for (x = 1; x <= data->width - 1; x++)
+// 		{
+// 			cx = x * xscale + data->m_min_re;
+// 			cy = y * yscale + data->m_max_re;
+// 			zx = 0;
+// 			zy = 0;
+// 			count = 0;
+// 			while ((zx * zx + zy * zy < 4) && (count < data->max_iterations))
+// 			{
+// 				tempx = zx * zx - zy * zy + cx;
+// 				zy = 2 * zx * zy + cy;
+// 				zx = tempx;
+// 				count = count + 1;
+// 			}
+// 			t_hsv _hsv;
+
+// 			_hsv.H = count % 256;
+// 			_hsv.S = 120;
+// 			_hsv.V = 255 * (count < 120);
+
+// 			t_rgb rgb = hsv_to_rgb(_hsv);
+
+// 			mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
+// 		}
+// 	}
+// }
+
+void mandelbrot(t_data *data)
+{
+	//each iteration, it calculates: new = old*old + c, where c is a constant and old starts at current pixel
+	double pr, pi;					   //real and imaginary part of the pixel p
+	double newRe, newIm, oldRe, oldIm; //real and imaginary parts of new and old
+	// basic zoom;
+	//you can change these to zoom and change position
+	// ColorRGB color;							  //the RGB color value for the pixel
+	int maxIterations = 128; //after how much iterations the function should stop
+
+	// int showText = 0;
+	for (int y = 0; y < data->height; y++)
+		for (int x = 0; x < data->width; x++)
 		{
-			cx = x * xscale + data->m_min_re;
-			cy = y * yscale + data->m_max_re;
-			zx = 0;
-			zy = 0;
-			count = 0;
-			while ((zx * zx + zy * zy < 4) && (count < data->max_iterations))
+			//calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
+			pr = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->moveX);
+			pi = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->moveY);
+			newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
+			//i will represent the number of iterations
+			int i;
+			//start the iteration process
+			for (i = 0; i < maxIterations; i++)
 			{
-				tempx = zx * zx - zy * zy + cx;
-				zy = 2 * zx * zy + cy;
-				zx = tempx;
-				count = count + 1;
+				//remember value of previous iteration
+				oldRe = newRe;
+				oldIm = newIm;
+				//the actual iteration, the real and imaginary part are calculated
+				newRe = oldRe * oldRe - oldIm * oldIm + pr;
+				newIm = 2 * oldRe * oldIm + pi;
+				//if the point is outside the circle with radius 2: stop
+				if ((newRe * newRe + newIm * newIm) > 4)
+					break;
 			}
+
 			t_hsv _hsv;
 
-			_hsv.H = count % 256;
-			_hsv.S = 120;
-			_hsv.V = 255 * (count < 120);
+			_hsv.H = i % 256;
+			_hsv.S = 120; //100
+			_hsv.V = 255 * (i < maxIterations);
 
 			t_rgb rgb = hsv_to_rgb(_hsv);
 
 			mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, x, y, hex_int_converter(RGBToHexadecimal(rgb)));
 		}
-	}
 }
 
 // void mandelbrot(t_data * data)
