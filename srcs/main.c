@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 10:20:16 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 10:32:03 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -400,10 +400,10 @@ int main(int argc, char **argv)
 		// if (mlx_ptr1)
 		// 	mlx_hook(win_ptr1, 4, 1L << 1, click, (void *)0);
 		// if (mlx_ptr2)
-		// 	mlx_hook(win_ptr2, 4, 1L << 1, click, (void *)0);
 
 		// mlx_hook(win_ptr, 6, 1L << 1, mouse_move, (void *)0);
 
+	mlx_hook(data.m_win_ptr, 4, 1L << 1, click, (void *)0);
 	mlx_loop(data.m_mlx_ptr);
 
 	// if (mlx_ptr1)
