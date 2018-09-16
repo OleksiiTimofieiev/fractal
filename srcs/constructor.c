@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:48:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 17:42:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:04:53 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	constructor(t_data *data)
 	data->mlx_new_image = mlx_new_image(data->m_mlx_ptr, data->width, data->height);
 
 	data->mlx_get_data_addr = mlx_get_data_addr(data->mlx_new_image, &size, &width, &endian);
+	// data->fractol = &mandelbrot;
 
 }

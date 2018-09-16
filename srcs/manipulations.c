@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 16:06:30 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 17:50:51 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:05:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ int zoom(int button, int x, int y, t_data *data)
 		data->zoom -= (data->zoom / 10);
 	}
 
-	// mandelbrot(data);
 
-	julia(data);
+	data->fractol(data);
 
 	return (1);
 }
@@ -40,9 +39,8 @@ int mouse_move(int x, int y, t_data *data)
 
 	data->c_re = sin(6.28 / 720 * (x));
 	data->c_im = fabs(cos(6.28 / 720 * (y))) / 3;
-	// data->max_iterations += 5;
 
-	julia(data);
+	data->fractol(data);
 
 	return (1);
 }

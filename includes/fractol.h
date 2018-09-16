@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 17:51:23 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:03:32 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,15 @@
 # include <math.h>
 # include <time.h>
 
+typedef	void		(*f)();
+
 typedef	struct		s_rgb
 {
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
 }					t_rgb;
+
 
 typedef struct		s_data
 {
@@ -43,13 +46,11 @@ typedef struct		s_data
 	double			c_im;
 	void			*mlx_new_image;
 	char			*mlx_get_data_addr;
+	f				fractol;
 }					t_data;
 
-// typedef void 		(*myFuncDef)(t_data *);
-
-void				validation(int argc, char *argv);
-// void validation(int argc, char *argv, void (**f)(t_data *data)) ;
-char *rgb_hexadecimal(t_rgb rgb);
+void				validation(int argc, char *argv, t_data *data);
+char 				*rgb_hexadecimal(t_rgb rgb);
 void				constructor(t_data *data);
 void				mandelbrot(t_data *data);
 void				julia(t_data *data);
