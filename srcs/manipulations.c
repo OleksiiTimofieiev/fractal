@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 16:06:30 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:28:53 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:30:20 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ int		deal_with_keyboard(int key, t_data *data)
 {
 	if (key == 49 && data->process == 0)
 		data->process = 1;
-	else if (key == 49)
+	else if (key == 49 && data->process != 0)
 		data->process = 0;
+	else if (key == 53)
+		exit (0);
 	return (1);
 }
