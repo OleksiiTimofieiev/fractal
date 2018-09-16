@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:14:20 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/16 18:45:31 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void julia(t_data *data)
 	for (int y = 0; y < data->height; y++)
 		for (int x = 0; x < data->width; x++)
 		{
+			// TODO: tmp;
 			newRe = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->move_x);
 			newIm = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->move_y);
 			int i;
