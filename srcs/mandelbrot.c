@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 12:52:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:05:16 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 	}
 }
 
-void mandelbrot1(void *data) // different funcs;
+void *mandelbrot1(void *data) // different funcs;
 {
 	double pr, pi;	
 	double newRe, newIm, oldRe, oldIm; 
@@ -66,8 +66,9 @@ void mandelbrot1(void *data) // different funcs;
 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
+	pthread_exit(0);
 }
-void mandelbrot2(t_data *data) // different funcs;
+void *mandelbrot2(void *data) // different funcs;
 {
 	t_data *data_buf = (t_data *)data;
 
@@ -100,8 +101,9 @@ void mandelbrot2(t_data *data) // different funcs;
 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
+	pthread_exit(0);
 }
-void mandelbrot3(t_data *data) // different funcs;
+void *mandelbrot3(void *data) // different funcs;
 {
 	t_data *data_buf = (t_data *)data;
 
@@ -134,8 +136,9 @@ void mandelbrot3(t_data *data) // different funcs;
 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
+	pthread_exit(0);
 }
-void mandelbrot4(t_data *data) // different funcs;
+void *mandelbrot4(void *data) // different funcs;
 {
 	t_data *data_buf = (t_data *)data;
 
@@ -168,14 +171,26 @@ void mandelbrot4(t_data *data) // different funcs;
 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
-
+	pthread_exit(0); 
 }
 
 void	mandelbrot(t_data *data)
 {
-	mandelbrot1(data);
-	mandelbrot2(data);
-	mandelbrot3(data);
-	mandelbrot4(data);
+	pthread_t	tids[4];
+	pthread_attr_t	attr;
+	
+	pthread_attr_init(&attr);
+
+
+	pthread_create(&tids[0], &attr, mandelbrot1, data);
+	pthread_create(&tids[1], &attr, mandelbrot2, data);
+	pthread_create(&tids[2], &attr, mandelbrot3, data);
+	pthread_create(&tids[3], &attr, mandelbrot4, data);
+
+	pthread_join(tids[0], NULL);
+	pthread_join(tids[1], NULL);
+	pthread_join(tids[2], NULL);
+	pthread_join(tids[3], NULL);
+
 	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
 }
