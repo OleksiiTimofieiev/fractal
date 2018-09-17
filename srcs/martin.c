@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:24:12 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 15:17:35 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:52:54 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	martin(t_data *data)
 	int y;
 	int z;
 
-	x = 0;
 	y = 0;
 	z = 0;
 	while (y < data->height)
