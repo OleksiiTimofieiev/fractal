@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 16:06:30 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 20:41:28 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 11:15:45 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		zoom(int button, int x, int y, t_data *data)
 		(data->max_iterations >= 128) ? data->max_iterations += 5 : 0;
 	}
 	else if (x >= 0 && y >= 0 && x <= data->width &&
-		y <= data->height && button == 4 && data->zoom > 1)
+		y <= data->height && button == 4)
 	{
 		data->move_x -= (data->width / 2 - x) / (data->zoom * data->width * 2);
 		data->move_y -= (data->height / 2 - y) /
