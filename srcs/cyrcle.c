@@ -1,23 +1,44 @@
-		// void Cyrcle(void **mlx_ptr, void **win_ptr, int width, int height)
-		// {
-		// 	int x, y, z;
-		// 	int mx, my;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cyrcle.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/17 13:24:12 by otimofie          #+#    #+#             */
+/*   Updated: 2018/09/17 14:24:08 by otimofie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-		// 	mx = height / 2;
-		// 	my = width / 2;
-
-		// 	for (y = (-my); y <= my; y++)
-		// 		for (x = (-mx); x <= mx; x++)
-		// 		{
-		// 			z = 0.1 * (x * x + y * y);
-		// 			// putpixel(mx + x, my + y, int(z / 16));
-		// 			t_rgb rgb;
-		// 			rgb.R = mx + x;
-		// 			rgb.G = my + y;
-		// 			rgb.B = (int)(z / 16);
-
-		// 			mlx_pixel_put(*mlx_ptr, *win_ptr, mx + x, my + y, hex_int_converter(rgb_hexadecimal(rgb)));
-		// 		}
+#include "../includes/fractol.h"
 
 
-		// }
+			void fill(char *my_image_string, int x, int y)
+			{
+				my_image_string[x * 4 + 4000 * y] = 0;
+				my_image_string[x * 4 + 4000 * y + 1] = 80;
+				my_image_string[x * 4 + 4000 * y + 2] = 0;
+			}
+
+void	cyrcle(t_data *data)
+{
+	double x, t, y;
+	int n;
+
+
+		x = 0;
+		y = 0;
+		n = 0;
+		while (n < 10 * data->zoom) 
+		{
+			t = x;
+			x = y - sin(x);
+			y = 3.14 - t;
+			n++;
+			mlx_pixel_put(data->m_mlx_ptr, data->m_win_ptr, (x * 2) + 500, floor(y * 2) + 380, 0x008000);
+		}
+	}
+
+
+		
+
