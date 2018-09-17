@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 15:37:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 16:27:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void *mandelbrot1(void *data) // different funcs;
 	int x = 0;
 	int y = 0;
 	t_data *data_buf = (t_data*)data;
+			t_rgb rgb;
 		
 	for (y = 0; y < 399; y++)
 	{
 		for (x = 0; x < 499; x++)
 		{
 			// TODO: tmp for calculations;
-
 			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
 			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
@@ -61,7 +61,6 @@ void *mandelbrot1(void *data) // different funcs;
 				if ((newRe * newRe + newIm * newIm) > 4)
 					break;
 			}
-			t_rgb rgb;
 			set_color(&rgb, i, (data_buf)->max_iterations);
 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
