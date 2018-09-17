@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:24:12 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 15:16:58 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:17:35 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	martin(t_data *data)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
+	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr,
+	data->mlx_new_image, 0, 0);
 }
