@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 13:05:16 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:16:54 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,11 +176,10 @@ void *mandelbrot4(void *data) // different funcs;
 
 void	mandelbrot(t_data *data)
 {
-	pthread_t	tids[4];
+	pthread_t		tids[4];
 	pthread_attr_t	attr;
 	
 	pthread_attr_init(&attr);
-
 
 	pthread_create(&tids[0], &attr, mandelbrot1, data);
 	pthread_create(&tids[1], &attr, mandelbrot2, data);
