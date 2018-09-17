@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 14:46:15 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:26:13 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,25 @@ typedef struct		s_data
 	int				max_iterations;
 	void			*m_mlx_ptr;
 	void			*m_win_ptr;
+	void			*julia_mlx_ptr;
+	void			*julia_win_ptr;
+	void			*martin_mlx_ptr;
+	void			*martin_win_ptr;
 	double			zoom;
 	double			move_x;
 	double			move_y;
 	double			c_re;
 	double			c_im;
-	void			*mlx_new_image;
-	char			*mlx_get_data_addr;
+	void			*mlx_new_image_julia;
+	char			*mlx_get_data_addr_julia;
+	void *mlx_new_image_martin;
+	char *mlx_get_data_addr_martin;
+	void *mlx_new_image;
+	char *mlx_get_data_addr;
 	t_func			fractol;
+	t_func			fractol_julia;
+	t_func			fractol_martin;
+
 	int				process;
 }					t_data;
 
