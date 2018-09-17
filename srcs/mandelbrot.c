@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 12:29:06 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 12:52:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 	}
 }
 
-void mandelbrot1(t_data **data) // different funcs;
+void mandelbrot1(void *data) // different funcs;
 {
 	double pr, pi;	
 	double newRe, newIm, oldRe, oldIm; 
 	int i;
 	int x = 0;
 	int y = 0;
+	t_data *data_buf = (t_data*)data;
 		
 	for (y = 0; y < 399; y++)
 	{
@@ -48,10 +49,10 @@ void mandelbrot1(t_data **data) // different funcs;
 		{
 			// TODO: tmp for calculations;
 
-			pr = 1.5 * (x - (*data)->width / 2) / (0.5 * (*data)->zoom * (*data)->width) + ((*data)->move_x);
-			pi = (y - (*data)->height / 2) / (0.5 * (*data)->zoom * (*data)->height) + ((*data)->move_y);
+			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
+			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
-			for (i = 0; i < (*data)->max_iterations; i++)
+			for (i = 0; i < (data_buf)->max_iterations; i++)
 			{
 				oldRe = newRe;
 				oldIm = newIm;
@@ -61,13 +62,15 @@ void mandelbrot1(t_data **data) // different funcs;
 					break;
 			}
 			t_rgb rgb;
-			set_color(&rgb, i, (*data)->max_iterations);
-			fill_pixel((*data)->mlx_get_data_addr, x, y, rgb);
+			set_color(&rgb, i, (data_buf)->max_iterations);
+			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
 }
-void mandelbrot2(t_data **data) // different funcs;
+void mandelbrot2(t_data *data) // different funcs;
 {
+	t_data *data_buf = (t_data *)data;
+
 	double pr, pi;
 	double newRe, newIm, oldRe, oldIm;
 	int i;
@@ -80,10 +83,10 @@ void mandelbrot2(t_data **data) // different funcs;
 		{
 			// TODO: tmp for calculations;
 
-			pr = 1.5 * (x - (*data)->width / 2) / (0.5 * (*data)->zoom * (*data)->width) + ((*data)->move_x);
-			pi = (y - (*data)->height / 2) / (0.5 * (*data)->zoom * (*data)->height) + ((*data)->move_y);
+			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
+			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
-			for (i = 0; i < (*data)->max_iterations; i++)
+			for (i = 0; i < (data_buf)->max_iterations; i++)
 			{
 				oldRe = newRe;
 				oldIm = newIm;
@@ -93,13 +96,15 @@ void mandelbrot2(t_data **data) // different funcs;
 					break;
 			}
 			t_rgb rgb;
-			set_color(&rgb, i, (*data)->max_iterations);
-			fill_pixel((*data)->mlx_get_data_addr, x, y, rgb);
+			set_color(&rgb, i, (data_buf)->max_iterations);
+			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
 }
-void mandelbrot3(t_data **data) // different funcs;
+void mandelbrot3(t_data *data) // different funcs;
 {
+	t_data *data_buf = (t_data *)data;
+
 	double pr, pi;
 	double newRe, newIm, oldRe, oldIm;
 	int i;
@@ -112,10 +117,10 @@ void mandelbrot3(t_data **data) // different funcs;
 		{
 			// TODO: tmp for calculations;
 
-			pr = 1.5 * (x - (*data)->width / 2) / (0.5 * (*data)->zoom * (*data)->width) + ((*data)->move_x);
-			pi = (y - (*data)->height / 2) / (0.5 * (*data)->zoom * (*data)->height) + ((*data)->move_y);
+			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
+			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
-			for (i = 0; i < (*data)->max_iterations; i++)
+			for (i = 0; i < (data_buf)->max_iterations; i++)
 			{
 				oldRe = newRe;
 				oldIm = newIm;
@@ -125,13 +130,15 @@ void mandelbrot3(t_data **data) // different funcs;
 					break;
 			}
 			t_rgb rgb;
-			set_color(&rgb, i, (*data)->max_iterations);
-			fill_pixel((*data)->mlx_get_data_addr, x, y, rgb);
+			set_color(&rgb, i, (data_buf)->max_iterations);
+			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
 }
-void mandelbrot4(t_data **data) // different funcs;
+void mandelbrot4(t_data *data) // different funcs;
 {
+	t_data *data_buf = (t_data *)data;
+
 	double pr, pi;
 	double newRe, newIm, oldRe, oldIm;
 	int i;
@@ -144,10 +151,10 @@ void mandelbrot4(t_data **data) // different funcs;
 		{
 			// TODO: tmp for calculations;
 
-			pr = 1.5 * (x - (*data)->width / 2) / (0.5 * (*data)->zoom * (*data)->width) + ((*data)->move_x);
-			pi = (y - (*data)->height / 2) / (0.5 * (*data)->zoom * (*data)->height) + ((*data)->move_y);
+			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
+			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
-			for (i = 0; i < (*data)->max_iterations; i++)
+			for (i = 0; i < (data_buf)->max_iterations; i++)
 			{
 				oldRe = newRe;
 				oldIm = newIm;
@@ -157,8 +164,8 @@ void mandelbrot4(t_data **data) // different funcs;
 					break;
 			}
 			t_rgb rgb;
-			set_color(&rgb, i, (*data)->max_iterations);
-			fill_pixel((*data)->mlx_get_data_addr, x, y, rgb);
+			set_color(&rgb, i, (data_buf)->max_iterations);
+			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
 
@@ -166,9 +173,9 @@ void mandelbrot4(t_data **data) // different funcs;
 
 void	mandelbrot(t_data *data)
 {
-	mandelbrot1(&data);
-	mandelbrot2(&data);
-	mandelbrot3(&data);
-	mandelbrot4(&data);
-	mlx_put_image_to_window((data)->m_mlx_ptr, (data)->m_win_ptr, (data)->mlx_new_image, 0, 0);
+	mandelbrot1(data);
+	mandelbrot2(data);
+	mandelbrot3(data);
+	mandelbrot4(data);
+	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
 }
