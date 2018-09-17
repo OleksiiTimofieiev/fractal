@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 15:33:22 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:33:59 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ typedef struct		s_data
 	double			move_y;
 	double			c_re;
 	double			c_im;
-	void *mlx_new_image;
-	char *mlx_get_data_addr;
+	void			*mlx_new_image;
+	char			*mlx_get_data_addr;
 	t_func			fractol;
 	int				process;
 }					t_data;
