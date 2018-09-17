@@ -7,7 +7,7 @@ SRCS		=  	./srcs/validation.c \
 				./srcs/manipulations.c \
 				./srcs/main.c
 			
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -pthread
 OBJECTS 	= 	$(SRCS:.c=.o)
 LIB			= 	libft/libft.a
 

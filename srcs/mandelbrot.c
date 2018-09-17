@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 20:38:25 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 12:29:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 	}
 }
 
-void mandelbrot(t_data *data) // different funcs;
+void mandelbrot1(t_data **data) // different funcs;
 {
 	double pr, pi;	
 	double newRe, newIm, oldRe, oldIm; 
@@ -42,16 +42,16 @@ void mandelbrot(t_data *data) // different funcs;
 	int x = 0;
 	int y = 0;
 		
-	for (y = 0; y < data->height; y++)
+	for (y = 0; y < 399; y++)
 	{
-		for (x = 0; x < data->width; x++)
+		for (x = 0; x < 499; x++)
 		{
 			// TODO: tmp for calculations;
 
-			pr = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->move_x);
-			pi = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->move_y);
+			pr = 1.5 * (x - (*data)->width / 2) / (0.5 * (*data)->zoom * (*data)->width) + ((*data)->move_x);
+			pi = (y - (*data)->height / 2) / (0.5 * (*data)->zoom * (*data)->height) + ((*data)->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
-			for (i = 0; i < data->max_iterations; i++)
+			for (i = 0; i < (*data)->max_iterations; i++)
 			{
 				oldRe = newRe;
 				oldIm = newIm;
@@ -61,10 +61,114 @@ void mandelbrot(t_data *data) // different funcs;
 					break;
 			}
 			t_rgb rgb;
-			set_color(&rgb, i, data->max_iterations);
-			fill_pixel(data->mlx_get_data_addr, x, y, rgb);
+			set_color(&rgb, i, (*data)->max_iterations);
+			fill_pixel((*data)->mlx_get_data_addr, x, y, rgb);
 		}
 	}
-	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
+}
+void mandelbrot2(t_data **data) // different funcs;
+{
+	double pr, pi;
+	double newRe, newIm, oldRe, oldIm;
+	int i;
+	int x = 0;
+	int y = 0;
+
+	for (y = 399; y < 800; y++)
+	{
+		for (x = 0; x < 499; x++)
+		{
+			// TODO: tmp for calculations;
+
+			pr = 1.5 * (x - (*data)->width / 2) / (0.5 * (*data)->zoom * (*data)->width) + ((*data)->move_x);
+			pi = (y - (*data)->height / 2) / (0.5 * (*data)->zoom * (*data)->height) + ((*data)->move_y);
+			newRe = newIm = oldRe = oldIm = 0;
+			for (i = 0; i < (*data)->max_iterations; i++)
+			{
+				oldRe = newRe;
+				oldIm = newIm;
+				newRe = oldRe * oldRe - oldIm * oldIm + pr;
+				newIm = 2 * oldRe * oldIm + pi;
+				if ((newRe * newRe + newIm * newIm) > 4)
+					break;
+			}
+			t_rgb rgb;
+			set_color(&rgb, i, (*data)->max_iterations);
+			fill_pixel((*data)->mlx_get_data_addr, x, y, rgb);
+		}
+	}
+}
+void mandelbrot3(t_data **data) // different funcs;
+{
+	double pr, pi;
+	double newRe, newIm, oldRe, oldIm;
+	int i;
+	int x = 0;
+	int y = 0;
+
+	for (y = 0; y < 399; y++)
+	{
+		for (x = 499; x < 1000; x++)
+		{
+			// TODO: tmp for calculations;
+
+			pr = 1.5 * (x - (*data)->width / 2) / (0.5 * (*data)->zoom * (*data)->width) + ((*data)->move_x);
+			pi = (y - (*data)->height / 2) / (0.5 * (*data)->zoom * (*data)->height) + ((*data)->move_y);
+			newRe = newIm = oldRe = oldIm = 0;
+			for (i = 0; i < (*data)->max_iterations; i++)
+			{
+				oldRe = newRe;
+				oldIm = newIm;
+				newRe = oldRe * oldRe - oldIm * oldIm + pr;
+				newIm = 2 * oldRe * oldIm + pi;
+				if ((newRe * newRe + newIm * newIm) > 4)
+					break;
+			}
+			t_rgb rgb;
+			set_color(&rgb, i, (*data)->max_iterations);
+			fill_pixel((*data)->mlx_get_data_addr, x, y, rgb);
+		}
+	}
+}
+void mandelbrot4(t_data **data) // different funcs;
+{
+	double pr, pi;
+	double newRe, newIm, oldRe, oldIm;
+	int i;
+	int x = 0;
+	int y = 0;
+
+	for (y = 399; y < 800; y++)
+	{
+		for (x = 499; x < 1000; x++)
+		{
+			// TODO: tmp for calculations;
+
+			pr = 1.5 * (x - (*data)->width / 2) / (0.5 * (*data)->zoom * (*data)->width) + ((*data)->move_x);
+			pi = (y - (*data)->height / 2) / (0.5 * (*data)->zoom * (*data)->height) + ((*data)->move_y);
+			newRe = newIm = oldRe = oldIm = 0;
+			for (i = 0; i < (*data)->max_iterations; i++)
+			{
+				oldRe = newRe;
+				oldIm = newIm;
+				newRe = oldRe * oldRe - oldIm * oldIm + pr;
+				newIm = 2 * oldRe * oldIm + pi;
+				if ((newRe * newRe + newIm * newIm) > 4)
+					break;
+			}
+			t_rgb rgb;
+			set_color(&rgb, i, (*data)->max_iterations);
+			fill_pixel((*data)->mlx_get_data_addr, x, y, rgb);
+		}
+	}
+
 }
 
+void	mandelbrot(t_data *data)
+{
+	mandelbrot1(&data);
+	mandelbrot2(&data);
+	mandelbrot3(&data);
+	mandelbrot4(&data);
+	mlx_put_image_to_window((data)->m_mlx_ptr, (data)->m_win_ptr, (data)->mlx_new_image, 0, 0);
+}
