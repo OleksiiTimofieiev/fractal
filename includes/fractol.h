@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 14:00:20 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:25:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ int					zoom(int button, int x, int y, t_data *data);
 int					mouse_move(int x, int y, t_data *data);
 void				fill_pixel(char *my_image_string, int x, int y, t_rgb rgb);
 int					deal_with_keyboard(int key, t_data *data);
-void				cyrcle(t_data *data);
+void				martin(t_data *data);
 
 #endif

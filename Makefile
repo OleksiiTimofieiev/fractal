@@ -3,7 +3,7 @@ NAME		= fractol
 SRCS		=  	./srcs/validation.c \
 				./srcs/mandelbrot.c \
 				./srcs/julia.c \
-				./srcs/cyrcle.c \
+				./srcs/martin.c \
 				./srcs/constructor.c \
 				./srcs/manipulations.c \
 				./srcs/main.c

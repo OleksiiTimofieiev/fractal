@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:24:12 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 14:24:08 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:25:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 				my_image_string[x * 4 + 4000 * y + 2] = 0;
 			}
 
-void	cyrcle(t_data *data)
+void	martin(t_data *data)
 {
 	double x, t, y;
 	int n;
