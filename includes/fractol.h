@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:46:42 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 11:44:38 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <math.h>
-# include <time.h>
+# include <pthread.h>
 
 typedef	void		(*t_func)();
 
