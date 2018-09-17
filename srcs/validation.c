@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:27:44 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 15:30:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:31:50 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ static	int		check_fractol_type(char *fractol)
 		return (1);
 	return (0);
 }
-
-
 
 void			validation(int argc, char *argv, t_data *data)
 {

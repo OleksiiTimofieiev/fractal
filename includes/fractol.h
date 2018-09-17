@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 15:26:13 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:32:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@
 # include <pthread.h>
 
 typedef	void		(*t_func)();
-
-// typedef struct s_complex
-// {
-// 	double x;
-// 	double y;
-// }			t_complex;
 
 typedef	struct		s_rgb
 {
