@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 13:16:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:37:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void *mandelbrot3(void *data) // different funcs;
 	}
 	pthread_exit(0);
 }
-void *mandelbrot4(void *data) // different funcs;
+void *mandelbrot4(void *data) // different funcs; // x y as input params;
 {
 	t_data *data_buf = (t_data *)data;
 
@@ -152,8 +152,7 @@ void *mandelbrot4(void *data) // different funcs;
 	{
 		for (x = 499; x < 1000; x++)
 		{
-			// TODO: tmp for calculations;
-
+			// TODO: tmp for constants;
 			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
 			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
 			newRe = newIm = oldRe = oldIm = 0;
