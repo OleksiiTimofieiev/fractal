@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:24:12 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 15:52:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:54:23 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	martin(t_data *data)
 		x = 0;
 		while (x < data->width)
 		{
-			z = (0.01 * data->zoom) * (x * x + y * y);
+			z = (0.001 * data->zoom) * (x * x + y * y);
 			fill_pixel_local(data->mlx_get_data_addr, x, y, (int)(z / 16));
 			x++;
 		}
