@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 14:25:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:46:15 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # define MONITOR_HEIGHT 800
 # define MAX_ITERATIONS 100
 
+# define a 1
+# define o 3
+# define dt 0.5
+
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <math.h>
@@ -24,11 +28,11 @@
 
 typedef	void		(*t_func)();
 
-typedef struct s_complex
-{
-	double x;
-	double y;
-}			t_complex;
+// typedef struct s_complex
+// {
+// 	double x;
+// 	double y;
+// }			t_complex;
 
 typedef	struct		s_rgb
 {

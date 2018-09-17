@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:48:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 13:09:38 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:51:50 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	constructor(t_data *data)
 	data->max_iterations = MAX_ITERATIONS;
 	data->zoom = 1;
 	data->move_x = -0.5;
+	data->move_x = 0.0;
+
 	data->move_y = 0;
 	data->zoom = 1;
 	data->c_re = -0.7;
