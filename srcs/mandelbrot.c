@@ -6,13 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 09:35:26 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 11:41:58 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 11:44:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
+static void set_color_m(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 {
 	if (IterationsPerPixel == MaxIterations)
 	{
@@ -42,7 +42,7 @@ void	buf_zero(t_m_buf *buf)
 	buf->oldIm = 0;
 }
 
-void m_calculations(t_data *data, t_m_buf m_buf, int *i)
+void	m_calculations(t_data *data, t_m_buf m_buf, int *i)
 {
 	*i = 0;
 	while (*i < data->max_iterations)
@@ -58,7 +58,7 @@ void m_calculations(t_data *data, t_m_buf m_buf, int *i)
 	}
 }
 
-	void mandelbrot1(t_data *data)
+void	mandelbrot_left_up(t_data *data)
 {
 	t_m_buf	m_buf;
 	int		i;
@@ -75,147 +75,13 @@ void m_calculations(t_data *data, t_m_buf m_buf, int *i)
 
 			m_calculations(data, m_buf, &i);
 			
-			set_color(&m_buf.rgb, i, data->max_iterations);
+			set_color_m(&m_buf.rgb, i, data->max_iterations);
 			fill_pixel(data->mlx_get_data_addr, m_buf.x, m_buf.y, m_buf.rgb);
 			m_buf.x++;
 		}
 		m_buf.y++;
 	}
 }
-
-// void *mandelbrot1(void *data) // different funcs;
-// {
-// 	double newRe, newIm, oldRe, oldIm; 
-// 	int i;
-// 	t_data *data_buf = (t_data*)data;
-		
-// 	for (y = 0; y < 399; y++)
-// 	{
-// 		for (x = 0; x < 499; x++)
-// 		{
-// 			// TODO: tmp for calculations;
-// 			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
-// 			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
-// 			newRe = newIm = oldRe = oldIm = 0;
-// 			for (i = 0; i < (data_buf)->max_iterations; i++)
-// 			{
-// 				oldRe = newRe;
-// 				oldIm = newIm;
-// 				newRe = oldRe * oldRe - oldIm * oldIm + pr;
-// 				newIm = 2 * oldRe * oldIm + pi;
-// 				if ((newRe * newRe + newIm * newIm) > 4)
-// 					break;
-// 			}
-// 			set_color(&rgb, i, (data_buf)->max_iterations);
-// 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
-// 		}
-// 	}
-// 	pthread_exit(0);
-// }
-// void *mandelbrot2(void *data) // different funcs;
-// {
-// 	t_data *data_buf = (t_data *)data;
-
-// 	double pr, pi;
-// 	double newRe, newIm, oldRe, oldIm;
-// 	int i;
-// 	int x = 0;
-// 	int y = 0;
-
-// 	for (y = 399; y < 800; y++)
-// 	{
-// 		for (x = 0; x < 499; x++)
-// 		{
-// 			// TODO: tmp for calculations;
-
-// 			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
-// 			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
-// 			newRe = newIm = oldRe = oldIm = 0;
-// 			for (i = 0; i < (data_buf)->max_iterations; i++)
-// 			{
-// 				oldRe = newRe;
-// 				oldIm = newIm;
-// 				newRe = oldRe * oldRe - oldIm * oldIm + pr;
-// 				newIm = 2 * oldRe * oldIm + pi;
-// 				if ((newRe * newRe + newIm * newIm) > 4)
-// 					break;
-// 			}
-// 			t_rgb rgb;
-// 			set_color(&rgb, i, (data_buf)->max_iterations);
-// 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
-// 		}
-// 	}
-// 	pthread_exit(0);
-// }
-// void *mandelbrot3(void *data) // different funcs;
-// {
-// 	t_data *data_buf = (t_data *)data;
-
-// 	double pr, pi;
-// 	double newRe, newIm, oldRe, oldIm;
-// 	int i;
-// 	int x = 0;
-// 	int y = 0;
-
-// 	for (y = 0; y < 399; y++)
-// 	{
-// 		for (x = 499; x < 1000; x++)
-// 		{
-// 			// TODO: tmp for calculations;
-
-// 			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
-// 			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
-// 			newRe = newIm = oldRe = oldIm = 0;
-// 			for (i = 0; i < (data_buf)->max_iterations; i++)
-// 			{
-// 				oldRe = newRe;
-// 				oldIm = newIm;
-// 				newRe = oldRe * oldRe - oldIm * oldIm + pr;
-// 				newIm = 2 * oldRe * oldIm + pi;
-// 				if ((newRe * newRe + newIm * newIm) > 4)
-// 					break;
-// 			}
-// 			t_rgb rgb;
-// 			set_color(&rgb, i, (data_buf)->max_iterations);
-// 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
-// 		}
-// 	}
-// 	pthread_exit(0);
-// }
-// void *mandelbrot4(void *data) // different funcs; // x y as input params;
-// {
-// 	t_data *data_buf = (t_data *)data;
-
-// 	double pr, pi;
-// 	double newRe, newIm, oldRe, oldIm;
-// 	int i;
-// 	int x = 0;
-// 	int y = 0;
-
-// 	for (y = 399; y < 800; y++)
-// 	{
-// 		for (x = 499; x < 1000; x++)
-// 		{
-// 			// TODO: tmp for constants;
-// 			pr = 1.5 * (x - (data_buf)->width / 2) / (0.5 * (data_buf)->zoom * (data_buf)->width) + ((data_buf)->move_x);
-// 			pi = (y - (data_buf)->height / 2) / (0.5 * (data_buf)->zoom * (data_buf)->height) + ((data_buf)->move_y);
-// 			newRe = newIm = oldRe = oldIm = 0;
-// 			for (i = 0; i < (data_buf)->max_iterations; i++)
-// 			{
-// 				oldRe = newRe;
-// 				oldIm = newIm;
-// 				newRe = oldRe * oldRe - oldIm * oldIm + pr;
-// 				newIm = 2 * oldRe * oldIm + pi;
-// 				if ((newRe * newRe + newIm * newIm) > 4)
-// 					break;
-// 			}
-// 			t_rgb rgb;
-// 			set_color(&rgb, i, (data_buf)->max_iterations);
-// 			fill_pixel((data_buf)->mlx_get_data_addr, x, y, rgb);
-// 		}
-// 	}
-// 	pthread_exit(0); 
-// }
 
 void	mandelbrot(t_data *data)
 {
@@ -233,7 +99,7 @@ void	mandelbrot(t_data *data)
 	// pthread_join(tids[1], NULL);
 	// pthread_join(tids[2], NULL);
 	// pthread_join(tids[3], NULL);
-	mandelbrot1(data);
+	mandelbrot_left_up(data);
 
 	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
 }
