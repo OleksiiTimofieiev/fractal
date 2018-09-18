@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 11:47:24 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 12:54:30 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,16 @@ typedef struct		s_data
 
 typedef struct s_m_buf
 {
-	int x;
-	int y;
-	double pr;
-	double pi;
-	double newRe;
-	double newIm;
-	double oldRe;
-	double oldIm;
-	t_rgb rgb;
-} t_m_buf;
+	int				x;
+	int				y;
+	double			pr;
+	double			pi;
+	double			newRe;
+	double			newIm;
+	double			oldRe;
+	double			oldIm;
+	t_rgb			rgb;
+}					t_m_buf;
 
 void				validation(int argc, char *argv, t_data *data);
 char				*rgb_hexadecimal(t_rgb rgb);
@@ -76,7 +76,6 @@ int					mouse_move(int x, int y, t_data *data);
 void				fill_pixel(char *my_image_string, int x, int y, t_rgb rgb);
 int					deal_with_keyboard(int key, t_data *data);
 void				martin(t_data *data);
-
 void m_calculations(t_data *data, t_m_buf m_buf, int *i);
 void buf_zero(t_m_buf *buf);
 void set_color_m(t_rgb *rgb, int iterations_per_pixel, int max_iterations);

@@ -6,76 +6,58 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 12:52:47 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 13:04:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
+void *julia_left_up(void *var)
 {
-	if (IterationsPerPixel == MaxIterations)
-	{
-		rgb->r = 0;
-		rgb->g = 0;
-		rgb->b = 0;
-	}
-	else if (IterationsPerPixel < 64)
-	{
-		rgb->r = IterationsPerPixel * 2;
-		rgb->g = 50;
-		rgb->b = 15;
-	}
-	else if (IterationsPerPixel < 128)
-	{
-		rgb->r = 15;
-		rgb->g = 0;
-		rgb->b = (((IterationsPerPixel - 64) * 128) / 126) + 128;
-	}
-}
+	t_m_buf m_buf;
+	t_data *data;
+	int i;
 
+	m_buf.y = 0;
+	data = (t_data *)var;
 
-
-void julia(t_data *data)
-{
-	double newRe, newIm, oldRe, oldIm;
-	
-	for (int y = 0; y < data->height; y++)
-		for (int x = 0; x < data->width; x++)
+	while (m_buf.y < 399)
+	{
+		m_buf.x = 0;
+		while (m_buf.x < 499)
 		{
-			newRe = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->move_x);
-			newIm = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->move_y);
-			int i;
-			for (i = 0; i < data->max_iterations; i++)
-			{
-				oldRe = newRe;
-				oldIm = newIm;
-				newRe = oldRe * oldRe - oldIm * oldIm + data->c_re;
-				newIm = 2 * oldRe * oldIm + data->c_im;
-				if ((newRe * newRe + newIm * newIm) > 4)
-					break;
-			}
-			t_rgb rgb;
-			set_color(&rgb, i, data->max_iterations);
-			fill_pixel(data->mlx_get_data_addr, x, y, rgb);
+			m_buf.newRe = 1.5 * (m_buf.x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->move_x);
+			m_buf.newIm = (m_buf.y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->move_y);
+
+			j_calculations(&i, m_buf, data);
+				j_set_color(&m_buf.rgb, i, data->max_iterations);
+			fill_pixel(data->mlx_get_data_addr, m_buf.x, m_buf.y, m_buf.rgb);
+			m_buf.x++;
 		}
+		m_buf.y++;
+	}
 	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr,
 							data->mlx_new_image, 0, 0);
+	pthread_exit(0);
 		
 }
 
-// void mandelbrot(t_data *data)
-// {
-// 	pthread_t tids[4];
-// 	pthread_attr_t attr;
+void julia(t_data *data)
+{
+	pthread_t tids[4];
+	pthread_attr_t attr;
 
-// 	pthread_attr_init(&attr);
-// 	pthread_create(&tids[0], &attr, mandelbrot_left_up, data);
-// 	pthread_create(&tids[1], &attr, mandelbrot_left_down, data);
-// 	pthread_create(&tids[2], &attr, mandelbrot_right_up, data);
-// 	pthread_create(&tids[3], &attr, mandelbrot_right_down, data);
-// 	pthread_join(tids[0], NULL);
-// 	pthread_join(tids[1], NULL);
-// 	pthread_join(tids[2], NULL);
-// 	pthread_join(tids[3], NULL);
-// }
+	pthread_attr_init(&attr);
+	pthread_create(&tids[0], &attr, julia_left_up, data);
+	// pthread_create(&tids[1], &attr, mandelbrot_left_down, data);
+	// pthread_create(&tids[2], &attr, mandelbrot_right_up, data);
+	// pthread_create(&tids[3], &attr, mandelbrot_right_down, data);
+	
+	pthread_join(tids[0], NULL);
+	// pthread_join(tids[1], NULL);
+	// pthread_join(tids[2], NULL);
+	// pthread_join(tids[3], NULL);
+
+	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr,
+							data->mlx_new_image, 0, 0);
+}
