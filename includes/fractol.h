@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/17 15:33:59 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 11:34:14 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,19 @@ typedef struct		s_data
 	t_func			fractol;
 	int				process;
 }					t_data;
+
+typedef struct s_m_buf
+{
+	int x;
+	int y;
+	double pr;
+	double pi;
+	double newRe;
+	double newIm;
+	double oldRe;
+	double oldIm;
+	t_rgb rgb;
+} t_m_buf;
 
 void				validation(int argc, char *argv, t_data *data);
 char				*rgb_hexadecimal(t_rgb rgb);
