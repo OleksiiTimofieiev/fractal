@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/16 18:48:00 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 12:52:47 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ static void set_color(t_rgb *rgb, int IterationsPerPixel, int MaxIterations)
 	}
 }
 
+
+
 void julia(t_data *data)
 {
 	double newRe, newIm, oldRe, oldIm;
+	
 	for (int y = 0; y < data->height; y++)
 		for (int x = 0; x < data->width; x++)
 		{
-			// TODO: tmp for calculations;
 			newRe = 1.5 * (x - data->width / 2) / (0.5 * data->zoom * data->width) + (data->move_x);
 			newIm = (y - data->height / 2) / (0.5 * data->zoom * data->height) + (data->move_y);
 			int i;
@@ -57,5 +59,23 @@ void julia(t_data *data)
 			set_color(&rgb, i, data->max_iterations);
 			fill_pixel(data->mlx_get_data_addr, x, y, rgb);
 		}
-	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr, data->mlx_new_image, 0, 0);
+	mlx_put_image_to_window(data->m_mlx_ptr, data->m_win_ptr,
+							data->mlx_new_image, 0, 0);
+		
 }
+
+// void mandelbrot(t_data *data)
+// {
+// 	pthread_t tids[4];
+// 	pthread_attr_t attr;
+
+// 	pthread_attr_init(&attr);
+// 	pthread_create(&tids[0], &attr, mandelbrot_left_up, data);
+// 	pthread_create(&tids[1], &attr, mandelbrot_left_down, data);
+// 	pthread_create(&tids[2], &attr, mandelbrot_right_up, data);
+// 	pthread_create(&tids[3], &attr, mandelbrot_right_down, data);
+// 	pthread_join(tids[0], NULL);
+// 	pthread_join(tids[1], NULL);
+// 	pthread_join(tids[2], NULL);
+// 	pthread_join(tids[3], NULL);
+// }
