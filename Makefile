@@ -6,6 +6,7 @@ SRCS		=  	./srcs/validation.c \
 				./srcs/martin.c \
 				./srcs/constructor.c \
 				./srcs/manipulations.c \
+				./srcs/m_infrastructure.c \
 				./srcs/main.c
 			
 CFLAGS		= 	-Wall -Wextra -Werror -pthread

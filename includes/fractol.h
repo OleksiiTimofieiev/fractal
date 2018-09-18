@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 11:34:14 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 11:47:24 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,9 @@ int					mouse_move(int x, int y, t_data *data);
 void				fill_pixel(char *my_image_string, int x, int y, t_rgb rgb);
 int					deal_with_keyboard(int key, t_data *data);
 void				martin(t_data *data);
+
+void m_calculations(t_data *data, t_m_buf m_buf, int *i);
+void buf_zero(t_m_buf *buf);
+void set_color_m(t_rgb *rgb, int iterations_per_pixel, int max_iterations);
 
 #endif
