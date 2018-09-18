@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:34:17 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 13:16:43 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 14:38:50 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int		main(int argc, char **argv)
 	validation(argc, argv[1], &data);
 	constructor(&data);
 	data.fractol(&data);
+
+	system("leaks -q fractol");
 	mlx_hook(data.m_win_ptr, 4, 1L << 1, zoom, &data);
 	mlx_key_hook(data.m_win_ptr, deal_with_keyboard, &data);
 	mlx_hook(data.m_win_ptr, 6, 1L << 1, mouse_move, &data);
