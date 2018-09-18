@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:17:21 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 13:06:23 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 13:20:35 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 # define MONITOR_WIDTH 1000
 # define MONITOR_HEIGHT 800
 # define MAX_ITERATIONS 100
-
-# define a 1
-# define o 3
-# define dt 0.5
 
 # include "../libft/libft.h"
 # include <mlx.h>
@@ -53,16 +49,16 @@ typedef struct		s_data
 	int				process;
 }					t_data;
 
-typedef struct s_m_buf
+typedef struct		s_m_buf
 {
 	int				x;
 	int				y;
 	double			pr;
 	double			pi;
-	double			newRe;
-	double			newIm;
-	double			oldRe;
-	double			oldIm;
+	double			new_re;
+	double			new_im;
+	double			old_re;
+	double			old_im;
 	t_rgb			rgb;
 }					t_m_buf;
 
@@ -78,8 +74,10 @@ int					deal_with_keyboard(int key, t_data *data);
 void				martin(t_data *data);
 void				m_calculations(t_data *data, t_m_buf m_buf, int *i);
 void				buf_zero(t_m_buf *buf);
-void				set_color_m(t_rgb *rgb, int iterations_per_pixel, int max_iterations);
-void				j_set_color(t_rgb *rgb, int iterations_per_pixel, int max_iterations);
+void				set_color_m(t_rgb *rgb, int iterations_per_pixel,
+								int max_iterations);
+void				j_set_color(t_rgb *rgb, int iterations_per_pixel,
+								int max_iterations);
 void				j_calculations(int *i, t_m_buf m_buf, t_data *data);
 
 #endif

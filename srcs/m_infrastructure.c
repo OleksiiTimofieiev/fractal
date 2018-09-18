@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 11:45:08 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 11:46:53 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 13:19:48 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	set_color_m(t_rgb *rgb, int iterations_per_pixel, int max_iterations)
 
 void	buf_zero(t_m_buf *buf)
 {
-	buf->newRe = 0;
-	buf->newIm = 0;
-	buf->oldRe = 0;
-	buf->oldIm = 0;
+	buf->new_re = 0;
+	buf->new_im = 0;
+	buf->old_re = 0;
+	buf->old_im = 0;
 }
 
 void	m_calculations(t_data *data, t_m_buf m_buf, int *i)
@@ -47,12 +47,12 @@ void	m_calculations(t_data *data, t_m_buf m_buf, int *i)
 	*i = 0;
 	while (*i < data->max_iterations)
 	{
-		m_buf.oldRe = m_buf.newRe;
-		m_buf.oldIm = m_buf.newIm;
-		m_buf.newRe = m_buf.oldRe * m_buf.oldRe - m_buf.oldIm *
-						m_buf.oldIm + m_buf.pr;
-		m_buf.newIm = 2 * m_buf.oldRe * m_buf.oldIm + m_buf.pi;
-		if ((m_buf.newRe * m_buf.newRe + m_buf.newIm * m_buf.newIm) > 4)
+		m_buf.old_re = m_buf.new_re;
+		m_buf.old_im = m_buf.new_im;
+		m_buf.new_re = m_buf.old_re * m_buf.old_re - m_buf.old_im *
+						m_buf.old_im + m_buf.pr;
+		m_buf.new_im = 2 * m_buf.old_re * m_buf.old_im + m_buf.pi;
+		if ((m_buf.new_re * m_buf.new_re + m_buf.new_im * m_buf.new_im) > 4)
 			break ;
 		(*i)++;
 	}

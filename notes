@@ -2,7 +2,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 {
 	//each iteration, it calculates: new = old*old + c, where c is a constant and old starts at current pixel
 	double pr, pi;							  //real and imaginary part of the pixel p
-	double newRe, newIm, oldRe, oldIm;		  //real and imaginary parts of new and old
+	double new_re, new_im, old_re, old_im;		  //real and imaginary parts of new and old
 	// basic zoom;
 	double zoom = 1, move_x = -0.5, move_y = 0; //you can change these to zoom and change position
 	// ColorRGB color;							  //the RGB color value for the pixel
@@ -16,20 +16,20 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			//calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
 			pr = 1.5 * (x - width / 2) / (0.5 * zoom * width) + (move_x);
 			pi = (y - height / 2) / (0.5 * zoom * height) + (move_y);
-			newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
+			new_re = new_im = old_re = old_im = 0; //these should start at 0,0
 			//i will represent the number of iterations
 			int i;
 			//start the iteration process
 			for (i = 0; i < maxIterations; i++)
 			{
 				//remember value of previous iteration
-				oldRe = newRe;
-				oldIm = newIm;
+				old_re = new_re;
+				old_im = new_im;
 				//the actual iteration, the real and imaginary part are calculated
-				newRe = oldRe * oldRe - oldIm * oldIm + pr;
-				newIm = 2 * oldRe * oldIm + pi;
+				new_re = old_re * old_re - old_im * old_im + pr;
+				new_im = 2 * old_re * old_im + pi;
 				//if the point is outside the circle with radius 2: stop
-				if ((newRe * newRe + newIm * newIm) > 4)
+				if ((new_re * new_re + new_im * new_im) > 4)
 					break;
 			}
 
@@ -50,7 +50,7 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 	{
 		//each iteration, it calculates: new = old*old + c, where c is a constant and old starts at current pixel
 
-		double newRe, newIm, oldRe, oldIm; //real and imaginary parts of new and old
+		double new_re, new_im, old_re, old_im; //real and imaginary parts of new and old
 		
 		double cRe = -0.7, cIm = 0.27015;
 		// basic zoom;
@@ -64,22 +64,22 @@ void	Mandelbrot(void **mlx_ptr, void **win_ptr, int width, int height)
 			for (int x = 0; x < width; x++)
 			{
 				//calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-				newRe = 1.5 * (x - width / 2) / (0.5 * zoom * width) + (move_x);
-				newIm = (y - height / 2) / (0.5 * zoom * height) + (move_y);
-				// newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
+				new_re = 1.5 * (x - width / 2) / (0.5 * zoom * width) + (move_x);
+				new_im = (y - height / 2) / (0.5 * zoom * height) + (move_y);
+				// new_re = new_im = old_re = old_im = 0; //these should start at 0,0
 				//i will represent the number of iterations
 				int i;
 				//start the iteration process
 				for (i = 0; i < maxIterations; i++)
 				{
 					//remember value of previous iteration
-					oldRe = newRe;
-					oldIm = newIm;
+					old_re = new_re;
+					old_im = new_im;
 					//the actual iteration, the real and imaginary part are calculated
-					newRe = oldRe * oldRe - oldIm * oldIm + cRe;
-					newIm = 2 * oldRe * oldIm + cIm;
+					new_re = old_re * old_re - old_im * old_im + cRe;
+					new_im = 2 * old_re * old_im + cIm;
 					//if the point is outside the circle with radius 2: stop
-					if ((newRe * newRe + newIm * newIm) > 4)
+					if ((new_re * new_re + new_im * new_im) > 4)
 						break;
 				}
 

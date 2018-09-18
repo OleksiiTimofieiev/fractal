@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 12:32:49 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 13:15:10 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 13:19:16 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	*julia_left_up(void *var)
 		m_buf.x = 0;
 		while (m_buf.x < 499)
 		{
-			m_buf.newRe = 1.5 * (m_buf.x - data->width / 2) /
+			m_buf.new_re = 1.5 * (m_buf.x - data->width / 2) /
 				(0.5 * data->zoom * data->width) + (data->move_x);
-			m_buf.newIm = (m_buf.y - data->height / 2) /
+			m_buf.new_im = (m_buf.y - data->height / 2) /
 				(0.5 * data->zoom * data->height) + (data->move_y);
 			j_calculations(&i, m_buf, data);
 			j_set_color(&m_buf.rgb, i, data->max_iterations);
@@ -52,9 +52,9 @@ void	*julia_left_down(void *var)
 		m_buf.x = 0;
 		while (m_buf.x < 499)
 		{
-			m_buf.newRe = 1.5 * (m_buf.x - data->width / 2) /
+			m_buf.new_re = 1.5 * (m_buf.x - data->width / 2) /
 				(0.5 * data->zoom * data->width) + (data->move_x);
-			m_buf.newIm = (m_buf.y - data->height / 2) /
+			m_buf.new_im = (m_buf.y - data->height / 2) /
 				(0.5 * data->zoom * data->height) + (data->move_y);
 			j_calculations(&i, m_buf, data);
 			j_set_color(&m_buf.rgb, i, data->max_iterations);
@@ -79,9 +79,9 @@ void	*julia_right_up(void *var)
 		m_buf.x = 499;
 		while (m_buf.x < 1000)
 		{
-			m_buf.newRe = 1.5 * (m_buf.x - data->width / 2) /
+			m_buf.new_re = 1.5 * (m_buf.x - data->width / 2) /
 				(0.5 * data->zoom * data->width) + (data->move_x);
-			m_buf.newIm = (m_buf.y - data->height / 2) /
+			m_buf.new_im = (m_buf.y - data->height / 2) /
 				(0.5 * data->zoom * data->height) + (data->move_y);
 			j_calculations(&i, m_buf, data);
 			j_set_color(&m_buf.rgb, i, data->max_iterations);
@@ -106,9 +106,9 @@ void	*julia_right_down(void *var)
 		m_buf.x = 499;
 		while (m_buf.x < 1000)
 		{
-			m_buf.newRe = 1.5 * (m_buf.x - data->width / 2) /
+			m_buf.new_re = 1.5 * (m_buf.x - data->width / 2) /
 				(0.5 * data->zoom * data->width) + (data->move_x);
-			m_buf.newIm = (m_buf.y - data->height / 2) /
+			m_buf.new_im = (m_buf.y - data->height / 2) /
 				(0.5 * data->zoom * data->height) + (data->move_y);
 			j_calculations(&i, m_buf, data);
 			j_set_color(&m_buf.rgb, i, data->max_iterations);

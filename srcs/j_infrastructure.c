@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 13:04:02 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/18 13:05:16 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/18 13:19:48 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void	j_calculations(int *i, t_m_buf m_buf, t_data *data)
 	*i = 0;
 	while (*i < data->max_iterations)
 	{
-		m_buf.oldRe = m_buf.newRe;
-		m_buf.oldIm = m_buf.newIm;
-		m_buf.newRe = m_buf.oldRe * m_buf.oldRe - m_buf.oldIm *
-			m_buf.oldIm + data->c_re;
-		m_buf.newIm = 2 * m_buf.oldRe * m_buf.oldIm + data->c_im;
-		if ((m_buf.newRe * m_buf.newRe + m_buf.newIm * m_buf.newIm) > 4)
+		m_buf.old_re = m_buf.new_re;
+		m_buf.old_im = m_buf.new_im;
+		m_buf.new_re = m_buf.old_re * m_buf.old_re - m_buf.old_im *
+			m_buf.old_im + data->c_re;
+		m_buf.new_im = 2 * m_buf.old_re * m_buf.old_im + data->c_im;
+		if ((m_buf.new_re * m_buf.new_re + m_buf.new_im * m_buf.new_im) > 4)
 			break ;
 		(*i)++;
 	}
